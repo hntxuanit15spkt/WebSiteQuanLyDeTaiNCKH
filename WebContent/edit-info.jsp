@@ -11,7 +11,7 @@
 	<div class="md-modal md-effect-1" id="modal-1">
 		<div class="md-content">
 			<h3>Cập nhật thông tin cá nhân</h3>
-			<form class="well form-horizontal" action=" " method="post"
+			<form class="well form-horizontal" action="" method="post"
 				id="contact_form">
 				<fieldset style="height: 400px; overflow: auto;">
 					<div class="form-group">
@@ -69,17 +69,6 @@
 									class="form-control" id="datepicker_content" type="text"
 									required />
 							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-md-4 control-label">Giới tính</label>
-						<div class="col-md-4">
-							<span class="radio"> <label> <input type="radio"
-									name="hosting" value="Nam" /> Nam
-							</label> <label> <input type="radio" name="hosting" value="Nữ" />
-									Nữ
-							</label>
-							</span>
 						</div>
 					</div>
 					<div class="form-group">

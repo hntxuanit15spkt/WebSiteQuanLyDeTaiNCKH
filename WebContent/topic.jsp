@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
 	href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
@@ -20,9 +22,44 @@
 		$('#datatable').dataTable();
 	});
 </script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
+	<div id="chitietdetai" style="font-size: 14px">
+		<div class="row">
+			<div class="col-sm-6" style="background-color: lavender;">
+				<dl class="dl-horizontal">
+					<dt>Tên đề tài</dt>
+					<dd>Dự án AI</dd>
+					<dt>Chủ nhiệm đề tài</dt>
+					<dd>Huỳnh Ngọc Thanh Xuân</dd>
+					<dt>Lớp</dt>
+					<dd>159100A</dd>
+					<dt>Giới tính</dt>
+					<dd>Nam</dd>
+					<dt>Ngày sinh</dt>
+					<dd>20/7/2005</dd>
 
+				</dl>
+			</div>
+			<div class="col-sm-6" style="background-color: lavenderblush;">
+				<dl class="dl-horizontal">
+					<dt>Loại hình</dt>
+					<dd>Ứng dụng tâm lý, tình cảm</dd>
+					<dt>Mục tiêu đề tài</dt>
+					<dd>Giúp khỏe hơn</dd>
+					<dt>Nội dung nghiên cứu</dt>
+					<dd>Nghiên cứu về code</dd>
+					<dt>Địa chỉ ứng dụng</dt>
+					<dd>Sài Gòn</dd>
+					<dt>Tình hình biển Đông</dt>
+					<dd>Đang bão</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
 	<form id="form1">
 		<h2 align="CENTER">DANH SÁCH CÁC ĐỀ TÀI</h2>
 		<div style="border: 1px solid black; color: black">
@@ -36,19 +73,20 @@
 						<th>Chủ nhiệm đề tài</th>
 						<th>Giảng viên hướng dẫn</th>
 						<th>Trạng thái</th>
-						<th>Links</th>
+						<!-- 						<th>Links</th> -->
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>1</td>
 						<td>DT0001</td>
-						<td>Dự án cải tân cơ thể và sắc đẹp để làm sao đẹp trai hơn
-							Xuân</td>
+						<td><a href="#click-hien-chitiet">Dự án cải tân cơ thể và
+								sắc đẹp để làm sao đẹp trai hơn Xuân</a></td>
 						<td>Loại hình thuộc vào dạng rất khó thực hiện</td>
 						<td>Trịnh Văn Công</td>
 						<td>OCh. Nguyễn Minh Hoàng</td>
 						<td>Đang chờ phê duyệt</td>
+						<!-- <td><a href="#click-hien-chitiet">Chi tiết</a></td> -->
 					</tr>
 					<tr>
 						<td>2</td>
@@ -145,7 +183,6 @@
 						<td>OCh. Nguyễn Minh Hoàng</td>
 						<td>Đang chờ phê duyệt</td>
 					</tr>
-
 				</tbody>
 			</table>
 		</div>
@@ -153,10 +190,28 @@
 	<script>
 		$(document).ready(function() {
 			$('a[href="#xemdetai"]').click(function() {
-				alert('aaaaaaaaaaaaa');
-				$('#form1').css('visibility', 'visible');
+				/* $('html, body').animate({
+					scrollTop : $('#form1').scrollTop()
+				}, 1000); */
+				$('html, body').animate({
+					scrollTop : $("#form1").offset().top-140
+				}, 1000);
+				$('#form1').css("visibility", "visible");
+				$('#chitietdetai').css("visibility", "hidden");
 			});
 		});
 	</script>
+	<script>
+		$(document).ready(function() {
+			$('a[href="#click-hien-chitiet"]').click(function() {
+				$('html, body').animate({
+					scrollTop : $("#chitietdetai").offset().top-110
+				}, 1000);
+				$('#chitietdetai').css("visibility", "visible");
+				$('#form1').css("visibility", "hidden");
+			});
+		});
+	</script>
+
 </body>
 </html>

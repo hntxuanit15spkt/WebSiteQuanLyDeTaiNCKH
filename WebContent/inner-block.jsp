@@ -9,7 +9,10 @@
 </head>
 <body>
 	<div class="blank">
-		<h2>Blank Page</h2>
+		<h2>Trang chủ</h2>
+		<div class="content-homepage.jsp">
+				<jsp:include page="content-homepage.jsp" />
+			</div>
 		<div class="blankpage-main">
 			<div class="edit-info">
 				<jsp:include page="edit-info.jsp" />
@@ -18,7 +21,6 @@
 				<jsp:include page="topic.jsp" />
 			</div>
 		</div>
-
 	</div>
 	<!-- <script>
 		$(document).ready(function() {

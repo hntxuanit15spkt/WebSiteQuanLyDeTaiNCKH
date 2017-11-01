@@ -6,7 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <meta name="keywords"
 	content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -34,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-	<!-- <div class="page-container"> -->
+	<div class="page-container">
 		<div class="left-content"><jsp:include page="left-content.jsp" /></div>
 		<script>
 			$(function() {
@@ -43,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 		<div class="sidebar-menu"><jsp:include page="sidebar-menu.jsp" /></div>
 		<div class="clearfix"></div>
-	<!-- </div> -->
+	</div>
 	<script>
 		$(document).ready(function() {
 			var navoffeset = $(".header-main").offset().top;
@@ -59,7 +58,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<script>
 		var toggle = true;
-
 		$(".sidebar-icon").click(
 				function() {
 					if (toggle) {
@@ -81,6 +79,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					toggle = !toggle;
 				});
 	</script>
+	<!-- <script>
+		var toggle = true;
+		/*Chỗ này đã bỏ đi lớp page-container nên nó không cuốn lại được*/
+		$(".sidebar-icon").click(
+				function() {
+					if (toggle) {
+						$(".page-container").addClass("sidebar-collapsed")
+								.removeClass("sidebar-collapsed-back");
+						$("#menu span").css({
+							"position" : "absolute"
+
+						});
+					} else {
+						$(".page-container").removeClass("sidebar-collapsed")
+								.addClass("sidebar-collapsed-back");
+						setTimeout(function() {
+							$("#menu span").css({
+								"position" : "relative"
+							});
+						}, 400);
+					}
+					toggle = !toggle;
+				});
+	</script> -->
 	<!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>

@@ -12,7 +12,7 @@
 		<li><a class="md-trigger" data-modal="modal-1" href="#"><i
 				class="glyphicon glyphicon-user"></i><span>Thông tin cá nhân</span></a></li>
 		<li id="menu-comunicacao"><a href="#"><i
-				class="fa fa-book nav_icon"></i><span>Quản lý đề tài</span><span
+				class="glyphicon glyphicon-th-list"></i><span>Quản lý đề tài</span><span
 				class="fa fa-angle-right" style="float: right"></span></a>
 			<ul id="menu-comunicacao-sub">
 				<li id="menu-xemdetai" style="width: 120px"><a href="#xemdetai">Xem
@@ -21,6 +21,10 @@
 						tài</a></li>
 				<li id="menu-arquivos"><a href="icons.html">Hủy đề tài</a></li>
 			</ul></li>
+		<li id="menu-home"><a href="#"><i
+				class="glyphicon glyphicon-pencil"></i><span>Đăng ký đề tài</span></a></li>
+		<li id="menu-home"><a href="#"><i
+				class="glyphicon glyphicon-folder-open"></i><span>Xem điểm nghiệm thu</span></a></li>
 	</ul>
 </body>
 </html>
