@@ -21,32 +21,41 @@ perspective effects (not including the modals and the overlay).
 	background: #e74c3c;
 	min-height: 100%;
 }
+
 [type="date"] {
-  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+	background: #fff
+		url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+		97% 50% no-repeat;
 }
+
 [type="date"]::-webkit-inner-spin-button {
-  display: none;
+	display: none;
 }
+
 [type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
+	opacity: 0;
 }
 
 /* custom styles */
 body {
-  padding: 4em;
-  background: #e5e5e5;
-  font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+	background: #e5e5e5;
+	font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande',
+		'Lucida Sans Unicode', Verdana, sans-serif;
+	height: 100%;
+	width: 100%;
 }
+
 label {
-  display: block;
+	display: block;
 }
+
 input {
-  border: 1px solid #c4c4c4;
-  border-radius: 5px;
-  background-color: #fff;
-  padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-  width: 190px;
+	border: 1px solid #c4c4c4;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 3px 5px;
+	box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+	width: 190px;
 }
 
 .md-modal {
@@ -101,7 +110,7 @@ input {
 	margin: 0 auto;
 }
 
-.md-content label{
+.md-content label {
 	color: #000000;
 }
 
@@ -146,7 +155,7 @@ input {
 /* Individual modal styles with animations/transitions */
 
 /* Effect 1: Fade in and scale up */
-.md-effect-1 .md-content  {
+.md-effect-1 .md-content {
 	-webkit-transform: scale(0.7);
 	-moz-transform: scale(0.7);
 	-ms-transform: scale(0.7);
@@ -157,13 +166,14 @@ input {
 	transition: all 0.3s;
 }
 
-.md-show.md-effect-1 .md-content  {
+.md-show.md-effect-1 .md-content {
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
 	-ms-transform: scale(1);
 	transform: scale(1);
 	opacity: 1;
 }
+
 @
 -webkit-keyframes slit { 50% {
 	-webkit-transform: translateZ(-250px) rotateY(89deg);
@@ -174,17 +184,43 @@ input {
 100%
 {
 -webkit-transform
+
+
+
+
 :
+
+
  
+
+
 translateZ
+
+
+
+
 (0)
- 
 rotateY
-(0deg);
- 
+
+
+
+
+(0
+deg
+
+
+);
 opacity
+
+
+
+
 :
+
+
  
+
+
 1;
 }
 }
@@ -198,17 +234,43 @@ opacity
 100%
 {
 -moz-transform
+
+
+
+
 :
+
+
  
+
+
 translateZ
+
+
+
+
 (0)
- 
 rotateY
-(0deg);
- 
+
+
+
+
+(0
+deg
+
+
+);
 opacity
+
+
+
+
 :
+
+
  
+
+
 1;
 }
 }
@@ -222,22 +284,46 @@ keyframes slit { 50% {
 100%
 {
 transform
+
+
+
+
 :
+
+
  
+
+
 translateZ
+
+
+
+
 (0)
- 
 rotateY
-(0deg);
- 
+
+
+
+
+(0
+deg
+
+
+);
 opacity
+
+
+
+
 :
+
+
  
+
+
 1;
 }
 }
-
-
 @
 -webkit-keyframes rotateRightSideFirst { 50% {
 	-webkit-transform: translateZ(-50px) rotateY(5deg);
@@ -247,11 +333,26 @@ opacity
 100%
 {
 -webkit-transform
+
+
+
+
 :
+
+
  
+
+
 translateZ
-(-200px);
- 
+
+
+
+
+(-200
+px
+
+
+);
 }
 }
 @
@@ -263,11 +364,26 @@ translateZ
 100%
 {
 -moz-transform
+
+
+
+
 :
+
+
  
+
+
 translateZ
-(-200px);
- 
+
+
+
+
+(-200
+px
+
+
+);
 }
 }
 @
@@ -279,11 +395,26 @@ keyframes rotateRightSideFirst { 50% {
 100%
 {
 transform
+
+
+
+
 :
+
+
  
+
+
 translateZ
-(-200px);
- 
+
+
+
+
+(-200
+px
+
+
+);
 }
 }
 .md-effect-18 .md-content {
