@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
+
 	<div class="sidebar-menu">
 		<div class="logo">
 			<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span>
@@ -16,55 +17,23 @@
 		</div>
 		<div class="menu">
 			<ul id="menu">
-				<li id="menu-home"><a href="index.html"><i
-						class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-				<li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span
-						class="fa fa-angle-right" style="float: right"></span></a>
-					<ul>
-						<li><a href="grids.html">Grids</a></li>
-						<li><a href="portlet.html">Portlets</a></li>
-					</ul></li>
+				<li id="menu-home"><a href="#"><i
+						class="glyphicon glyphicon-home"></i><span>Thông báo</span></a></li>
+				<li><a class="md-trigger" data-modal="modal-1" href="#"><i
+						class="glyphicon glyphicon-user"></i><span>Thông tin cá
+							nhân</span></a></li>
 				<li id="menu-comunicacao"><a href="#"><i
-						class="fa fa-book nav_icon"></i><span>Element</span><span
+						class="fa fa-book nav_icon"></i><span>Quản lý đề tài</span><span
 						class="fa fa-angle-right" style="float: right"></span></a>
 					<ul id="menu-comunicacao-sub">
 						<li id="menu-mensagens" style="width: 120px"><a
-							href="buttons.html">Buttons</a></li>
-						<li id="menu-arquivos"><a href="typography.html">Typography</a></li>
-						<li id="menu-arquivos"><a href="icons.html">Icons</a></li>
-					</ul></li>
-				<li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
-				<li id="menu-academico"><a href="#"><i
-						class="fa fa-file-text"></i><span>Pages</span><span
-						class="fa fa-angle-right" style="float: right"></span></a>
-					<ul id="menu-academico-sub">
-						<li id="menu-academico-boletim"><a href="login.html">Login</a></li>
-						<li id="menu-academico-avaliacoes"><a href="signup.html">Sign
-								Up</a></li>
-					</ul></li>
-
-				<li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
-				<li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span
-						class="fa fa-angle-right" style="float: right"></span></a>
-					<ul id="menu-academico-sub">
-						<li id="menu-academico-avaliacoes"><a href="inbox.html">Inbox</a></li>
-						<li id="menu-academico-boletim"><a href="inbox-details.html">Compose
-								email</a></li>
-					</ul></li>
-				<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span
-						class="fa fa-angle-right" style="float: right"></span></a>
-					<ul id="menu-academico-sub">
-						<li id="menu-academico-avaliacoes"><a href="404.html">404</a></li>
-						<li id="menu-academico-boletim"><a href="blank.html">Blank</a></li>
-					</ul></li>
-				<li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span
-						class="fa fa-angle-right" style="float: right"></span></a>
-					<ul id="menu-academico-sub">
-						<li id="menu-academico-avaliacoes"><a href="product.html">Product</a></li>
-						<li id="menu-academico-boletim"><a href="price.html">Price</a></li>
+							href="buttons.html">Xem đề tài</a></li>
+						<li id="menu-arquivos"><a href="typography.html">Gia hạn đề tài</a></li>
+						<li id="menu-arquivos"><a href="icons.html">Hủy đề tài</a></li>
 					</ul></li>
 			</ul>
 		</div>
 	</div>
+	<div class="clearfix"></div>
 </body>
 </html>

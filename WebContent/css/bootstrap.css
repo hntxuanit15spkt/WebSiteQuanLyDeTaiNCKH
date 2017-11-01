@@ -116,7 +116,7 @@ select,
 textarea {
   margin: 0;
   font: inherit;
-  color: inherit;
+  color: red;
 }
 button {
   overflow: visible;
@@ -2488,6 +2488,8 @@ fieldset {
   padding: 0;
   margin: 0;
   border: 0;
+  overflow: auto;
+  height: 300px;
 }
 legend {
   display: block;
@@ -5673,7 +5675,7 @@ a.list-group-item-danger.active:focus {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
+  background-color: #006600;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
@@ -6368,6 +6370,9 @@ button.close {
 .hidden {
   display: none !important;
 }
+.control-label{
+	color: #003300;
+} 
 .affix {
   position: fixed;
 }

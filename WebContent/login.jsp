@@ -14,7 +14,11 @@
 	content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
+	
 		 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -25,7 +29,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-2.1.1.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-s
 <!-- <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 <!--icons-css-->
@@ -86,9 +89,8 @@ s
 	<!--inner block end here-->
 	<!--copy rights start here-->
 	<div class="copyrights">
-		<p>
-			© 2016 Shoppy. All Rights Reserved | Design by W3layouts, but customize by Huỳnh Ngọc Thanh Xuânư</a>
-		</p>
+		<p>© 2016 Shoppy. All Rights Reserved | Design by W3layouts, but
+			customize by Huỳnh Ngọc Thanh Xuân</p>
 	</div>
 	<!--COPY rights end here-->
 
@@ -97,11 +99,13 @@ s
 	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
 	<script src="js/bootstrap.js">
+		
 	</script>
 	<script>
 		$(document).ready(function() {
 			$("#loginForm").on('submit', function(e) {
 				alert("Đăng nhập thành công");
+				window.location.href="http://localhost:8888/WebSiteQuanLyNghienCuuKhoaHocAdmin-Shoppy/index.jsp";
 				return false;
 
 			});

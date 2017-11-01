@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -12,20 +17,133 @@
 		<div class="left-content">
 			<div class="mother-grid-inner">
 				<div class="inner-block">
-					<div class="blank">
-						<h2>Blank Page</h2>
-						<div class="blankpage-main">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-								aute irure dolor in reprehenderit in voluptate velit esse cillum
-								dolore eu fugiat nulla pariatur.</p>
+					<div class="mother-grid-inner">
+						<div class="md-modal md-effect-1" id="modal-1">
+							<div class="md-content">
+								<h3>Cập nhật thông tin cá nhân</h3>
+								<form class="well form-horizontal" action=" " method="post"
+									id="contact_form">
+									<fieldset style="height: 400px; overflow: auto;">
+										<div class="form-group">
+											<label class="col-md-4 control-label">Họ tên</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<input name="first_name" value="Huỳnh Ngọc Thanh Xuân"
+														class="form-control" type="text" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Mã số sinh
+												viên: </label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<input name="first_name" value="15114789"
+														class="form-control" type="text" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Email</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<input name="email" value="15114789@student.hcmute.edu.vn"
+														class="form-control" type="text" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Số điện thoại</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<input name="phone" value="(845)555-1212"
+														class="form-control" type="text" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Ngành</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<select name="state" class="form-control selectpicker">
+														<option>Công nghệ thông tin</option>
+														<option>Kỹ thuật dữ liệu</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Ngày sinh</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<input type="date" name="dateofbirth" id="dateofbirth" class="form-control"
+														id="datepicker_content" type="text" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Giới tính</label>
+											<div class="col-md-4">
+												<span class="radio"> <label> <input
+														type="radio" name="hosting" value="Nam" /> Nam
+												</label> <label> <input type="radio" name="hosting"
+														value="Nữ" /> Nữ
+												</label>
+												</span>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Số CMND</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<input name="phone" placeholder="(845)555-1212"
+														class="form-control" type="text" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Số tài khoản
+												ngân hàng</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<input name="phone" placeholder="(845)555-1212"
+														class="form-control" type="text" required />
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Chi nhánh</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<input name="phone" placeholder="(845)555-1212"
+														class="form-control" type="text" required />
+												</div>
+											</div>
+										</div>
+									</fieldset>
+									<div style="color: black; text-align: center;">
+										<input type="button" value="Sửa" /> <input type="submit"
+											value="Lưu" /> <input type="button" value="Thoát"
+											class="md-close" />
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function() {
+			$("#contact_form").scroll(function() {
+			});
+		});
+	</script>
+	<script>
+		$(function() {
+			$("#datepicker_content").datepicker();
+		});
+	</script>
 </body>
 </html>
