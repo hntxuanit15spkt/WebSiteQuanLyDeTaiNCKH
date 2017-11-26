@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost/quanlydetainghiencuukhoahoc" user="root"
+	password="15110376" />
+
+<c:if test="${not empty param.login}">
+	<sql:query var="taikhoan" dataSource="${db}"
+		sql="select * from NguoiDung where TaiKhoan='${param.username}' and MatKhau='${param['password']}'" />
+	<c:if test="${taikhoan!=null }">
+		<c:set var="user" value="${taikhoan.rows[0].TenNguoiDung }"
+			scope="session" />
+		<c:redirect url="main.jsp" />
+	</c:if>
+</c:if>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Shoppy an Admin Panel Category Flat Bootstrap Responsive
-	Website Template | Login :: w3layouts</title>
+<title>Đăng nhập</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
 	content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript">
-	
-	
-	
-	
+<!-- <script type="application/x-javascript">
 		 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-	
-
-
-
-</script>
+</script> -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -40,10 +47,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h1>Login</h1>
 			</div>
 			<div class="login-block">
-				<form id="login-form">
-					<input type="text" name="email" placeholder="Tài khoản" required
-						minlength="5" maxlength="20" /> 
-						<input type="password" name="password" class="lock" placeholder="Password" minlength="8">
+				<form id="login-form" action="login.jsp" method='post'>
+					<input type="text" name="username" placeholder="Tài khoản" /> <input
+						type="password" name="password" class="lock"
+						placeholder="Mật khẩu">
 					<div class="forgot-top-grids">
 						<div class="forgot-grid">
 							<ul>
@@ -57,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<input type="submit" name="Sign In" value="Login">
+					<input type="submit" name="login" value="Login">
 					<h3>
 						Not a member? <a href="signup.html"> Sign up now</a>
 					</h3>

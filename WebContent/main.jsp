@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<c:if test="${sessionScope.user != 'Thanh Xuân' }">
+	<c:redirect url="login.jsp"></c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,12 +14,22 @@
 <meta name="keywords"
 	content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript">
+	
+	
+	
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+</script>
 <title>Website quản lý đăng ký đề tài nghiên cứu khoa học</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
-	media="all"> -->
+<!-- <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <script src="js/jquery-2.1.1.min.js"></script>
 <!--icons-css-->

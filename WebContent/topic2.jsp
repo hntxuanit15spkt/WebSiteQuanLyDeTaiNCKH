@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -41,7 +43,6 @@
 					<dd>Nam</dd>
 					<dt>Ngày sinh</dt>
 					<dd>20/7/2005</dd>
-
 				</dl>
 			</div>
 			<div class="col-sm-6" style="background-color: lavenderblush;">
@@ -66,29 +67,23 @@
 			<table id="datatable">
 				<thead>
 					<tr>
-						<th>Số thứ tự</th>
-						<th>Mã đề tài</th>
 						<th>Tên đề tài</th>
-						<th>Loại hình</th>
-						<th>Chủ nhiệm đề tài</th>
-						<th>Giảng viên hướng dẫn</th>
-						<th>Trạng thái</th>
+						<th>Phương pháp thực hiện</th>
+						<th>Kinh phí</th>
+						<th>Loại đề tài</th>
 						<!-- 						<th>Links</th> -->
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>DT0001</td>
-						<td><a href="#click-hien-chitiet">Dự án cải tân cơ thể và
-								sắc đẹp để làm sao đẹp trai hơn</a></td>
-						<td>Loại hình thuộc vào dạng rất khó thực hiện</td>
-						<td>Trịnh Văn Công</td>
-						<td>OCh. Nguyễn Minh Hoàng</td>
-						<td>Đang chờ phê duyệt</td>
-						<!-- <td><a href="#click-hien-chitiet">Chi tiết</a></td> -->
-					</tr>
-					<tr>
+					<c:forEach items="${DeTai}" var="detai">
+						<tr>
+							<td>${detai.getTenDeTai()}</td>
+							<td>${detai.getPhuongPhapThucHien()}</td>
+							<td>${detai.getKinhPhi()}</td>
+							<td>${detai.getLoaiDeTai()}</td>
+						</tr>
+					</c:forEach>
+					<!-- <tr>
 						<td>2</td>
 						<td>DT0001</td>
 						<td>Dự án 2</td>
@@ -124,6 +119,14 @@
 						<td>OCh. Nguyễn Minh Hoàng</td>
 						<td>Đang chờ phê duyệt</td>
 					</tr>
+					<%-- <c:forEach items="${DeTai}" var="deTai">
+						<tr>
+							<td>${deTai.getTenDeTai()}</td>
+							<td>${deTai.getPhuongPhapThucHien()}</td>
+							<td>${deTai.getKinhPhi()}</td>
+							<td>${deTai.getLoaiDeTai()}</td>
+						</tr>
+					</c:forEach> --%>
 					<tr>
 						<td>6</td>
 						<td>Dự án 6</td>
@@ -182,7 +185,7 @@
 						<td>Trịnh Văn Công</td>
 						<td>OCh. Nguyễn Minh Hoàng</td>
 						<td>Đang chờ phê duyệt</td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 		</div>
