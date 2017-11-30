@@ -29,7 +29,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
-	<div id="chitietdetai" style="font-size: 14px">
+	<!-- <div id="chitietdetai" style="font-size: 14px">
 		<div class="row">
 			<div class="col-sm-6" style="background-color: lavender;">
 				<dl class="dl-horizontal">
@@ -60,7 +60,7 @@
 				</dl>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<form id="form1">
 		<h2 align="CENTER">DANH SÁCH CÁC ĐỀ TÀI</h2>
 		<div style="border: 1px solid black; color: black">
@@ -71,18 +71,24 @@
 						<th>Phương pháp thực hiện</th>
 						<th>Kinh phí</th>
 						<th>Loại đề tài</th>
+						<th>Operation</th>
 						<!-- 						<th>Links</th> -->
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${DeTai}" var="detai">
 						<tr>
-							<td>${detai.getTenDeTai()}</td>
-							<td>${detai.getPhuongPhapThucHien()}</td>
-							<td>${detai.getKinhPhi()}</td>
-							<td>${detai.getLoaiDeTai()}</td>
+							<td>${detai.getTenDeTai() }</td>
+							<td>${detai.getPhuongPhapThucHien() }</td>
+							<td>${detai.getKinhPhi() }</td>
+							<td>${detai.getLoaiDeTai() }</td>
+							<td><a href="XoaDeTai?id=${detai.getMaDeTai()}" class="btn btn-danger">
+								<span><strong>Xóa</strong></span>
+							</a></td>
 						</tr>
 					</c:forEach>
+
+
 					<!-- <tr>
 						<td>2</td>
 						<td>DT0001</td>
@@ -166,6 +172,19 @@
 						<td>OCh. Nguyễn Minh Hoàng</td>
 						<td>Đang chờ phê duyệt</td>
 					</tr>
+					<c:forEach items="${DeTai}" var="detai">
+						<tr>
+							<td>${detai.getTenDeTai()}</td>
+							<td>${detai.getPhuongPhapThucHien()}</td>
+							<td>${detai.getKinhPhi()}</td>
+							<%-- <td>${detai.getMaDeTai()}</td> --%>
+							<td>${detai.getLoaiDeTai()}</td>
+							<td><a href="XoaDeTai?id=${detai.getMaDeTai()}" class="btn btn-danger">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        				<span><strong>Xóa</strong></span>       
+							</a></td>
+						</tr>
+					</c:forEach>
 					<tr>
 						<td>1</td>
 						<td>DT0001</td>

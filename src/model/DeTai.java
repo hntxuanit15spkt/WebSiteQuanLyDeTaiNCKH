@@ -1,6 +1,7 @@
 package model;
 
 public class DeTai {
+    private int MaDeTai;
     private String TenDeTai;
     private String PhuongPhapThucHien;
     private String KinhPhi;
@@ -11,12 +12,21 @@ public class DeTai {
 
     }
 
-    public DeTai(String TenDeTai, String phuongPhapThucHien, String kinhPhi, String loaiDeTai) {
+    public DeTai(int maDeTai, String tenDeTai, String phuongPhapThucHien, String kinhPhi, String loaiDeTai) {
 	super();
-	this.TenDeTai = TenDeTai;
+	MaDeTai = maDeTai;
+	TenDeTai = tenDeTai;
 	PhuongPhapThucHien = phuongPhapThucHien;
 	KinhPhi = kinhPhi;
 	LoaiDeTai = loaiDeTai;
+    }
+
+    public int getMaDeTai() {
+	return MaDeTai;
+    }
+
+    public void setMaDeTai(int maDeTai) {
+	MaDeTai = maDeTai;
     }
 
     public String getTenDeTai() {
