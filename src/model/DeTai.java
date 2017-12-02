@@ -9,7 +9,6 @@ public class DeTai {
 
     public DeTai() {
 	super();
-
     }
 
     public DeTai(int maDeTai, String tenDeTai, String phuongPhapThucHien, String kinhPhi, String loaiDeTai) {
