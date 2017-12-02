@@ -3,9 +3,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<c:if test="${sessionScope.user != 'Thanh Xuân' }">
+<%-- <c:if test="${sessionScope.user != 'Thanh Xuân' }">
 	<c:redirect url="login.jsp"></c:redirect>
-</c:if>
+</c:if> --%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
