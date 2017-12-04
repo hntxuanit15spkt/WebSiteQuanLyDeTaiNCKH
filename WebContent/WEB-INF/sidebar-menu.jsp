@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="logo"><jsp:include page="logo.jsp" /></div>
-	<div class="menu"><jsp:include page="menu1.jsp" /></div>
+	<div class="logo"><jsp:include page="/WEB-INF/logo.jsp" /></div>
+	<div class="menu"><jsp:include page="/WEB-INF/menu1.jsp" /></div>
 </body>
 </html>

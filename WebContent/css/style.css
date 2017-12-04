@@ -4,6 +4,10 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+@import '/css/datepicker.css';
+@import '/css/bootstrap.css';
+
 h4, h5, h6, h1, h2, h3 {
 	margin: 0;
 }
@@ -2548,9 +2552,9 @@ p.grid1 {
 }
 /*--maps end here--*/
 /*--balank page start here--*/
-.blank {
+/* .blank {
 	min-height: 600px;
-}
+} */
 
 .blank h2 {
 	font-size: 2em;
@@ -2558,7 +2562,9 @@ p.grid1 {
 	margin-bottom: 1em;
 	font-family: 'Carrois Gothic', sans-serif;
 }
-
+/* .form-group .control-label{
+	text-align: right;
+} */
 .blankpage-main {
 	padding: 2em 2em;
 	background: #fff;

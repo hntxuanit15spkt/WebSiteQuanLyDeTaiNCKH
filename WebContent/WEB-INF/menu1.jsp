@@ -21,7 +21,7 @@
 						tài</a></li>
 				<li id="menu-arquivos"><a href="icons.html">Hủy đề tài</a></li>
 			</ul></li>
-		<li id="menu-home"><a href="#"><i
+		<li id="menu-home"><a href="DangKyDeTai"><i
 				class="glyphicon glyphicon-pencil"></i><span>Đăng ký đề tài</span></a></li>
 		<li id="menu-home"><a href="#"><i
 				class="glyphicon glyphicon-folder-open"></i><span>Xem điểm nghiệm thu</span></a></li>

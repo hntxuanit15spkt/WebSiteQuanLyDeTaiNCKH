@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="header-main">
-		<jsp:include page="header-main.jsp" />
+		<jsp:include page="/WEB-INF/header-main.jsp" />
 	</div>
 	<script>
 		$(document).ready(function() {
@@ -26,7 +26,7 @@
 		});
 	</script>
 	<div class="inner-block">
-		<jsp:include page="inner-block.jsp" />
+		<jsp:include page="/WEB-INF/inner-block.jsp" />
 	</div>
 	<div class="copyrights">
 		<p>

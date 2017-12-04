@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- <c:if test="${sessionScope.user != 'Thanh Xuân' }">
 	<c:redirect url="login.jsp"></c:redirect>
 </c:if> --%>
@@ -19,7 +19,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
 
 
 
@@ -49,13 +55,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<div class="page-container">
-		<div class="left-content"><jsp:include page="left-content.jsp" /></div>
+		<div class="left-content">
+			<jsp:include page="/WEB-INF/left-content.jsp" />
+		</div>
 		<script>
 			$(function() {
 				$("#datepicker_content").datepicker();
 			});
 		</script>
-		<div class="sidebar-menu"><jsp:include page="sidebar-menu.jsp" /></div>
+		<div class="sidebar-menu">
+			<jsp:include page="/WEB-INF/sidebar-menu.jsp" />
+		</div>
 		<div class="clearfix"></div>
 	</div>
 	<script>

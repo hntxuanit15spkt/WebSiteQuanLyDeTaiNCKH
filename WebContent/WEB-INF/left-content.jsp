@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="mother-grid-inner">
-		<jsp:include page="mother-grid-inner.jsp" />
+	 <jsp:include page="/WEB-INF/mother-grid-inner.jsp" />
 	</div>
 </body>
 </html>

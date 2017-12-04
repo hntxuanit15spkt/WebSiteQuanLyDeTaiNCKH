@@ -11,14 +11,14 @@
 	<div class="blank">
 		<h2>Trang chủ</h2>
 		<div class="content-homepage.jsp">
-				<jsp:include page="content-homepage.jsp" />
+				<jsp:include page="/WEB-INF/content-homepage.jsp" />
 			</div>
 		<div class="blankpage-main">
 			<div class="edit-info">
-				<jsp:include page="edit-info.jsp" />
+				<jsp:include page="/WEB-INF/edit-info.jsp" />
 			</div>
 			<div class="topic">
-				<jsp:include page="topic.jsp" />
+				<jsp:include page="/WEB-INF/topic.jsp" />
 			</div>
 		</div>
 	</div>

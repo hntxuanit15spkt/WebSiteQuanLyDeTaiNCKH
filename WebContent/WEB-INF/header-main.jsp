@@ -9,10 +9,10 @@
 </head>
 <body>
 	<div class="header-left">
-		<jsp:include page="header-left.jsp" />
+		<jsp:include page="/WEB-INF/header-left.jsp" />
 	</div>
 	<div class="header-right">
-		<jsp:include page="header-right.jsp" />
+		<jsp:include page="/WEB-INF/header-right.jsp" />
 	</div>
 	<div class="clearfix"> </div>
 </body>
