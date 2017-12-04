@@ -512,12 +512,12 @@
 									</c:forEach>
 								</table> --%>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Khoa:</label>
+										<label class="col-md-4 control-label">Bộ môn:</label>
 										<div class="col-md-8 selectContainer">
 											<select name="khoa" class="form-control selectpicker">
-												<option value="">Chọn khoa bạn đang theo học</option>
-												<c:forEach items="${listKhoa}" var="khoa">
-													<option>${khoa.tenKhoa}</option>
+												<option value="">Chọn bộ môn bạn đang theo học</option>
+												<c:forEach items="${listBomon}" var="khoa">
+													<option>${khoa.tenBoMon}</option>
 												</c:forEach>
 											</select>
 										</div>
@@ -536,26 +536,6 @@
 										});
 								</script> --%>
 									<%-- <sql:query var="nganh" dataSource="${db}">select * from nganh, khoa where nganh.MaKhoa = khoa.MaKhoa and TenKhoa = $('.selectpicker').find(':selected').text();></sql:query> --%>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Ngành:</label>
-										<div class="col-md-8 selectContainer">
-											<input type="text" class="form-control" name="nganhhoc"
-												placeholder="Nhập vào ngành bạn học" />
-											<%-- <select name="nganhhoc" class="form-control selectpicker">
-											<option value="">${makhoa}</option>
-											<c:forEach items="${entries}" var="khoa">
-												<option>${khoa.tenKhoa}</option>
-											</c:forEach> 
-										</select> --%>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Bộ môn:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="bomon"
-												placeholder="Nhập vào tên bộ môn" />
-										</div>
-									</div>
 								</div>
 								<a href="DangKyDeTai" class="themthanhvienthamgia">Thêm
 									thành viên tham gia</a>

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
-import model.Khoa;
+import model.BoMon;
 
 /**
  * Servlet implementation class DangKyDeTai
@@ -41,7 +41,7 @@ public class DangKyDeTai extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	List<Khoa> listKhoa = new ArrayList<Khoa>();
+	List<BoMon> listBomon = new ArrayList<BoMon>();
 	Connection c = null;
 	try {
 	    // String url =
@@ -49,10 +49,10 @@ public class DangKyDeTai extends HttpServlet {
 	    // c = (Connection) DriverManager.getConnection(url);
 	    c = connect.DBConnect.getConnection();
 	    Statement stmt = (Statement) c.createStatement();
-	    ResultSet rs = stmt.executeQuery("select * from khoa");
+	    ResultSet rs = stmt.executeQuery("select * from bomon");
 	    while (rs.next()) {
-		Khoa khoa = new Khoa(rs.getInt("MaKhoa"), rs.getString("TenKhoa"), rs.getInt("MaTruongKhoa"));
-		listKhoa.add(khoa);
+		BoMon bomon = new BoMon(rs.getInt("MaBoMon"), rs.getString("TenBoMon"), rs.getInt("MaTruongBoMon"));
+		listBomon.add(bomon);
 	    }
 	} catch (SQLException e) {
 	    throw new ServletException(e);
@@ -65,7 +65,7 @@ public class DangKyDeTai extends HttpServlet {
 		throw new ServletException(e);
 	    }
 	}
-	request.setAttribute("listKhoa", listKhoa);
+	request.setAttribute("listBomon", listBomon);
 	request.getRequestDispatcher("/WEB-INF/dangkydetai.jsp").forward(request, response);
     }
 
