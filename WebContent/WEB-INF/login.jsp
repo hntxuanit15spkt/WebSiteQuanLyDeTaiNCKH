@@ -2,21 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"
-	url="jdbc:mysql://localhost/quanlydetainghiencuukhoahoc" user="root"
-	password="15110376" />
-
-<c:if test="${not empty param.login}">
-	<sql:query var="taikhoan" dataSource="${db}"
-		sql="select * from NguoiDung where TaiKhoan='${param.username}' and MatKhau='${param['password']}'" />
-	<c:if test="${taikhoan!=null }">
-		<c:set var="user" value="${taikhoan.rows[0].TenNguoiDung }"
-			scope="session" />
-		<c:redirect url="main.jsp" />
-	</c:if>
-</c:if>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,14 +32,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h1>Login</h1>
 			</div>
 			<div class="login-block">
-				<form id="login-form" action="login.jsp" method='post'>
-					<input type="text" name="username" placeholder="Tài khoản" /> <input
-						type="password" name="password" class="lock"
-						placeholder="Mật khẩu">
+				<form id="login-form" action="dangnhap" method='post' style='text-align:center'>
+					<div class="row">
+					  <div class="col-sm-12">
+						<label class="radio-inline">
+							<input type="radio" name="loainguoidung" value='3' checked="checked">Nghiên cứu viên</label>
+						<label class="radio-inline">
+							<input type="radio" name="loainguoidung" value='4'>Giảng viên</label>
+						<label class="radio-inline">
+							<input type="radio" name="loainguoidung" value='5'>Hội đồng kiểm duyệt</label>
+						<label class="radio-inline" style='color: navy;'>
+							<input type="radio" name="loainguoidung" value='1'>Admin</label>
+						<label class="radio-inline" style='color: navy;'>
+							<input type="radio" name="loainguoidung" value='2'>Quản lí</label>
+					  </div>
+					</div>
+						
+					<input type="text" name="username" placeholder="Tài khoản" />
+					<input type="password" name="password" class="lock" placeholder="Mật khẩu" id="cpassword"/>
 					<div class="forgot-top-grids">
 						<div class="forgot-grid">
 							<ul>
-								<li><input type="checkbox" id="brand1" value=""><label
+								<li><input type="checkbox" id="brand1" value=""/><label
 									for="brand1"> <span></span>Remember me
 								</label></li>
 							</ul>
@@ -64,37 +63,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<input type="submit" name="login" value="Login">
-					<h3>
-						Not a member? <a href="signup.html"> Sign up now</a>
-					</h3>
-					<h2>or login with</h2>
-					<div class="login-icons">
-						<ul>
-							<li><a href="#" class="facebook"> <i
-									class="fa fa-facebook"></i>
-							</a></li>
-							<li><a href="#" class="twitter"> <i
-									class="fa fa-twitter"></i>
-							</a></li>
-							<li><a href="#" class="google"> <i
-									class="fa fa-google-plus"></i>
-							</a></li>
-						</ul>
-					</div>
+					<input type="submit" name="login" value="Login"/>
 				</form>
-				<h5>
-					<a href="index.html">Go Back to Home</a>
-				</h5>
 			</div>
 		</div>
 	</div>
+	<SCRIPT type="text/javascript" src="js/jquery.validate.js"></SCRIPT>
 	<script>
-		$(document).ready(function() {
-			$("#login-form").submit(function() {
-				window.location.href = "http://www.stackoverflow.com";
-			});
+	/* $.validator.setDefaults({
+		submitHandler: function() {
+			alert("Đã đăng nhập!");
+		}
+	}); */
+
+	$().ready(function() {
+
+		// validate signup form on keyup and submit
+		$("#login-form").validate({
+			rules: {
+				username: {
+					required: true,
+					minlength: 3
+				},
+				password: {
+					required: true,
+					minlength: 3
+				},
+			},
+			messages: {
+				username: {
+					required: "*Vui lòng điền tên tài khoản",
+					minlength: "*Tên tài khoản phải có ít nhất 3 ký tự"
+				},
+				password: {
+					required: "*Vui lòng điền mật khẩu",
+					minlength: "*Mật khẩu có phải có ít nhất 3 ký tự"
+				},
+			}
 		});
+	});
 	</script>
 </body>
 </html>
