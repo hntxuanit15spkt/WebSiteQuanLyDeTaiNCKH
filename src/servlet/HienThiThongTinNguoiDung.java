@@ -1,0 +1,123 @@
+package servlet;
+
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
+
+import model.ThongTinNguoiDung;
+
+@WebServlet("/HienThiThongTinNguoiDung")
+public class HienThiThongTinNguoiDung extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    public HienThiThongTinNguoiDung() {
+	super();
+    }
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+	super.init(config);
+	try {
+	    Class.forName("com.mysql.jdbc.Driver");// initialize jdbc driver
+	} catch (ClassNotFoundException e) {
+	    throw new ServletException(e);
+	}
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException {
+	HttpSession session = request.getSession();
+	String username = (String) session.getAttribute("username");
+	if (username != null) {
+
+	    List<ThongTinNguoiDung> lstThongTinNguoiDung = new ArrayList<ThongTinNguoiDung>();
+	    Connection c = null;
+
+	    try {
+		String url = "jdbc:mysql://localhost/quanlydetainghiencuukhoahoc?user=root&password=15110376";
+		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "
+			+ "'" + username + "'";
+		c = (Connection) DriverManager.getConnection(url);
+		Statement stmt = (Statement) c.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+
+		while (rs.next()) {
+		    ThongTinNguoiDung thongtin = new ThongTinNguoiDung(rs.getString("TenDangNhap"),
+			    rs.getString("MatKhau"), rs.getInt("MaNguoiDung"), rs.getInt("MaBoMon"),
+			    rs.getInt("MaLoaiNguoiDung"), rs.getString("HoTen"), rs.getString("DiaChi"),
+			    rs.getString("SoTaiKhoanNganHang"), rs.getString("SoDienThoai"), rs.getString("Email"),
+			    rs.getString("MaSo"), rs.getString("Lop"), rs.getString("KhoaHoc"),
+			    rs.getString("TenLoaiNguoiDung"), rs.getDate("NgaySinh"), rs.getBoolean("GioiTinh"),
+			    rs.getBoolean("TrangThaiNguoiDung"));
+		    lstThongTinNguoiDung.add(thongtin);
+		}
+
+	    } catch (Exception e) {
+		throw new ServletException(e);
+	    }
+
+	    finally {
+		try {
+		    if (c != null)
+			c.close();
+		} catch (Exception e) {
+		    throw new ServletException(e);
+		}
+	    }
+	    request.setAttribute("thongtinnguoidung", lstThongTinNguoiDung);
+	    request.getRequestDispatcher("/WEB-INF/thongtincanhan.jsp").forward(request, response);
+	} else
+	    response.sendRedirect("dangnhap");
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException {
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("utf-8");
+	// Get info
+	Integer manguoidung = Integer.valueOf(request.getParameter("manguoidung"));
+	String key = request.getParameter("name");
+	System.out.println(key);
+	String value = request.getParameter(key);
+	Connection c = null;
+
+	try {
+	    String url = "jdbc:mysql://localhost:3306/quanlydetainghiencuukhoahoc?user=root&password=15110376";
+	    String sql = "update nguoidung, taikhoan set " + key + " = " + "'" + value + "'"
+		    + " where taikhoan.manguoidung = nguoidung.manguoidung and nguoidung.manguoidung =" + manguoidung;
+
+	    // Use PreparedStstement to get sql' code
+	    c = (Connection) DriverManager.getConnection(url);
+	    PreparedStatement pstmt = (PreparedStatement) c.prepareStatement(sql);
+	    pstmt.executeUpdate();
+
+	} catch (Exception e) {
+	    throw new ServletException(e);
+	}
+
+	finally {
+	    try {
+		if (c != null)
+		    c.close();
+	    } catch (Exception e) {
+		throw new ServletException(e);
+	    }
+	}
+	response.sendRedirect("thongtin");
+    }
+
+}

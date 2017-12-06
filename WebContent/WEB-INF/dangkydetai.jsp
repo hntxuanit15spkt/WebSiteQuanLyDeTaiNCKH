@@ -59,72 +59,73 @@
 				</div>
 				<div class="inner-block">
 					<div class="blank">
-						<form class="form-horizontal" action=" " method="post"
-							id="reg_form">
-							<!--<fieldset style="overflow: hidden;"> bỏ cái này là mất cái size cứng của form-->
-							<legend> Đăng ký đề tài </legend>
-							<br />
-							<div class="form-group">
-								<label class="col-md-4 control-label">Tên đề tài</label>
-								<div class="col-md-8  inputGroupContainer">
-									<input name="tendetai"
-										placeholder="Nhập vào tên đề tài của bạn" class="form-control"
-										type="text" />
+						<!-- <div class="container"> -->
+							<form class="form-horizontal" action=" " method="post"
+								id="reg_form">
+								<!--<fieldset style="overflow: hidden;"> bỏ cái này là mất cái size cứng của form-->
+								<legend> Đăng ký đề tài </legend>
+								<br />
+								<div class="form-group">
+									<label class="col-md-4 control-label">Tên đề tài</label>
+									<div class="col-md-8  inputGroupContainer">
+										<input name="tendetai"
+											placeholder="Nhập vào tên đề tài của bạn"
+											class="form-control" type="text" />
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-4 control-label">Mục tiêu</label>
-								<div class="col-md-8  inputGroupContainer">
-									<input name="muctieu" placeholder="Nhập vào mục tiêu của bạn"
-										class="form-control" type="text" />
+								<div class="form-group">
+									<label class="col-md-4 control-label">Mục tiêu</label>
+									<div class="col-md-8  inputGroupContainer">
+										<input name="muctieu" placeholder="Nhập vào mục tiêu của bạn"
+											class="form-control" type="text" />
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-4 control-label">Mô tả ý tưởng</label>
-								<div class="col-md-8  inputGroupContainer">
-									<textarea name="motaytuong" class="form-control" rows="5"></textarea>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Mô tả ý tưởng</label>
+									<div class="col-md-8  inputGroupContainer">
+										<textarea name="motaytuong" class="form-control" rows="5"></textarea>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-4 control-label">Tính cấp thiết</label>
-								<div class="col-md-8  inputGroupContainer">
-									<textarea name="tinhcapthiet" class="form-control" rows="5"></textarea>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Tính cấp thiết</label>
+									<div class="col-md-8  inputGroupContainer">
+										<textarea name="tinhcapthiet" class="form-control" rows="5"></textarea>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-4 control-label">Lĩnh vực nghiên
-									cứu</label>
-								<div class="col-md-8  inputGroupContainer">
-									<input name="linhvucnghiencuu"
-										placeholder="Lĩnh vực của đề tài là gì?" class="form-control"
-										type="text" />
+								<div class="form-group">
+									<label class="col-md-4 control-label">Lĩnh vực nghiên
+										cứu</label>
+									<div class="col-md-8  inputGroupContainer">
+										<input name="linhvucnghiencuu"
+											placeholder="Lĩnh vực của đề tài là gì?" class="form-control"
+											type="text" />
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-4 control-label">Phương pháp thực
-									hiện</label>
-								<div class="col-md-8  inputGroupContainer">
-									<textarea name="phuongphapthuchien" class="form-control"
-										rows="5"
-										placeholder="Trình bày sơ lược phương pháp nghiên cứu"></textarea>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Phương pháp thực
+										hiện</label>
+									<div class="col-md-8  inputGroupContainer">
+										<textarea name="phuongphapthuchien" class="form-control"
+											rows="5"
+											placeholder="Trình bày sơ lược phương pháp nghiên cứu"></textarea>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-4 control-label">Kinh phí dự kiến</label>
-								<div class="col-md-8  inputGroupContainer">
-									<textarea name="kinhphi" class="form-control" rows="5"></textarea>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Kinh phí dự kiến</label>
+									<div class="col-md-8  inputGroupContainer">
+										<textarea name="kinhphi" class="form-control" rows="5"></textarea>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-4 control-label">Mã giảng viên
-									hướng dẫn</label>
-								<div class="col-md-8 inputGroupContainer">
-									<input name="magiangvienhuongdan"
-										placeholder="Nhập vào mã giảng viên hướng dẫn"
-										class="form-control" type="text" />
+								<div class="form-group">
+									<label class="col-md-4 control-label">Mã giảng viên
+										hướng dẫn</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input name="magiangvienhuongdan"
+											placeholder="Nhập vào mã giảng viên hướng dẫn"
+											class="form-control" type="text" />
+									</div>
 								</div>
-							</div>
-							<div class="Thongtinsinhvien">
+								<!-- <div class="Thongtinsinhvien1"> -->
 								<legend> Thông tin các thành viên tham gia </legend>
 								<div class=col-md-6>
 									<div class="form-group">
@@ -162,306 +163,6 @@
 												placeholder="Nhập vào địa chỉ" />
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Email:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="email"
-												placeholder="Nhập vào email" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Bộ môn:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="bomon"
-												placeholder="Nhập vào tên bộ môn" />
-										</div>
-									</div>
-								</div>
-
-								<div class=col-md-6>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Giới tính:</label>
-										<div class="radio">
-											<label><input type="radio" name="gioitinh" />Nam</label> <label><input
-												type="radio" name="gioitinh" />Nữ</label>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Mã số lớp:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="masolop"
-												placeholder="Nhập vào mã số sinh viên" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Số tài khoản
-											ngân hàng:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control"
-												name="taikhoannganhang"
-												placeholder="Nhập vào số tài khoản ngân hàng" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Số điện thoại:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="sodienthoai"
-												placeholder="Nhập vào số điện thoại" />
-										</div>
-									</div>
-									<%-- <table border="1">
-									<tr>
-										<th>ID</th>
-										<th>Name</th>
-										<th>Message</th>
-									</tr>
-									<c:forEach items="${entries}" var="entry">
-										<tr>
-											<td>${entry.}</td>
-											<td>${entry.name}</td>
-											<td>${entry.message}</td>
-											<td><a href="EditComment.jsp?id=${entry.id}">Edit</a></td>
-										</tr>
-									</c:forEach>
-								</table> --%>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Khoa:</label>
-										<div class="col-md-8 selectContainer">
-											<select name="khoa" class="form-control selectpicker">
-												<option value="">Chọn khoa bạn đang theo học</option>
-												<c:forEach items="${listKhoa}" var="khoa">
-													<option>${khoa.tenKhoa}</option>
-												</c:forEach>
-											</select>
-										</div>
-									</div>
-									<!-- <div class="form-group">
-									<button class='khoa1'>Click</button>
-								</div> -->
-
-									<%-- <script>
-								$('.selectpicker').change(
-										function() {
-											var tenKhoa = $('.selectpicker').find(':selected').text();
-											alert(tenKhoa);
-											<%! String makhoa=tenKhoa;%>
-											/* alert("${variable}"); */
-										});
-								</script> --%>
-									<%-- <sql:query var="nganh" dataSource="${db}">select * from nganh, khoa where nganh.MaKhoa = khoa.MaKhoa and TenKhoa = $('.selectpicker').find(':selected').text();></sql:query> --%>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Ngành:</label>
-										<div class="col-md-8 selectContainer">
-											<input type="text" class="form-control" name="nganhhoc"
-												placeholder="Nhập vào ngành bạn học" />
-											<%-- <select name="nganhhoc" class="form-control selectpicker">
-											<option value="">${makhoa}</option>
-											<c:forEach items="${entries}" var="khoa">
-												<option>${khoa.tenKhoa}</option>
-											</c:forEach> 
-										</select> --%>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Bộ môn:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="bomon"
-												placeholder="Nhập vào tên bộ môn" />
-										</div>
-									</div>
-								</div>
-							</div>
-							<br />
-							<div>
-								<button class="btn btn-primary">Thêm thành viên tham
-									gia</button>
-							</div>
-							<div class="Thongtinsinhvien1" style="display: none;">
-								<legend> Thông tin các thành viên tham gia </legend>
-								<div class=col-md-6>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Họ tên:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="hoten"
-												placeholder="Nhập vào họ tên" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Mã số sinh viên:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="masosinhvien"
-												placeholder="Nhập vào mã số sinh viên" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Bạn là sinh viên
-											khóa:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="khoahoc"
-												placeholder="Nhập vào khóa mà bạn đang theo học" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Ngày sinh:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="date" class="form-control" name='ngaysinh' />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Địa chỉ:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="diachi"
-												placeholder="Nhập vào địa chỉ" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Email:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="email"
-												placeholder="Nhập vào email" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Bộ môn:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="bomon"
-												placeholder="Nhập vào tên bộ môn" />
-										</div>
-									</div>
-								</div>
-
-								<div class=col-md-6>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Giới tính:</label>
-										<div class="radio">
-											<label><input type="radio" name="gioitinh" />Nam</label> <label><input
-												type="radio" name="gioitinh" />Nữ</label>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Mã số lớp:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="masolop"
-												placeholder="Nhập vào mã số sinh viên" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Số tài khoản
-											ngân hàng:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control"
-												name="taikhoannganhang"
-												placeholder="Nhập vào số tài khoản ngân hàng" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Số điện thoại:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="sodienthoai"
-												placeholder="Nhập vào số điện thoại" />
-										</div>
-									</div>
-									<%-- <table border="1">
-									<tr>
-										<th>ID</th>
-										<th>Name</th>
-										<th>Message</th>
-									</tr>
-									<c:forEach items="${entries}" var="entry">
-										<tr>
-											<td>${entry.}</td>
-											<td>${entry.name}</td>
-											<td>${entry.message}</td>
-											<td><a href="EditComment.jsp?id=${entry.id}">Edit</a></td>
-										</tr>
-									</c:forEach>
-								</table> --%>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Khoa:</label>
-										<div class="col-md-8 selectContainer">
-											<select name="khoa" class="form-control selectpicker">
-												<option value="">Chọn khoa bạn đang theo học</option>
-												<c:forEach items="${listKhoa}" var="khoa">
-													<option>${khoa.tenKhoa}</option>
-												</c:forEach>
-											</select>
-										</div>
-									</div>
-									<!-- <div class="form-group">
-									<button class='khoa1'>Click</button>
-								</div> -->
-
-									<%-- <script>
-								$('.selectpicker').change(
-										function() {
-											var tenKhoa = $('.selectpicker').find(':selected').text();
-											alert(tenKhoa);
-											<%! String makhoa=tenKhoa;%>
-											/* alert("${variable}"); */
-										});
-								</script> --%>
-									<%-- <sql:query var="nganh" dataSource="${db}">select * from nganh, khoa where nganh.MaKhoa = khoa.MaKhoa and TenKhoa = $('.selectpicker').find(':selected').text();></sql:query> --%>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Ngành:</label>
-										<div class="col-md-8 selectContainer">
-											<input type="text" class="form-control" name="nganhhoc"
-												placeholder="Nhập vào ngành bạn học" />
-											<%-- <select name="nganhhoc" class="form-control selectpicker">
-											<option value="">${makhoa}</option>
-											<c:forEach items="${entries}" var="khoa">
-												<option>${khoa.tenKhoa}</option>
-											</c:forEach> 
-										</select> --%>
-										</div>
-									</div>
-								</div>
-								<a href="DangKyDeTai" class="themthanhvienthamgia2">Thêm
-									thành viên tham gia</a>
-							</div>
-							<div class="Thongtinsinhvien2" style="display: none;">
-								<div class=col-md-6>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Họ tên:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="hoten"
-												placeholder="Nhập vào họ tên" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Mã số sinh viên:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="masosinhvien"
-												placeholder="Nhập vào mã số sinh viên" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Bạn là sinh viên
-											khóa:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="khoahoc"
-												placeholder="Nhập vào khóa mà bạn đang theo học" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Ngày sinh:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="date" class="form-control" name='ngaysinh' />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Địa chỉ:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="diachi"
-												placeholder="Nhập vào địa chỉ" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label">Email:</label>
-										<div class="col-md-8 inputGroupContainer">
-											<input type="text" class="form-control" name="email"
-												placeholder="Nhập vào email" />
-										</div>
-									</div>
 
 								</div>
 
@@ -496,54 +197,221 @@
 												placeholder="Nhập vào số điện thoại" />
 										</div>
 									</div>
-									<%-- <table border="1">
-									<tr>
-										<th>ID</th>
-										<th>Name</th>
-										<th>Message</th>
-									</tr>
-									<c:forEach items="${entries}" var="entry">
-										<tr>
-											<td>${entry.}</td>
-											<td>${entry.name}</td>
-											<td>${entry.message}</td>
-											<td><a href="EditComment.jsp?id=${entry.id}">Edit</a></td>
-										</tr>
-									</c:forEach>
-								</table> --%>
 									<div class="form-group">
-										<label class="col-md-4 control-label">Bộ môn:</label>
-										<div class="col-md-8 selectContainer">
-											<select name="khoa" class="form-control selectpicker">
-												<option value="">Chọn bộ môn bạn đang theo học</option>
-												<c:forEach items="${listBomon}" var="khoa">
-													<option>${khoa.tenBoMon}</option>
-												</c:forEach>
-											</select>
+										<label class="col-md-4 control-label">Email:</label>
+										<div class="col-md-8 inputGroupContainer">
+											<input type="text" class="form-control" name="email"
+												placeholder="Nhập vào email" />
 										</div>
 									</div>
-									<!-- <div class="form-group">
-									<button class='khoa1'>Click</button>
-								</div> -->
 
-									<%-- <script>
-								$('.selectpicker').change(
-										function() {
-											var tenKhoa = $('.selectpicker').find(':selected').text();
-											alert(tenKhoa);
-											<%! String makhoa=tenKhoa;%>
-											/* alert("${variable}"); */
-										});
-								</script> --%>
-									<%-- <sql:query var="nganh" dataSource="${db}">select * from nganh, khoa where nganh.MaKhoa = khoa.MaKhoa and TenKhoa = $('.selectpicker').find(':selected').text();></sql:query> --%>
+									<!-- </div> -->
+									<div class="form-group">
+										<div class="col-md-6">
+											<button class="btn btn-primary" id="themthanhvien1">Thêm thành viên tham
+												gia</button>
+										</div>
+										<div class="col-md-6">
+											<button type="submit" class="btn btn-warning">
+												Gửi đơn <span class="glyphicon glyphicon-send"></span>
+											</button>
+										</div>
+									</div>
+									<br />
+
 								</div>
-								<a href="DangKyDeTai" class="themthanhvienthamgia">Thêm
-									thành viên tham gia</a>
-							</div>
-							<div>
-								<input type="submit" value="Đăng ký đề tài" />
-							</div>
-						</form>
+								<div class="Thongtinsinhvien2" style="display: none;">
+									<legend> Thông tin các thành viên tham gia </legend>
+									<div class=col-md-6>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Họ tên:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="hoten"
+													placeholder="Nhập vào họ tên" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Mã số sinh
+												viên:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="masosinhvien"
+													placeholder="Nhập vào mã số sinh viên" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Bạn là sinh
+												viên khóa:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="khoahoc"
+													placeholder="Nhập vào khóa mà bạn đang theo học" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Ngày sinh:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="date" class="form-control" name='ngaysinh' />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Địa chỉ:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="diachi"
+													placeholder="Nhập vào địa chỉ" />
+											</div>
+										</div>
+
+									</div>
+
+									<div class=col-md-6>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Giới tính:</label>
+											<div class="radio">
+												<label><input type="radio" name="gioitinh" />Nam</label> <label><input
+													type="radio" name="gioitinh" />Nữ</label>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Mã số lớp:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="masolop"
+													placeholder="Nhập vào mã số sinh viên" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Số tài khoản
+												ngân hàng:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control"
+													name="taikhoannganhang"
+													placeholder="Nhập vào số tài khoản ngân hàng" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Số điện thoại:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="sodienthoai"
+													placeholder="Nhập vào số điện thoại" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Email:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="email"
+													placeholder="Nhập vào email" />
+											</div>
+										</div>
+
+									</div>
+									<div class="form-group">
+										<div class="col-md-6">
+											<button class="btn btn-primary" id="themthanhvien2">Thêm thành viên tham
+												gia</button>
+										</div>
+										<div class="col-md-6">
+											<button type="submit" class="btn btn-warning">
+												Gửi đơn <span class="glyphicon glyphicon-send"></span>
+											</button>
+										</div>
+									</div>
+									<br />
+
+								</div>
+								<div class="Thongtinsinhvien3" style="display: none;">
+									<legend> Thông tin các thành viên tham gia </legend>
+									<div class=col-md-6>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Họ tên:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="hoten"
+													placeholder="Nhập vào họ tên" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Mã số sinh
+												viên:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="masosinhvien"
+													placeholder="Nhập vào mã số sinh viên" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Bạn là sinh
+												viên khóa:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="khoahoc"
+													placeholder="Nhập vào khóa mà bạn đang theo học" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Ngày sinh:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="date" class="form-control" name='ngaysinh' />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Địa chỉ:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="diachi"
+													placeholder="Nhập vào địa chỉ" />
+											</div>
+										</div>
+
+									</div>
+
+									<div class=col-md-6>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Giới tính:</label>
+											<div class="radio">
+												<label><input type="radio" name="gioitinh" />Nam</label> <label><input
+													type="radio" name="gioitinh" />Nữ</label>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Mã số lớp:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="masolop"
+													placeholder="Nhập vào mã số sinh viên" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Số tài khoản
+												ngân hàng:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control"
+													name="taikhoannganhang"
+													placeholder="Nhập vào số tài khoản ngân hàng" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Số điện thoại:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="sodienthoai"
+													placeholder="Nhập vào số điện thoại" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-4 control-label">Email:</label>
+											<div class="col-md-8 inputGroupContainer">
+												<input type="text" class="form-control" name="email"
+													placeholder="Nhập vào email" />
+											</div>
+										</div>
+
+										<!-- 									</div> -->
+										<div class="form-group">
+											<!-- <div class="col-md-6">
+												<button class="btn btn-primary" id="themthanhvien3">Thêm thành viên tham gia</button>
+											</div> -->
+											<div class="col-md-6">
+												<button type="submit" class="btn btn-warning">
+													Gửi đơn <span class="glyphicon glyphicon-send"></span>
+												</button>
+											</div>
+										</div>
+										<br />
+									</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -559,5 +427,10 @@
 		<jsp:include page="/WEB-INF/sidebar-menu.jsp" />
 	</div>
 	<div class="clearfix"></div>
+	<script>
+		$('#themthanhvien1').click(function{
+			$('.Thongtinsinhvien2').show();
+		});
+	</script>
 </body>
 </html>

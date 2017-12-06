@@ -43,14 +43,14 @@ public class HienThiDeTai extends HttpServlet {
 	    String url = "jdbc:mysql://localhost/quanlydetainghiencuukhoahoc?user=root&password=15110376";
 	    c = (Connection) DriverManager.getConnection(url);
 	    Statement stmt = (Statement) c.createStatement();
-	    ResultSet rs = stmt.executeQuery("select * from detai");
+	    ResultSet rs = stmt.executeQuery("select * from detai order by madetai");
 	    while (rs.next()) {
 		DeTai dt = new DeTai(rs.getInt("MaDeTai"), rs.getString("TenDeTai"), rs.getString("PhuongPhapThucHien"),
 			rs.getString("KinhPhi"), rs.getString("LoaiDeTai"));
 		lstDeTai.add(dt);
 	    }
 	    request.setAttribute("DeTai", lstDeTai);
-	    request.getRequestDispatcher("testHienThiDeTaiJDBC.jsp").forward(request, response);
+	    request.getRequestDispatcher("/WEB-INF/testHienThiDeTaiJDBC.jsp").forward(request, response);
 	} catch (SQLException e) {
 	    throw new ServletException(e);
 	} finally {

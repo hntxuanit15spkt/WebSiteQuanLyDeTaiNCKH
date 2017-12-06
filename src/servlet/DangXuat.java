@@ -8,22 +8,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//@WebServlet("/TrangChu")
-public class TrangChu extends HttpServlet {
+//@WebServlet("/DangXuat")
+public class DangXuat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public TrangChu() {
+    public DangXuat() {
         super();
     }
 
-    
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("username");
-		if(username != null)
-			request.getRequestDispatcher("/WEB-INF/main.jsp").forward(request, response);
-		else response.sendRedirect("dangnhap");
+		HttpSession session = request.getSession(false);
+		session.invalidate();
+		Boolean flag = false;
+		getServletContext().setAttribute("flag", flag);
+		response.sendRedirect("dangnhap");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 }

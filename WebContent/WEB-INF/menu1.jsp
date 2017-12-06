@@ -9,7 +9,7 @@
 	<ul id="menu">
 		<li id="menu-home"><a href="#"><i
 				class="glyphicon glyphicon-home"></i><span>Thông báo</span></a></li>
-		<li><a class="md-trigger" data-modal="modal-1" href="#"><i
+		<li><a data-modal="modal-1" href="thongtin"><i
 				class="glyphicon glyphicon-user"></i><span>Thông tin cá nhân</span></a></li>
 		<li id="menu-comunicacao"><a href="#"><i
 				class="glyphicon glyphicon-th-list"></i><span>Quản lý đề tài</span><span
