@@ -10,20 +10,20 @@ import javax.servlet.http.HttpSession;
 
 //@WebServlet("/TrangChu")
 public class TrangChu extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     public TrangChu() {
-        super();
+	super();
     }
 
-    
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("username");
-		if(username != null)
-			request.getRequestDispatcher("/WEB-INF/main.jsp").forward(request, response);
-		else response.sendRedirect("dangnhap");
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException {
+	HttpSession session = request.getSession();
+	String username = (String) session.getAttribute("username");
+	if (username != null)
+	    request.getRequestDispatcher("/WEB-INF/main.jsp").forward(request, response);
+	else
+	    response.sendRedirect("dangnhap");
+    }
 
 }

@@ -9,7 +9,6 @@
 </head>
 <body>
 	<div class="profile_details_left"><jsp:include page="/WEB-INF/profile_details_left.jsp"/></div>
-	<div class="profile_details"><jsp:include page="/WEB-INF/profile_details.jsp"/></div>
 	<div class="clearfix"></div>
 </body>
 </html>
