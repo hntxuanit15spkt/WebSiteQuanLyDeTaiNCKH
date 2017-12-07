@@ -1,12 +1,10 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,11 +46,8 @@ public class HienThiThongTinNguoiDung extends HttpServlet {
 	    Connection c = null;
 
 	    try {
-		//String url = "jdbc:mysql://localhost/quanlydetainghiencuukhoahoc?user=root&password=15110376";
-		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "
-			+ "'" + username + "'";
-		//c = (Connection) DriverManager.getConnection(url);
-		c=connect.DBConnect.getConnection();
+		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "+ "'" + username + "'";
+		c = connect.DBConnect.getConnection();
 		Statement stmt = (Statement) c.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 
@@ -79,7 +74,7 @@ public class HienThiThongTinNguoiDung extends HttpServlet {
 		    throw new ServletException(e);
 		}
 	    }
-	    request.setAttribute("thongtinnguoidung", lstThongTinNguoiDung);
+	    request.setAttribute("thongtin", lstThongTinNguoiDung);
 	    request.getRequestDispatcher("/WEB-INF/thongtincanhan.jsp").forward(request, response);
 	} else
 	    response.sendRedirect("dangnhap");
@@ -97,12 +92,11 @@ public class HienThiThongTinNguoiDung extends HttpServlet {
 	Connection c = null;
 
 	try {
-	    String url = "jdbc:mysql://localhost:3306/quanlydetainghiencuukhoahoc?user=root&password=15110376";
 	    String sql = "update nguoidung, taikhoan set " + key + " = " + "'" + value + "'"
 		    + " where taikhoan.manguoidung = nguoidung.manguoidung and nguoidung.manguoidung =" + manguoidung;
 
 	    // Use PreparedStstement to get sql' code
-	    c = (Connection) DriverManager.getConnection(url);
+	    c = connect.DBConnect.getConnection();
 	    PreparedStatement pstmt = (PreparedStatement) c.prepareStatement(sql);
 	    pstmt.executeUpdate();
 
