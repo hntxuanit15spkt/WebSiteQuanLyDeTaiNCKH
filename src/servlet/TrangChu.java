@@ -60,7 +60,8 @@ public class TrangChu extends HttpServlet {
 		    throw new ServletException(e);
 		}
 	    }
-	    request.setAttribute("thongtin", thongtin);
+	    session.setAttribute("thongtin", thongtin);
+	    // request.setAttribute("thongtin", thongtin);
 	    request.getRequestDispatcher("/WEB-INF/main.jsp").forward(request, response);
 	} else
 	    response.sendRedirect("dangnhap");
