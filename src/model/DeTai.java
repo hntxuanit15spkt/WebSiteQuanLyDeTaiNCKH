@@ -1,23 +1,20 @@
 package model;
 
-import java.util.Date;
+import java.math.BigDecimal;
 
 public class DeTai {
     private int MaDeTai;
-    private String HoTen;
-    private String TenLoaiNguoiDung;
     private String TenDeTai;
     private String MucTieu;
-    private String TenTrangThai;
-	private String MoTaYTuong;
+    private String MoTaYTuong;
     private String TinhCapThiet;
     private String LinhVucNghienCuu;
     private String PhuongPhapThucHien;
-    private String KinhPhi;
+    private BigDecimal KinhPhi;
     private String LoaiDeTai;
-    private Date ThoiGianBatDau;
-    private Date ThoiGianKetThuc;
-    private Date ThoiGianPhanBien;
+    private String ThoiGianBatDau;
+    private String ThoiGianKetThuc;
+    private String ThoiGianPhanBien;
     private int MaGiangVienHuongDan;
     private int MaNguoiDuyetDeTai;
     private int MaHoiDong;
@@ -27,36 +24,24 @@ public class DeTai {
 	super();
     }
 
-    public DeTai(String hoTen, String tenLoaiNguoiDung, String tenDeTai, String mucTieu, String tenTrangThai, Date thoiGianBatDau,
-			Date thoiGianKetThuc, Date thoiGianPhanBien) {
-		super();
-		HoTen = hoTen;
-		TenLoaiNguoiDung = tenLoaiNguoiDung;
-		TenDeTai = tenDeTai;
-		MucTieu = mucTieu;
-		TenTrangThai = tenTrangThai;
-		ThoiGianBatDau = thoiGianBatDau;
-		ThoiGianKetThuc = thoiGianKetThuc;
-		ThoiGianPhanBien = thoiGianPhanBien;
-	}
+    public DeTai(int int1, String string, String string2, String string3, String string4) {
+	// TODO Auto-generated constructor stub
+    }
 
-
-
-	public String getHoTen() {
-		return HoTen;
-	}
-
-	public void setHoTen(String hoTen) {
-		HoTen = hoTen;
-	}
-
-	public String getTenLoaiNguoiDung() {
-		return TenLoaiNguoiDung;
-	}
-
-	public void setTenLoaiNguoiDung(String tenLoaiNguoiDung) {
-		TenLoaiNguoiDung = tenLoaiNguoiDung;
-	}
+    public DeTai(String tendetai2, String muctieu2, String motaytuong2, String tinhcapthiet2, String linhvucnghiencuu2,
+	    String phuongphapthuchien2, BigDecimal kinhphi2, String thoiGianBatDau2, String thoiGianKetThuc2,
+	    int maGiangVienHuongDan2) {
+	TenDeTai = tendetai2;
+	MucTieu = muctieu2;
+	MoTaYTuong = motaytuong2;
+	TinhCapThiet = tinhcapthiet2;
+	LinhVucNghienCuu = linhvucnghiencuu2;
+	PhuongPhapThucHien = phuongphapthuchien2;
+	KinhPhi = kinhphi2;
+	ThoiGianBatDau = thoiGianBatDau2;
+	ThoiGianKetThuc = thoiGianKetThuc2;
+	MaGiangVienHuongDan = maGiangVienHuongDan2;
+    }
 
     public String getMucTieu() {
 	return MucTieu;
@@ -65,14 +50,6 @@ public class DeTai {
     public void setMucTieu(String mucTieu) {
 	MucTieu = mucTieu;
     }
-
-    public String getTenTrangThai() {
-		return TenTrangThai;
-	}
-
-	public void setTenTrangThai(String tenTrangThai) {
-		TenTrangThai = tenTrangThai;
-	}
 
     public String getMoTaYTuong() {
 	return MoTaYTuong;
@@ -98,27 +75,27 @@ public class DeTai {
 	LinhVucNghienCuu = linhVucNghienCuu;
     }
 
-    public Date getThoiGianBatDau() {
+    public String getThoiGianBatDau() {
 	return ThoiGianBatDau;
     }
 
-    public void setThoiGianBatDau(Date thoiGianBatDau) {
+    public void setThoiGianBatDau(String thoiGianBatDau) {
 	ThoiGianBatDau = thoiGianBatDau;
     }
 
-    public Date getThoiGianKetThuc() {
+    public String getThoiGianKetThuc() {
 	return ThoiGianKetThuc;
     }
 
-    public void setThoiGianKetThuc(Date thoiGianKetThuc) {
+    public void setThoiGianKetThuc(String thoiGianKetThuc) {
 	ThoiGianKetThuc = thoiGianKetThuc;
     }
 
-    public Date getThoiGianPhanBien() {
+    public String getThoiGianPhanBien() {
 	return ThoiGianPhanBien;
     }
 
-    public void setThoiGianPhanBien(Date thoiGianPhanBien) {
+    public void setThoiGianPhanBien(String thoiGianPhanBien) {
 	ThoiGianPhanBien = thoiGianPhanBien;
     }
 
@@ -178,11 +155,11 @@ public class DeTai {
 	PhuongPhapThucHien = phuongPhapThucHien;
     }
 
-    public String getKinhPhi() {
+    public BigDecimal getKinhPhi() {
 	return KinhPhi;
     }
 
-    public void setKinhPhi(String kinhPhi) {
+    public void setKinhPhi(BigDecimal kinhPhi) {
 	KinhPhi = kinhPhi;
     }
 
