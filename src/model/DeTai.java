@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.math.BigDecimal;
 
 public class DeTai {
     private int MaDeTai;
@@ -10,63 +10,37 @@ public class DeTai {
     private String TinhCapThiet;
     private String LinhVucNghienCuu;
     private String PhuongPhapThucHien;
-    private String KinhPhi;
+    private BigDecimal KinhPhi;
     private String LoaiDeTai;
-    private Date ThoiGianBatDau;
-    private Date ThoiGianKetThuc;
-    private Date ThoiGianPhanBien;
+    private String ThoiGianBatDau;
+    private String ThoiGianKetThuc;
+    private String ThoiGianPhanBien;
     private int MaGiangVienHuongDan;
     private int MaNguoiDuyetDeTai;
     private int MaHoiDong;
     private int MaDeTaiDuocCap;
-    private int MaNghienCuuVien;
-    private String TrangThai;
 
     public DeTai() {
 	super();
-    }
-
-    public DeTai(String tenDeTai, String mucTieu, String moTaYTuong, String tinhCapThiet, String linhVucNghienCuu,
-	    String phuongPhapThucHien, String kinhPhi, String loaiDeTai, Date thoiGianBatDau, Date thoiGianKetThuc,
-	    int maNghienCuuVien, String trangThai) {
-	super();
-	TenDeTai = tenDeTai;
-	MucTieu = mucTieu;
-	MoTaYTuong = moTaYTuong;
-	TinhCapThiet = tinhCapThiet;
-	LinhVucNghienCuu = linhVucNghienCuu;
-	PhuongPhapThucHien = phuongPhapThucHien;
-	KinhPhi = kinhPhi;
-	LoaiDeTai = loaiDeTai;
-	ThoiGianBatDau = thoiGianBatDau;
-	ThoiGianKetThuc = thoiGianKetThuc;
-	/*
-	 * ThoiGianPhanBien = thoiGianPhanBien; MaGiangVienHuongDan =
-	 * maGiangVienHuongDan; MaNguoiDuyetDeTai = maNguoiDuyetDeTai; MaHoiDong =
-	 * maHoiDong; MaDeTaiDuocCap = maDeTaiDuocCap;
-	 */
-	MaNghienCuuVien = maNghienCuuVien;
-	TrangThai = trangThai;
     }
 
     public DeTai(int int1, String string, String string2, String string3, String string4) {
 	// TODO Auto-generated constructor stub
     }
 
-    public String getTrangThai() {
-	return TrangThai;
-    }
-
-    public void setTrangThai(String trangThai) {
-	TrangThai = trangThai;
-    }
-
-    public int getMaNghienCuuVien() {
-	return MaNghienCuuVien;
-    }
-
-    public void setMaNghienCuuVien(int maNghienCuuVien) {
-	MaNghienCuuVien = maNghienCuuVien;
+    public DeTai(String tendetai2, String muctieu2, String motaytuong2, String tinhcapthiet2, String linhvucnghiencuu2,
+	    String phuongphapthuchien2, BigDecimal kinhphi2, String thoiGianBatDau2, String thoiGianKetThuc2,
+	    int maGiangVienHuongDan2) {
+	TenDeTai = tendetai2;
+	MucTieu = muctieu2;
+	MoTaYTuong = motaytuong2;
+	TinhCapThiet = tinhcapthiet2;
+	LinhVucNghienCuu = linhvucnghiencuu2;
+	PhuongPhapThucHien = phuongphapthuchien2;
+	KinhPhi = kinhphi2;
+	ThoiGianBatDau = thoiGianBatDau2;
+	ThoiGianKetThuc = thoiGianKetThuc2;
+	MaGiangVienHuongDan = maGiangVienHuongDan2;
     }
 
     public String getMucTieu() {
@@ -101,27 +75,27 @@ public class DeTai {
 	LinhVucNghienCuu = linhVucNghienCuu;
     }
 
-    public Date getThoiGianBatDau() {
+    public String getThoiGianBatDau() {
 	return ThoiGianBatDau;
     }
 
-    public void setThoiGianBatDau(Date thoiGianBatDau) {
+    public void setThoiGianBatDau(String thoiGianBatDau) {
 	ThoiGianBatDau = thoiGianBatDau;
     }
 
-    public Date getThoiGianKetThuc() {
+    public String getThoiGianKetThuc() {
 	return ThoiGianKetThuc;
     }
 
-    public void setThoiGianKetThuc(Date thoiGianKetThuc) {
+    public void setThoiGianKetThuc(String thoiGianKetThuc) {
 	ThoiGianKetThuc = thoiGianKetThuc;
     }
 
-    public Date getThoiGianPhanBien() {
+    public String getThoiGianPhanBien() {
 	return ThoiGianPhanBien;
     }
 
-    public void setThoiGianPhanBien(Date thoiGianPhanBien) {
+    public void setThoiGianPhanBien(String thoiGianPhanBien) {
 	ThoiGianPhanBien = thoiGianPhanBien;
     }
 
@@ -181,11 +155,11 @@ public class DeTai {
 	PhuongPhapThucHien = phuongPhapThucHien;
     }
 
-    public String getKinhPhi() {
+    public BigDecimal getKinhPhi() {
 	return KinhPhi;
     }
 
-    public void setKinhPhi(String kinhPhi) {
+    public void setKinhPhi(BigDecimal kinhPhi) {
 	KinhPhi = kinhPhi;
     }
 
