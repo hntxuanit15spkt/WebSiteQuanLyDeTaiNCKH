@@ -18,11 +18,11 @@ import model.ThongTinNguoiDung;
 
 //@WebServlet("/TrangChu")
 public class TrangChu extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public TrangChu() {
-		super();
-	}
+    public TrangChu() {
+	super();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

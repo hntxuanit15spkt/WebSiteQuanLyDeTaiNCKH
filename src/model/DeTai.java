@@ -4,9 +4,12 @@ import java.util.Date;
 
 public class DeTai {
     private int MaDeTai;
+    private String HoTen;
+    private String TenLoaiNguoiDung;
     private String TenDeTai;
     private String MucTieu;
-    private String MoTaYTuong;
+    private String TenTrangThai;
+	private String MoTaYTuong;
     private String TinhCapThiet;
     private String LinhVucNghienCuu;
     private String PhuongPhapThucHien;
@@ -24,37 +27,36 @@ public class DeTai {
 	super();
     }
 
-    public DeTai(int maDeTai, String tenDeTai, String mucTieu, String moTaYTuong, String tinhCapThiet,
-	    String linhVucNghienCuu, String phuongPhapThucHien, String kinhPhi, String loaiDeTai, Date thoiGianBatDau,
-	    Date thoiGianKetThuc, Date thoiGianPhanBien, int maGiangVienHuongDan, int maNguoiDuyetDeTai, int maHoiDong,
-	    int maDeTaiDuocCap) {
-	super();
-	MaDeTai = maDeTai;
-	TenDeTai = tenDeTai;
-	MucTieu = mucTieu;
-	MoTaYTuong = moTaYTuong;
-	TinhCapThiet = tinhCapThiet;
-	LinhVucNghienCuu = linhVucNghienCuu;
-	PhuongPhapThucHien = phuongPhapThucHien;
-	KinhPhi = kinhPhi;
-	LoaiDeTai = loaiDeTai;
-	ThoiGianBatDau = thoiGianBatDau;
-	ThoiGianKetThuc = thoiGianKetThuc;
-	ThoiGianPhanBien = thoiGianPhanBien;
-	MaGiangVienHuongDan = maGiangVienHuongDan;
-	MaNguoiDuyetDeTai = maNguoiDuyetDeTai;
-	MaHoiDong = maHoiDong;
-	MaDeTaiDuocCap = maDeTaiDuocCap;
-    }
+    public DeTai(String hoTen, String tenLoaiNguoiDung, String tenDeTai, String mucTieu, String tenTrangThai, Date thoiGianBatDau,
+			Date thoiGianKetThuc, Date thoiGianPhanBien) {
+		super();
+		HoTen = hoTen;
+		TenLoaiNguoiDung = tenLoaiNguoiDung;
+		TenDeTai = tenDeTai;
+		MucTieu = mucTieu;
+		TenTrangThai = tenTrangThai;
+		ThoiGianBatDau = thoiGianBatDau;
+		ThoiGianKetThuc = thoiGianKetThuc;
+		ThoiGianPhanBien = thoiGianPhanBien;
+	}
 
-    public DeTai(int maDeTai, String tenDeTai, String phuongPhapThucHien, String kinhPhi, String loaiDeTai) {
-	super();
-	MaDeTai = maDeTai;
-	TenDeTai = tenDeTai;
-	PhuongPhapThucHien = phuongPhapThucHien;
-	KinhPhi = kinhPhi;
-	LoaiDeTai = loaiDeTai;
-    }
+
+
+	public String getHoTen() {
+		return HoTen;
+	}
+
+	public void setHoTen(String hoTen) {
+		HoTen = hoTen;
+	}
+
+	public String getTenLoaiNguoiDung() {
+		return TenLoaiNguoiDung;
+	}
+
+	public void setTenLoaiNguoiDung(String tenLoaiNguoiDung) {
+		TenLoaiNguoiDung = tenLoaiNguoiDung;
+	}
 
     public String getMucTieu() {
 	return MucTieu;
@@ -63,6 +65,14 @@ public class DeTai {
     public void setMucTieu(String mucTieu) {
 	MucTieu = mucTieu;
     }
+
+    public String getTenTrangThai() {
+		return TenTrangThai;
+	}
+
+	public void setTenTrangThai(String tenTrangThai) {
+		TenTrangThai = tenTrangThai;
+	}
 
     public String getMoTaYTuong() {
 	return MoTaYTuong;

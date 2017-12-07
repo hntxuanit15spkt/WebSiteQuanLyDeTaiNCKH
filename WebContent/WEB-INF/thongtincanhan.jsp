@@ -182,7 +182,17 @@
 							<div class="form-group">
 								<label class="control-label col-sm-4">Trạng thái:</label>
 								<div class="col-sm-3">
-									<input type="text" class="form-control" value='${thongtin.getTrangThaiNguoiDung()}'/>
+									<c:if test="${thongtin.getTrangThaiNguoiDung()}">
+										<c:if test="${thongtin.getMaLoaiNguoiDung()==3}">
+											<input type="text" class="form-control" value='Còn đang học'/>
+										</c:if>
+										<c:if test="${thongtin.getMaLoaiNguoiDung()==4} or ${thongtin.getMaLoaiNguoiDung()==5}">
+											<input type="text" class="form-control" value='Còn đang dạy'/>
+										</c:if>
+									</c:if>
+									<c:if test="${thongtin.getTrangThaiNguoiDung()==false}">
+										<input type="text" class="form-control" value='Đã nghĩ'/>
+									</c:if>
 								</div>
 							</div>
 							<div class="form-group">
@@ -309,5 +319,20 @@
 		});
 	});
 	</script>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/material.min.js" type="text/javascript"></script>
+	<!--  Charts Plugin -->
+	<script src="js/chartist.min.js"></script>
+	<!--  Dynamic Elements plugin -->
+	<script src="js/arrive.min.js"></script>
+	<!--  PerfectScrollbar Library -->
+	<script src="js/perfect-scrollbar.jquery.min.js"></script>
+	<!--  Notifications Plugin    -->
+	<script src="js/bootstrap-notify.js"></script>
+	<!--  Google Maps Plugin    -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+	<!-- Material Dashboard javascript methods -->
+	<script src="js/material-dashboard.js?v=1.2.0"></script>
 </body>
 </html>

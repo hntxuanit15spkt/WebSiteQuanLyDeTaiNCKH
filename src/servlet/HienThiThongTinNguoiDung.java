@@ -26,16 +26,6 @@ public class HienThiThongTinNguoiDung extends HttpServlet {
 	super();
     }
 
-    @Override
-   /* public void init(ServletConfig config) throws ServletException {
-	super.init(config);
-	try {
-	    Class.forName("com.mysql.jdbc.Driver");// initialize jdbc driver
-	} catch (ClassNotFoundException e) {
-	    throw new ServletException(e);
-	}
-    }*/
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	HttpSession session = request.getSession();
@@ -46,8 +36,8 @@ public class HienThiThongTinNguoiDung extends HttpServlet {
 	    Connection c = null;
 
 	    try {
+	    c = connect.DBConnect.getConnection();
 		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "+ "'" + username + "'";
-		c = connect.DBConnect.getConnection();
 		Statement stmt = (Statement) c.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 

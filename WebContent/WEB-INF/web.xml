@@ -17,6 +17,7 @@
     <servlet-name>DangNhap</servlet-name>
     <url-pattern>/dangnhap</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>DangXuat</servlet-name>
     <servlet-class>servlet.DangXuat</servlet-class>
@@ -25,6 +26,7 @@
     <servlet-name>DangXuat</servlet-name>
     <url-pattern>/dangxuat</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>TrangChu</servlet-name>
     <servlet-class>servlet.TrangChu</servlet-class>
@@ -33,6 +35,7 @@
     <servlet-name>TrangChu</servlet-name>
     <url-pattern>/trangchu</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>KhungTen</servlet-name>
     <servlet-class>servlet.HienThiKhungTen</servlet-class>
@@ -41,6 +44,7 @@
     <servlet-name>KhungTen</servlet-name>
     <url-pattern>/khungten</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ThongTinNguoiDung</servlet-name>
     <servlet-class>servlet.HienThiThongTinNguoiDung</servlet-class>
@@ -48,5 +52,14 @@
   <servlet-mapping>
     <servlet-name>ThongTinNguoiDung</servlet-name>
     <url-pattern>/thongtin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>HienThiDeTai</servlet-name>
+    <servlet-class>servlet.HienThiDeTai</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HienThiDeTai</servlet-name>
+    <url-pattern>/detai</url-pattern>
   </servlet-mapping>
 </web-app>

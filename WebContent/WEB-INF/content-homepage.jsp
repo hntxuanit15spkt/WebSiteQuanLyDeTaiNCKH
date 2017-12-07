@@ -21,10 +21,7 @@
 	<p>Để triển khai thực hiện các đề tài nghiên cứu khoa học (NCKH)
 		cấp trường cho giảng viên và sinh viên trong năm học 2016 - 2017, đề
 		nghị các Khoa tiến hành một số công việc như sau:</p>
-	<p id="detailmore">Để triển khai thực hiện các đề tài nghiên cứu
-		khoa học (NCKH) cấp trường cho giảng viên và sinh viên trong năm học
-		2016 - 2017, đề nghị các Khoa tiến hành một số công việc như sau: 1.
-		Đối với đề tài NCKH giảng viên: giảng viên đăng ký đề tài NCKH cấp
+	<p id="detailmore">1.	Đối với đề tài NCKH giảng viên: giảng viên đăng ký đề tài NCKH cấp
 		trường sẽ thực hiện trong năm học 2016 - 2017. Chủ nhiệm các đề tài
 		thực hiện các hồ sơ sau: - Phiếu đăng ký đề tài NCKH (BM01/QT01/QLKH)
 		- Thuyết minh đề tài NCKH (BM02/QT01/QLKH) - Lý lịch khoa học của chủ
@@ -32,7 +29,8 @@
 		khoa học Khoa đánh giá sơ bộ các đề tài NCKH của giảng viên theo mẫu
 		Phiếu đánh giá đề tài NCKH (BM04/ QT01/QLKH). Khoa tổng hợp danh sách
 		đề tài NCKH giảng viên theo biểu mẫu BM05/QT01/QLKH để gửi về cho P.
-		QLKH-SĐH. 2. Đối với đề tài NCKH sinh viên: các Khoa triển khai cho
+		QLKH-SĐH.<br />
+		2. Đối với đề tài NCKH sinh viên: các Khoa triển khai cho
 		sinh viên đăng ký đề tài NCKH thực hiện trong năm học 2016 - 2017 theo
 		biểu mẫu BM01/QT02/NCKH. Khoa thực hiện đánh giá từng đề tài đăng ký
 		theo biểu mẫu BM02/QT02/NCKH và tổng hợp danh sách đề tài NCKH sinh
