@@ -19,17 +19,17 @@ public class DeTai {
     private int MaNguoiDuyetDeTai;
     private int MaHoiDong;
     private int MaDeTaiDuocCap;
+    private int MaNghienCuuVien;
+    private String TrangThai;
 
     public DeTai() {
 	super();
     }
 
-    public DeTai(int maDeTai, String tenDeTai, String mucTieu, String moTaYTuong, String tinhCapThiet,
-	    String linhVucNghienCuu, String phuongPhapThucHien, String kinhPhi, String loaiDeTai, Date thoiGianBatDau,
-	    Date thoiGianKetThuc, Date thoiGianPhanBien, int maGiangVienHuongDan, int maNguoiDuyetDeTai, int maHoiDong,
-	    int maDeTaiDuocCap) {
+    public DeTai(String tenDeTai, String mucTieu, String moTaYTuong, String tinhCapThiet, String linhVucNghienCuu,
+	    String phuongPhapThucHien, String kinhPhi, String loaiDeTai, Date thoiGianBatDau, Date thoiGianKetThuc,
+	    int maNghienCuuVien, String trangThai) {
 	super();
-	MaDeTai = maDeTai;
 	TenDeTai = tenDeTai;
 	MucTieu = mucTieu;
 	MoTaYTuong = moTaYTuong;
@@ -40,20 +40,33 @@ public class DeTai {
 	LoaiDeTai = loaiDeTai;
 	ThoiGianBatDau = thoiGianBatDau;
 	ThoiGianKetThuc = thoiGianKetThuc;
-	ThoiGianPhanBien = thoiGianPhanBien;
-	MaGiangVienHuongDan = maGiangVienHuongDan;
-	MaNguoiDuyetDeTai = maNguoiDuyetDeTai;
-	MaHoiDong = maHoiDong;
-	MaDeTaiDuocCap = maDeTaiDuocCap;
+	/*
+	 * ThoiGianPhanBien = thoiGianPhanBien; MaGiangVienHuongDan =
+	 * maGiangVienHuongDan; MaNguoiDuyetDeTai = maNguoiDuyetDeTai; MaHoiDong =
+	 * maHoiDong; MaDeTaiDuocCap = maDeTaiDuocCap;
+	 */
+	MaNghienCuuVien = maNghienCuuVien;
+	TrangThai = trangThai;
     }
 
-    public DeTai(int maDeTai, String tenDeTai, String phuongPhapThucHien, String kinhPhi, String loaiDeTai) {
-	super();
-	MaDeTai = maDeTai;
-	TenDeTai = tenDeTai;
-	PhuongPhapThucHien = phuongPhapThucHien;
-	KinhPhi = kinhPhi;
-	LoaiDeTai = loaiDeTai;
+    public DeTai(int int1, String string, String string2, String string3, String string4) {
+	// TODO Auto-generated constructor stub
+    }
+
+    public String getTrangThai() {
+	return TrangThai;
+    }
+
+    public void setTrangThai(String trangThai) {
+	TrangThai = trangThai;
+    }
+
+    public int getMaNghienCuuVien() {
+	return MaNghienCuuVien;
+    }
+
+    public void setMaNghienCuuVien(int maNghienCuuVien) {
+	MaNghienCuuVien = maNghienCuuVien;
     }
 
     public String getMucTieu() {

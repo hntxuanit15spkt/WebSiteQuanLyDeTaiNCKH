@@ -18,52 +18,52 @@ import model.ThongTinNguoiDung;
 
 //@WebServlet("/TrangChu")
 public class TrangChu extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public TrangChu() {
-		super();
-	}
+    public TrangChu() {
+	super();
+    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("username");
-		if (username != null) {
-			request.setCharacterEncoding("utf-8");
-			response.setCharacterEncoding("utf-8");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException {
+	HttpSession session = request.getSession();
+	String username = (String) session.getAttribute("username");
+	if (username != null) {
+	    request.setCharacterEncoding("utf-8");
+	    response.setCharacterEncoding("utf-8");
 
-			List<ThongTinNguoiDung> thongtin = new ArrayList<ThongTinNguoiDung>();
-			Connection c = null;
+	    List<ThongTinNguoiDung> thongtin = new ArrayList<ThongTinNguoiDung>();
+	    Connection c = null;
 
-			try {
-				c = connect.DBConnect.getConnection();
-				String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "
-						+ "'" + username + "'";
-				Statement stmt = (Statement) c.createStatement();
-				ResultSet rs = stmt.executeQuery(sql);
+	    try {
+		c = connect.DBConnect.getConnection();
+		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "
+			+ "'" + username + "'";
+		Statement stmt = (Statement) c.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
 
-				while (rs.next()) {
-					ThongTinNguoiDung tthoten = new ThongTinNguoiDung(rs.getString("HoTen"),
-							rs.getString("TenLoaiNguoiDung"));
-					thongtin.add(tthoten);
-				}
+		while (rs.next()) {
+		    ThongTinNguoiDung tthoten = new ThongTinNguoiDung(rs.getString("HoTen"),
+			    rs.getString("TenLoaiNguoiDung"));
+		    thongtin.add(tthoten);
+		}
 
-			} catch (Exception e) {
-				throw new ServletException(e);
-			}
+	    } catch (Exception e) {
+		throw new ServletException(e);
+	    }
 
-			finally {
-				try {
-					if (c != null)
-						c.close();
-				} catch (Exception e) {
-					throw new ServletException(e);
-				}
-			}
-			request.setAttribute("thongtin", thongtin);
-			request.getRequestDispatcher("/WEB-INF/main.jsp").forward(request, response);
-		} else
-			response.sendRedirect("dangnhap");
-	}
+	    finally {
+		try {
+		    if (c != null)
+			c.close();
+		} catch (Exception e) {
+		    throw new ServletException(e);
+		}
+	    }
+	    request.setAttribute("thongtin", thongtin);
+	    request.getRequestDispatcher("/WEB-INF/main.jsp").forward(request, response);
+	} else
+	    response.sendRedirect("dangnhap");
+    }
 
 }
