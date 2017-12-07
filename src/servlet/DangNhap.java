@@ -38,7 +38,7 @@ public class DangNhap extends HttpServlet {
 	Connection c = null;
 
 	try {
-		c = connect.DBConnect.getConnection();
+	    c = connect.DBConnect.getConnection();
 	    String sql = "select * from taikhoan, nguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and taikhoan.tendangnhap = "
 		    + "'" + username + "'" + "and nguoidung.maloainguoidung = " + "'" + maloainguoidung + "'";
 	    Statement stmt = (Statement) c.createStatement();

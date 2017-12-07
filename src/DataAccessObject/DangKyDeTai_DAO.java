@@ -54,7 +54,7 @@ public class DangKyDeTai_DAO {
 	    psmt = c.prepareStatement(sql);
 	    psmt.setInt(1, maDeTai);
 	    psmt.setInt(2, maNghienCuuVien);
-	    psmt.executeQuery();
+	    psmt.executeUpdate();
 
 	} catch (SQLException e) {
 	    throw new ServletException(e);
