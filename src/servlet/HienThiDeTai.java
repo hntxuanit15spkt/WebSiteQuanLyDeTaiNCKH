@@ -16,11 +16,8 @@ import javax.servlet.http.HttpSession;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
-import model.DeTai;
+import model.DanhSachDeTai;
 
-/**
- * Servlet implementation class HienThiDeTai
- */
 @WebServlet("/HienThiDeTai")
 public class HienThiDeTai extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -30,7 +27,7 @@ public class HienThiDeTai extends HttpServlet {
 	HttpSession session = request.getSession();
 	String username = (String) session.getAttribute("username");
 	if (username != null) {
-	    List<DeTai> lstDeTai = new ArrayList<DeTai>();
+	    List<DanhSachDeTai> lstDeTai = new ArrayList<DanhSachDeTai>();
 	    Connection c = null;
 	    try {
 		c = connect.DBConnect.getConnection();
@@ -41,21 +38,18 @@ public class HienThiDeTai extends HttpServlet {
 			+ "and nguoidung.MaNguoiDung = detai_sinhvien.MaSinhVien\n"
 			+ "and detai_sinhvien.MaDeTai = detai.MaDeTai\n"
 			+ "and detai.MaDeTai = detai_trangthai.MaDeTai\n"
-			+ "and detai_trangthai.MaTrangThai = trangthai.MaTrangThai\n" + "and taikhoan.TenDangNhap = "
-			+ "'" + username + "'";
+			+ "and detai_trangthai.MaTrangThai = trangthai.MaTrangThai\n" + "and (taikhoan.TenDangNhap = "
+			+ "'" + username + "'" + " or detai.MaGiangVienHuongDan = " + "'" + username + "')";
 		Statement stmt = (Statement) c.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
-
-		/*
-		 * while (rs.next()) { DeTai dt = new DeTai(rs.getString("HoTen"),
-		 * rs.getString("TenLoaiNguoiDung"), rs.getString("TenDeTai"),
-		 * rs.getString("MucTieu"), rs.getString("TenTrangThai"),
-		 * rs.getDate("ThoiGianBatDau"), rs.getDate("ThoiGianKetThuc"),
-		 * rs.getDate("ThoiGianPhanBien"));
-		 * 
-		 * lstDeTai.add(dt); }
-		 */
-		request.setAttribute("thongtin", lstDeTai);
+		while (rs.next()) {
+		    DanhSachDeTai dt = new DanhSachDeTai(rs.getString("HoTen"), rs.getString("TenLoaiNguoiDung"),
+			    rs.getString("TenDeTai"), rs.getString("MucTieu"), rs.getString("TenTrangThai"),
+			    rs.getDate("ThoiGianBatDau"), rs.getDate("ThoiGianKetThuc"),
+			    rs.getDate("ThoiGianPhanBien"));
+		    lstDeTai.add(dt);
+		}
+		request.setAttribute("detai", lstDeTai);
 		request.getRequestDispatcher("/WEB-INF/hienthidetai.jsp").forward(request, response);
 	    } catch (SQLException e) {
 		throw new ServletException(e);

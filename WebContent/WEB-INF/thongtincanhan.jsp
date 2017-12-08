@@ -30,13 +30,13 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li>
-						<a href="trangchu">
+					<li class="active">
+						<a href="#">
 							<i class="material-icons">dashboard</i>
 							<p>Trang Chủ</p>
 						</a>
 					</li>
-					<li class="active">
+					<li>
 						<a href="thongtin">
 							<i class="material-icons">person</i>
 							<p>Thông tin cá nhân</p>
@@ -49,10 +49,26 @@
 						</a>
 					</li>
 					<li>
-						<a href="dangkydetai"> 
-							<i class="material-icons">library_books</i>
-							<p>Đăng ký đề tài</p>
-						</a>
+						<c:forEach items="${thongtin}" var='thongtin'>
+							<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
+								<a href="DangKyDeTai"> 
+									<i class="material-icons">library_books</i>
+									<p>Đăng ký đề tài</p>
+								</a>
+							</c:if>
+							<c:if test="${thongtin.getMaLoaiNguoiDung() == 4}">
+								<a href="XacNhanHuongDan"> 
+									<i class="material-icons">library_books</i>
+									<p>Danh sách chờ xác nhận</p>
+								</a>
+							</c:if>
+							<c:if test="${thongtin.getMaLoaiNguoiDung() == 5}">
+								<a href="DanhSachChoDuyet"> 
+									<i class="material-icons">library_books</i>
+									<p>Danh sách chờ duyệt</p>
+								</a>
+							</c:if>
+						</c:forEach>
 					</li>
 					<li>
 						<a href="ketquanghiemthu"> 
@@ -94,7 +110,7 @@
 						<form action="thongtin" method='post' class="form-horizontal" id='thongtin-form'>
 							<c:forEach items="${thongtin}" var="thongtin">
 							<div class="form-group">
-								<label class="control-label col-sm-4">Tên đăng nhập:</label>
+								<label class="control-label col-sm-4">Mã số sinh viên:</label>
 								<div class="col-sm-4">
 									<label class="control-label col-sm-4"><i>${thongtin.getTenDangNhap()}</i></label>
 									<%-- <input type="text" class="form-control" value='${thongtin.getTenDangNhap()}'/> --%>

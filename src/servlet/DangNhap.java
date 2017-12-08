@@ -40,7 +40,7 @@ public class DangNhap extends HttpServlet {
 	try {
 	    c = connect.DBConnect.getConnection();
 	    String sql = "select * from taikhoan, nguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and taikhoan.tendangnhap = "
-		    + "'" + username + "'" + "and nguoidung.maloainguoidung = " + "'" + maloainguoidung + "'";
+		    + "'" + username + "'" + " and nguoidung.maloainguoidung = " + "'" + maloainguoidung + "'";
 	    Statement stmt = (Statement) c.createStatement();
 	    ResultSet rs = stmt.executeQuery(sql);
 
@@ -48,7 +48,11 @@ public class DangNhap extends HttpServlet {
 		if (rs.getString("tendangnhap").equals(username) && rs.getString("matkhau").equals(password)) {
 		    HttpSession session = request.getSession();
 		    session.setAttribute("username", username);
-		    response.sendRedirect("trangchu");
+		    session.setAttribute("maloainguoidung", request.getParameter("loainguoidung"));
+		    if (maloainguoidung == 1)
+			response.sendRedirect("Admin");
+		    else
+			response.sendRedirect("trangchu");
 		} else
 		    response.sendRedirect("dangnhap");
 	    } else

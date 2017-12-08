@@ -55,6 +55,10 @@ public class DangKyDeTai_DAO {
 	    psmt.setInt(1, maDeTai);
 	    psmt.setInt(2, maNghienCuuVien);
 	    psmt.executeUpdate();
+	    sql = "insert into detai_trangthai (MaDeTai, MaTrangThai, ThoiGianThayDoi) values (?,1, CURDATE())";
+	    psmt = c.prepareStatement(sql);
+	    psmt.setInt(1, maDeTai);
+	    psmt.executeUpdate();
 
 	} catch (SQLException e) {
 	    throw new ServletException(e);

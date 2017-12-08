@@ -24,10 +24,6 @@ public class DeTai {
 	super();
     }
 
-    public DeTai(int int1, String string, String string2, String string3, String string4) {
-	// TODO Auto-generated constructor stub
-    }
-
     public DeTai(String tendetai2, String muctieu2, String motaytuong2, String tinhcapthiet2, String linhvucnghiencuu2,
 	    String phuongphapthuchien2, BigDecimal kinhphi2, String thoiGianBatDau2, String thoiGianKetThuc2,
 	    int maGiangVienHuongDan2) {
@@ -41,6 +37,21 @@ public class DeTai {
 	ThoiGianBatDau = thoiGianBatDau2;
 	ThoiGianKetThuc = thoiGianKetThuc2;
 	MaGiangVienHuongDan = maGiangVienHuongDan2;
+    }
+
+    public DeTai(int MaDeTai, String TenDeTai, String MucTieu, String MoTaYTuong, String TinhCapThiet,
+	    String LinhVucNghienCuu, String PhuongPhapThucHien, BigDecimal KinhPhi, String ThoiGianBatDau,
+	    String ThoiGianKetThuc) {
+	this.MaDeTai = MaDeTai;
+	this.TenDeTai = TenDeTai;
+	this.MucTieu = MucTieu;
+	this.MoTaYTuong = MoTaYTuong;
+	this.TinhCapThiet = TinhCapThiet;
+	this.LinhVucNghienCuu = LinhVucNghienCuu;
+	this.PhuongPhapThucHien = PhuongPhapThucHien;
+	this.KinhPhi = KinhPhi;
+	this.ThoiGianBatDau = ThoiGianBatDau;
+	this.ThoiGianKetThuc = ThoiGianKetThuc;
     }
 
     public String getMucTieu() {

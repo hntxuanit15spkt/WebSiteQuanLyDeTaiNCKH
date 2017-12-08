@@ -10,11 +10,9 @@
 <link rel="icon" type="image/png" href="images/favicon.png" />
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 <meta name="viewport" content="width=device-width" />
-<!-- Bootstrap core CSS     -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
-<!--  Material Dashboard CSS    -->
+<link href="css/admin.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
-<!--     Fonts and icons     -->
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
 	rel="stylesheet" type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons'
@@ -35,7 +33,7 @@
 					<li class="active">
 						<a href="#">
 							<i class="material-icons">dashboard</i>
-							<p>Trang Chủ</p>
+							<p>HOME</p>
 						</a>
 					</li>
 					<li>
@@ -51,26 +49,10 @@
 						</a>
 					</li>
 					<li>
-						<c:forEach items="${thongtin}" var='thongtin'>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
-								<a href="DangKyDeTai"> 
-									<i class="material-icons">library_books</i>
-									<p>Đăng ký đề tài</p>
-								</a>
-							</c:if>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 4}">
-								<a href="XacNhanHuongDan"> 
-									<i class="material-icons">library_books</i>
-									<p>Danh sách chờ xác nhận</p>
-								</a>
-							</c:if>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 5}">
-								<a href="DanhSachChoDuyet"> 
-									<i class="material-icons">library_books</i>
-									<p>Danh sách chờ duyệt</p>
-								</a>
-							</c:if>
-						</c:forEach>
+						<a href="DangKyDeTai"> 
+							<i class="material-icons">library_books</i>
+							<p>Đăng ký đề tài</p>
+						</a>
 					</li>
 					<li>
 						<a href="ketquanghiemthu"> 
@@ -103,26 +85,60 @@
 							<span class="icon-bar"></span> 
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"> Trang Chủ </a>
+						<a class="navbar-brand" href="#"> Quản trị hệ thống </a>
 					</div>
 				</div>
 			</div>
 			<div class='content'>
 				<div class="container-fluid">
-					<h2>Thông báo về việc đăng ký đề tài nghiên cứu khoa học giảng
-						viên và sinh viên năm học 2016 - 2017</h2>
-					<h5>
-						<span class="glyphicon glyphicon-time"></span> Được đăng bởi Xuân đẹp trai, 13/12/2017.
-					</h5>
-					<p>
-						Để triển khai thực hiện các đề tài nghiên cứu khoa học (NCKH) cấp trường cho giảng viên và sinh viên trong năm học 2016 - 2017, đề nghị các Khoa tiến hành một số công việc như sau:
-					</p>
-					<p>
-						1. Đối với đề tài NCKH giảng viên: giảng viên đăng ký đề tài NCKH cấp trường sẽ thực hiện trong năm học 2016 - 2017. Chủ nhiệm các đề tài thực hiện các hồ sơ sau:<br /> 
-						- Phiếu đăng ký đề tài NCKH (BM01/QT01/QLKH)<br />
-						- Thuyết minh đề tài NCKH (BM02/QT01/QLKH)<br />
-						- Lý lịch khoa học của chủ nhiệm đề tài (BM03/QT01/QLKH) Dựa vào các hồ sơ nêu trên, Hội đồng khoa học Khoa đánh giá sơ bộ các đề tài NCKH của giảng viên theo mẫu Phiếu đánh giá đề tài NCKH (BM04/ QT01/QLKH). Khoa tổng hợp danh sách đề tài NCKH giảng viên theo biểu mẫu BM05/QT01/QLKH để gửi về cho P. QLKH-SĐH. <br />
-						2. Đối với đề tài NCKH sinh viên: các Khoa triển khai cho sinh viên đăng ký đề tài NCKH thực hiện trong năm học 2016 - 2017 theo biểu mẫu BM01/QT02/NCKH. Khoa thực hiện đánh giá từng đề tài đăng ký theo biểu mẫu BM02/QT02/NCKH và tổng hợp danh sách đề tài NCKH sinh viên theo biểu mẫu BM03/QT02/NCKH để gửi về cho P. QLKH-SĐH. Các hồ sơ nêu trên gửi về P. QLKH – SĐH trước ngày 01/10/2016. Rất mong khoa quan tâm động viên giảng viên, sinh viên tích cực tham gia.</p>
+					<div class="market-updates">
+						<a href='#'>
+							<div class="col-md-4 market-update-gd">
+								<div class="market-update-block clr-block-1">
+									<div class="col-md-8 market-update-left">
+										<h3>83</h3>
+										<h4>SINH VIÊN</h4>
+										<p><i>Nghiên cứu viên</i></p>
+									</div>
+									<div class="col-md-4 market-update-right">
+										<i class="fa fa-file-text-o"> </i>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</a>
+						<a href='#'>
+							<div class="col-md-4 market-update-gd">
+								<div class="market-update-block clr-block-2">
+									<div class="col-md-8 market-update-left">
+										<h3>135</h3>
+										<h4>GIẢNG VIÊN</h4>
+										<p>Hướng dẫn, kiểm duyệt</p>
+									</div>
+									<div class="col-md-4 market-update-right">
+										<i class="fa fa-file-text-o"> </i>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</a>
+						<a href='#'>
+							<div class="col-md-4 market-update-gd">
+								<div class="market-update-block clr-block-3">
+									<div class="col-md-8 market-update-left">
+										<h3>23</h3>
+										<h4>ĐỀ TÀI</h4>
+										<p>Danh sách các đề tài</p>
+									</div>
+									<div class="col-md-4 market-update-right">
+										<i class="fa fa-envelope-o"> </i>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</a>
+						<div class="clearfix"> </div>
+					</div>
 				</div>
 			</div>
 			<footer class="footer">

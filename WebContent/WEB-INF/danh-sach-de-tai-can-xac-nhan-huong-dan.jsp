@@ -126,32 +126,23 @@
 								<thead>
 									<tr>
 										<th data-field="id" data-sortable="true">Tên đề tài</th>
-										<th data-field="name" data-sortable="true">Mục tiêu</th>
-										<th data-field="city" data-sortable="true">Trạng thái</th>
 										<th data-field="salary" data-sortable="true">Thời gian
 											bắt đầu</th>
 										<th data-field="country" data-sortable="true">Thời gian
 											kết thúc</th>
-										<th data-field="country" data-sortable="true">Thời gian
-											phản biện</th>
-										<th data-field="actions">Operation</th>
+										<th data-field="actions">Thao tác</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${thongtin}" var="detai">
+									<c:forEach items="${danhsachdetaicanxacnhan}" var="detai">
 										<tr>
 											<td>${detai.getTenDeTai() }</td>
-											<td>${detai.getMucTieu() }</td>
-											<td><a href='ChiTietDeTai?madetai=${detai.getMaDeTai()}'><i>${detai.getTenTrangThai()}</i></a></td>
-											<td><fmt:formatDate
-													value="${detai.getThoiGianBatDau() }" pattern="yyyy-MM-dd" /></td>
-											<td><fmt:formatDate
-													value="${detai.getThoiGianKetThuc() }" pattern="yyyy-MM-dd" /></td>
-											<td><fmt:formatDate
-													value="${detai.getThoiGianPhanBien() }"
-													pattern="yyyy-MM-dd" /></td>
-											<td><a href="XoaDeTai?madetai=${detai.getMaDeTai()}"
-												class="btn btn-danger"> <span><strong>Xóa</strong></span>
+											<td>${detai.getThoiGianBatDau() }</td>
+											<td>${detai.getThoiGianKetThuc() }</td>
+											<td><a
+												href="ChiTietDeTai_XacNhanHuongDan?madetai=${detai.getMaDeTai()}&magiangvienhuongdan=${detai.getMaGiangVienHuongDan()}"
+												class="btn btn-danger"> <span><strong>Xem
+															chi tiết</strong></span>
 											</a></td>
 										</tr>
 									</c:forEach>

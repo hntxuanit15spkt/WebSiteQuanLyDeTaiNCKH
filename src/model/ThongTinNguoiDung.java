@@ -43,6 +43,26 @@ public class ThongTinNguoiDung {
 	super();
     }
 
+    public ThongTinNguoiDung(String HoTen, String DiaChi, String SoTaiKhoanNganHang, String SoDienThoai, String Email,
+	    String MaSo, String Lop, String KhoaHoc, Date NgaySinh, boolean GioiTinh) {
+	this.HoTen = HoTen;
+	this.DiaChi = DiaChi;
+	this.SoTaiKhoanNganHang = SoTaiKhoanNganHang;
+	this.SoDienThoai = SoDienThoai;
+	this.Email = Email;
+	this.MaSo = MaSo;
+	this.Lop = Lop;
+	this.KhoaHoc = KhoaHoc;
+	this.NgaySinh = NgaySinh;
+	this.GioiTinh = GioiTinh;
+    }
+
+    public ThongTinNguoiDung(String HoTen, int MaLoaiNguoiDung, String TenLoaiNguoiDung) {
+	this.HoTen = HoTen;
+	this.MaLoaiNguoiDung = MaLoaiNguoiDung;
+	this.TenLoaiNguoiDung = TenLoaiNguoiDung;
+    }
+
     public String getTenDangNhap() {
 	return TenDangNhap;
     }

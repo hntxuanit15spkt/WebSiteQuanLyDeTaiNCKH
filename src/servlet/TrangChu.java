@@ -44,7 +44,7 @@ public class TrangChu extends HttpServlet {
 
 		while (rs.next()) {
 		    ThongTinNguoiDung tthoten = new ThongTinNguoiDung(rs.getString("HoTen"),
-			    rs.getString("TenLoaiNguoiDung"));
+			    rs.getInt("MaLoaiNguoiDung"), rs.getString("TenLoaiNguoiDung"));
 		    thongtin.add(tthoten);
 		}
 
@@ -61,7 +61,6 @@ public class TrangChu extends HttpServlet {
 		}
 	    }
 	    session.setAttribute("thongtin", thongtin);
-	    // request.setAttribute("thongtin", thongtin);
 	    request.getRequestDispatcher("/WEB-INF/main.jsp").forward(request, response);
 	} else
 	    response.sendRedirect("dangnhap");
