@@ -107,7 +107,7 @@
 				</div>
 			</div>
 			<div class='content'>
-				<form class="form-horizontal" action="dangkydetai" method="post"
+				<form class="form-horizontal" action="DanhSachChoDuyet" method="post"
 					id="reg_form">
 					<!--<fieldset style="overflow: hidden;"> bỏ cái này là mất cái size cứng của form-->
 					<legend> Chi tiết đề tài </legend>
@@ -186,7 +186,16 @@
 								name='thoigianketthuc' />
 						</div>
 					</div>
-
+					<div class="form-group">
+						<label class="col-md-4 control-label">Mã giảng viên hướng
+							dẫn</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input name="magiangvienhuongdan" disabled
+								value="${ThongTin_DeTai.getMaGiangVienHuongDan()}"
+								placeholder="Nhập vào mã giảng viên hướng dẫn"
+								class="form-control" type="text" />
+						</div>
+					</div>
 					<div class="Thongtinsinhvien1">
 						<legend> Thông tin các thành viên tham gia </legend>
 						<div class=col-md-6>
@@ -285,26 +294,56 @@
 							</div>
 							<div class="form-group">
 								<div class="col-md-4">
-									<button type="button" class="btn btn-info btn-lg"
-										background-color: #5bc0de;"
-										class="btn btn-info btn-lg">
-										<a style="color: white;"
-											href="DongYHuongDanDeTai?madetai=${ThongTin_DeTai.getMaDeTai()}">Đồng
-											ý hướng dẫn</a>
-									</button>
+									<button type="button"
+										style="color: white; background-color: #5bc0de;"
+										class="btn btn-info btn-lg" id="myBtn">Đồng ý duyệt</button>
+									<div class="modal fade" id="myModal" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header" style="padding: -1px 0px;">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+												</div>
+												<div class="modal-body" style="padding: 40px 50px;">
+													<form role="form" action="DanhSachChoDuyet" method="post">
+														<input type="hidden" name="madetai" id="userId"
+															value="${ThongTin_DeTai.getMaDeTai()}" />
+														<div class="form-group">
+															<label for="madetaiduoccap">Cấp mã đề tài: </label> <input
+																type="text" class="form-control" name="madetaiduoccap"
+																placeholder="Nhập mã đề tài muốn cấp cho đề tài này" />
+														</div>
+														<div class="form-group">
+															<label for="psw">Ngày phản biện</label> <input
+																type="date" class="form-control" name="ngayphanbien" />
+														</div>
+														<button type="submit" class="btn btn-success btn-block">
+															Cấp thông tin</button>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+									<script>
+										$(document).ready(function() {
+											$("#myBtn").click(function() {
+												debugger
+												$("#myModal").modal();
+											});
+										});
+									</script>
 								</div>
 								<div class="col-md-4">
 									<button type="button" class="btn btn-info btn-lg"
 										data-toggle="modal" data-target="#myModal">
 										<a style="color: white;"
 											href="KhongDongYDuyetDeTai?madetai=${ThongTin_DeTai.getMaDeTai()}">Không
-											hướng dẫn</a>
+											duyệt</a>
 									</button>
 									<!-- <div class="modal fade" id="myModal" role="dialog">
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-body">
-													<p>Xác nhận không hướng dẫn cho đề tài thành công</p>
+													<p>Xác nhận không duyệt cho đề tài thành công</p>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-default"
@@ -313,14 +352,15 @@
 											</div>
 										</div>
 									</div> -->
-									<!-- <button class="btn btn-primary" id="themthanhvien1">
-										<a href="#">Không đồng ý</a>
-									</button> -->
+									<%-- <button class="btn btn-primary" id="themthanhvien1">
+										<a
+											href="KhongDongYDuyetDeTai?madetai=${ThongTin_DeTai.getMaDeTai()}">Không
+											đồng ý</a>
+									</button> --%>
 								</div>
 								<div class="col-md-4">
-									<button type="button" class="btn btn-info btn-lg"
-										data-toggle="modal" data-target="#myModal">
-										<a style="color: white;" href="trangchu">Trở về trang chủ</a>
+									<button type="button" class="btn btn-info btn-lg">
+										<a style="color: white;" href="#">Trở về</a>
 									</button>
 								</div>
 							</div>

@@ -37,6 +37,21 @@ public class DanhSachDeTai {
 	ThoiGianPhanBien = thoiGianPhanBien;
     }
 
+    public DanhSachDeTai(int int1) {
+	// TODO Auto-generated constructor stub
+    }
+
+    public DanhSachDeTai(String hoTen, String tenDeTai, String tenTrangThai, Date thoiGianBatDau, Date thoiGianKetThuc,
+	    Date thoiGianPhanBien) {
+	super();
+	HoTen = hoTen;
+	TenDeTai = tenDeTai;
+	TenTrangThai = tenTrangThai;
+	ThoiGianBatDau = thoiGianBatDau;
+	ThoiGianKetThuc = thoiGianKetThuc;
+	ThoiGianPhanBien = thoiGianPhanBien;
+    }
+
     public int getMaDeTai() {
 	return MaDeTai;
     }

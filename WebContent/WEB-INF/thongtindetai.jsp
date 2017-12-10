@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png" />
 <link rel="icon" type="image/png" href="images/favicon.png" />
-<!-- Bootstrap core CSS     -->
-<link href="css/bootstrap.min.css" rel="stylesheet" type='text/css'/>
-<!--  Material Dashboard CSS    -->
-<link href="css/material-dashboard.css?v=1.2.0" rel="stylesheet" type='text/css'/>
-<!--     Fonts and icons     -->
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<meta name="viewport" content="width=device-width" />
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/admin.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+<link href="css/fresh-bootstrap-table.css" rel="stylesheet" type='text/css'/>
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
 	rel="stylesheet" type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons'
 	rel='stylesheet' type='text/css' />
-<link href="css/fresh-bootstrap-table.css" rel="stylesheet" type='text/css'/>
-<title>Danh sách đề tài</title>
+<title>Thông tin đề tài</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -34,53 +33,31 @@
 			<div class="sidebar-wrapper">
 				<ul class="nav">
 					<li>
-						<a href="trangchu">
+						<a href="Admin">
 							<i class="material-icons">dashboard</i>
-							<p>Trang Chủ</p>
+							<p>HOME</p>
 						</a>
 					</li>
 					<li>
-						<a href="thongtin">
+						<a href="ThongTinSinhVien">
 							<i class="material-icons">person</i>
-							<p>Thông tin cá nhân</p>
+							<p>Thông tin sinh viên</p>
+						</a>
+					</li>
+					<li>
+						<a href="ThongTinGiangVien"> 
+							<i class="material-icons">person</i>
+							<p>Thông tin giảng viên</p>
 						</a>
 					</li>
 					<li class="active">
-						<a href="detai"> 
+						<a href="ThongTinDeTai"> 
 							<i class="material-icons">content_paste</i>
-							<p>Danh sách đề tài</p>
+							<p>Thông tin đê tài</p>
 						</a>
 					</li>
 					<li>
-						<c:forEach items="${thongtin}" var='thongtin'>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
-								<a href="dangkydetai"> 
-									<i class="material-icons">library_books</i>
-									<p>Đăng ký đề tài</p>
-								</a>
-							</c:if>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 4}">
-								<a href="XacNhanHuongDan"> 
-									<i class="material-icons">library_books</i>
-									<p>Danh sách chờ xác nhận</p>
-								</a>
-							</c:if>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 5}">
-								<a href="DanhSachChoDuyet"> 
-									<i class="material-icons">library_books</i>
-									<p>Danh sách chờ duyệt</p>
-								</a>
-							</c:if>
-						</c:forEach>
-					</li>
-					<li>
-						<a href="ketquanghiemthu"> 
-							<i class="material-icons">bubble_chart</i>
-							<p>Xem kết quả nghiệm thu</p>
-						</a>
-					</li>
-					<li>
-						<a href="./notifications.html"> 
+						<a href="#"> 
 							<i class="material-icons text-gray">notifications</i>
 							<p>Thông báo</p>
 						</a>
@@ -94,7 +71,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="main-panel">
+		<div class="main-panel" id='ad_home'>
 			<div class="navbar navbar-transparent navbar-absolute">
 				<div class="container-fluid">
 					<div class="navbar-header">
@@ -104,42 +81,93 @@
 							<span class="icon-bar"></span> 
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"> Danh sách đề tài </a>
+						<a class="navbar-brand" href="#"> Thông tin đề tài </a>
 					</div>
 				</div>
 			</div>
 			<div class='content'>
 				<div class="container-fluid">
+					<div class="market-updates">
+						<a href='ThongTinSinhVien'>
+							<div class="col-md-4 market-update-gd">
+								<div class="market-update-block clr-block-1">
+									<div class="col-md-8 market-update-left">
+										<c:forEach items="${soluongsinhvien}" var="sv">
+											<h3>${sv.getSoLuongSinhVien()}</h3>
+										</c:forEach>
+										<h4>SINH VIÊN</h4>
+										<p><i>Nghiên cứu viên</i></p>
+									</div>
+									<div class="col-md-4 market-update-right">
+										<i class="fa fa-file-text-o"> </i>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</a>
+						<a href='ThongTinGiangVien'>
+							<div class="col-md-4 market-update-gd">
+								<div class="market-update-block clr-block-2">
+									<div class="col-md-8 market-update-left">
+										<c:forEach items="${soluonggiangvien}" var="value">
+											<h3>${value.getSoLuongSinhVien()}</h3>
+										</c:forEach>
+										<h4>GIẢNG VIÊN</h4>
+										<p>Hướng dẫn, kiểm duyệt</p>
+									</div>
+									<div class="col-md-4 market-update-right">
+										<i class="fa fa-file-text-o"> </i>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</a>
+						<a href='ThongTinDeTai'>
+							<div class="col-md-4 market-update-gd">
+								<div class="market-update-block clr-block-3">
+									<div class="col-md-8 market-update-left">
+										<c:forEach items="${soluongdetai}" var="value">
+											<h3>${value.getSoLuongDeTai()}</h3>
+										</c:forEach>
+										<h4>ĐỀ TÀI</h4>
+										<p>Danh sách các đề tài</p>
+									</div>
+									<div class="col-md-4 market-update-right">
+										<i class="fa fa-envelope-o"> </i>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</a>
+						<div class="clearfix"> </div>
+					</div>
+					<br /><br />
 					<div class="col-md-12">
-		                <div class="fresh-table toolbar-color-azure">
+		                <div class="fresh-table toolbar-color-blue">
 		                    <div class="toolbar">
-		                        <button id="alertBtn" class="btn btn-default">Danh sách các đề tài</button>
+		                        <button id="alertBtn" class="btn btn-default">Danh sách đề tài</button>
 		                    </div>
 		                    
 		                    <table id="fresh-table" class="table">
 		                        <thead>
 		                        	<tr>
+			                        	<th data-field="name" data-sortable="true">Sinh viên</th>
 			                            <th data-field="id" data-sortable="true">Tên đề tài</th>
-			                        	<th data-field="name" data-sortable="true">Mục tiêu</th>
 			                        	<th data-field="city" data-sortable="true">Trạng thái</th>
 			                        	<th data-field="salary" data-sortable="true">Thời gian bắt đầu</th>
-			                        	<th data-field="country" data-sortable="true">Thời gian kết thúc</th>
-			                        	<th data-field="country" data-sortable="true">Thời gian phản biện</th>
-			                        	<th data-field="actions">Operation</th>
+			                        	<th data-field="start-time" data-sortable="true">Thời gian kết thúc</th>
+			                        	<th data-field="end-time" data-sortable="true">Thời gian phản biện</th>
 		                        	</tr>
 		                        </thead>
 		                        <tbody>
-		                     		<c:forEach items="${detai}" var="detai">
+		                     		<c:forEach items="${quanlydetai}" var="value">
 										<tr>
-											<td>${detai.getTenDeTai() }</td>
-											<td>${detai.getMucTieu() }</td>
-											<td><i>${detai.getTenTrangThai()}</i></td>
-											<td><fmt:formatDate value="${detai.getThoiGianBatDau() }" pattern="dd-MM-yyyy"/></td>
-											<td><fmt:formatDate value="${detai.getThoiGianKetThuc() }" pattern="dd-MM-yyyy"/></td>
-											<td><fmt:formatDate value="${detai.getThoiGianPhanBien() }" pattern="dd-MM-yyyy"/></td>
-											<td><a href="ChiTietDeTai?madetai=${detai.getMaDeTai()}" class="btn btn-danger">
-												<span><strong>Chi tiết</strong></span>
-											</a></td>
+											<td>${value.getHoTen() }</td>
+											<td>${value.getTenDeTai() }</td>
+											<td><i>${value.getTenTrangThai()}</i></td>
+											<td><fmt:formatDate value="${value.getThoiGianBatDau() }" pattern="dd-MM-yyyy"/></td>
+											<td><fmt:formatDate value="${value.getThoiGianKetThuc() }" pattern="dd-MM-yyyy"/></td>
+											<td><fmt:formatDate value="${value.getThoiGianPhanBien() }" pattern="dd-MM-yyyy"/></td>
 										</tr>
 									</c:forEach>
 		                		</tbody>
@@ -233,7 +261,7 @@
             };
             
             $alertBtn.click(function () {
-                alert("You pressed on Alert");
+                alert("Bạn đang ở danh sách các đề tài!");
             });
             
         });

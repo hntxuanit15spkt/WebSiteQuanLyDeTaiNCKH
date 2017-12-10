@@ -4,21 +4,49 @@ import java.util.Date;
 
 public class ThongTinNguoiDung {
     private String TenDangNhap, MatKhau;
-    private Integer MaNguoiDung, MaBoMon, MaLoaiNguoiDung;
+    private Integer MaNguoiDung, MaBoMon, MaLoaiNguoiDung, SoLuongSinhVien, SoLuongGiaoVien;
     private String HoTen, DiaChi, SoTaiKhoanNganHang, SoDienThoai, Email, MaSo, Lop, KhoaHoc, TenLoaiNguoiDung;
     private Date NgaySinh;
     private Boolean GioiTinh, TrangThaiNguoiDung;
 
-    public ThongTinNguoiDung(String hoTen, String tenLoaiNguoiDung) {
+    public ThongTinNguoiDung(Integer soLuongSinhVien) {
+	super();
+	SoLuongSinhVien = soLuongSinhVien;
+    }
+
+    public ThongTinNguoiDung(String hoTen, Integer maLoaiNguoiDung, String tenLoaiNguoiDung) {
 	super();
 	HoTen = hoTen;
+	MaLoaiNguoiDung = maLoaiNguoiDung;
 	TenLoaiNguoiDung = tenLoaiNguoiDung;
+    }
+
+    public ThongTinNguoiDung(String tenDangNhap, String matKhau, String hoTen, String soDienThoai, String email,
+	    Boolean trangThaiNguoiDung) {
+	super();
+	TenDangNhap = tenDangNhap;
+	MatKhau = matKhau;
+	HoTen = hoTen;
+	SoDienThoai = soDienThoai;
+	Email = email;
+	TrangThaiNguoiDung = trangThaiNguoiDung;
+    }
+
+    public ThongTinNguoiDung(String tenDangNhap, String matKhau, String hoTen, String soDienThoai, Date ngaySinh,
+	    Boolean trangThaiNguoiDung) {
+	super();
+	TenDangNhap = tenDangNhap;
+	MatKhau = matKhau;
+	HoTen = hoTen;
+	SoDienThoai = soDienThoai;
+	NgaySinh = ngaySinh;
+	TrangThaiNguoiDung = trangThaiNguoiDung;
     }
 
     public ThongTinNguoiDung(String tenDangNhap, String matKhau, Integer maNguoiDung, Integer maBoMon,
 	    Integer maLoaiNguoiDung, String hoTen, String diaChi, String soTaiKhoanNganHang, String soDienThoai,
-	    String email, String maSo, String lop, String khoaHoc, String tenLoaiNguoiDung, Date ngaySinh,
-	    Boolean gioiTinh, Boolean trangThaiNguoiDung) {
+	    String email, String lop, String khoaHoc, String tenLoaiNguoiDung, Date ngaySinh, Boolean gioiTinh,
+	    Boolean trangThaiNguoiDung) {
 	super();
 	TenDangNhap = tenDangNhap;
 	MatKhau = matKhau;
@@ -30,7 +58,6 @@ public class ThongTinNguoiDung {
 	SoTaiKhoanNganHang = soTaiKhoanNganHang;
 	SoDienThoai = soDienThoai;
 	Email = email;
-	MaSo = maSo;
 	Lop = lop;
 	KhoaHoc = khoaHoc;
 	TenLoaiNguoiDung = tenLoaiNguoiDung;
@@ -43,8 +70,35 @@ public class ThongTinNguoiDung {
 	super();
     }
 
-    public ThongTinNguoiDung(String HoTen, String DiaChi, String SoTaiKhoanNganHang, String SoDienThoai, String Email,
-	    String MaSo, String Lop, String KhoaHoc, Date NgaySinh, boolean GioiTinh) {
+    public ThongTinNguoiDung(String hoTen, String diaChi, String soTaiKhoanNganHang, String soDienThoai, String email,
+	    String maSo, String lop, String khoaHoc, java.sql.Date ngaySinh, boolean gioiTinh) {
+	HoTen = hoTen;
+	DiaChi = diaChi;
+	SoTaiKhoanNganHang = soTaiKhoanNganHang;
+	SoDienThoai = soDienThoai;
+	Email = email;
+	Lop = lop;
+	KhoaHoc = khoaHoc;
+	NgaySinh = ngaySinh;
+	GioiTinh = gioiTinh;
+	MaSo = maSo;
+    }
+
+    public ThongTinNguoiDung(String hoTen, String tenLoaiNguoiDung) {
+	HoTen = hoTen;
+	TenLoaiNguoiDung = tenLoaiNguoiDung;
+	// TODO Auto-generated constructor stub
+    }
+
+    public ThongTinNguoiDung(String TenDangNhap, String MatKhau, int MaNguoiDung, int MaBoMon, int MaLoaiNguoiDung,
+	    String HoTen, String DiaChi, String SoTaiKhoanNganHang, String SoDienThoai, String Email, String MaSo,
+	    String Lop, String KhoaHoc, String TenLoaiNguoiDung, java.sql.Date NgaySinh, boolean GioiTinh,
+	    boolean TrangThaiNguoiDung) {
+	this.TenDangNhap = TenDangNhap;
+	this.MatKhau = MatKhau;
+	this.MaNguoiDung = MaNguoiDung;
+	this.MaBoMon = MaBoMon;
+	this.MaLoaiNguoiDung = MaLoaiNguoiDung;
 	this.HoTen = HoTen;
 	this.DiaChi = DiaChi;
 	this.SoTaiKhoanNganHang = SoTaiKhoanNganHang;
@@ -53,14 +107,10 @@ public class ThongTinNguoiDung {
 	this.MaSo = MaSo;
 	this.Lop = Lop;
 	this.KhoaHoc = KhoaHoc;
+	this.TenLoaiNguoiDung = TenLoaiNguoiDung;
 	this.NgaySinh = NgaySinh;
 	this.GioiTinh = GioiTinh;
-    }
-
-    public ThongTinNguoiDung(String HoTen, int MaLoaiNguoiDung, String TenLoaiNguoiDung) {
-	this.HoTen = HoTen;
-	this.MaLoaiNguoiDung = MaLoaiNguoiDung;
-	this.TenLoaiNguoiDung = TenLoaiNguoiDung;
+	this.TrangThaiNguoiDung = TrangThaiNguoiDung;
     }
 
     public String getTenDangNhap() {
@@ -85,6 +135,22 @@ public class ThongTinNguoiDung {
 
     public void setMaNguoiDung(Integer maNguoiDung) {
 	MaNguoiDung = maNguoiDung;
+    }
+
+    public Integer getSoLuongSinhVien() {
+	return SoLuongSinhVien;
+    }
+
+    public void setSoLuongSinhVien(Integer soLuongSinhVien) {
+	SoLuongSinhVien = soLuongSinhVien;
+    }
+
+    public Integer getSoLuongGiaoVien() {
+	return SoLuongGiaoVien;
+    }
+
+    public void setSoLuongGiaoVien(Integer soLuongGiaoVien) {
+	SoLuongGiaoVien = soLuongGiaoVien;
     }
 
     public Integer getMaBoMon() {

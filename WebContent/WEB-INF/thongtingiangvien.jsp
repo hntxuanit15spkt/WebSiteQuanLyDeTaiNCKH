@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,20 +20,20 @@
 	rel="stylesheet" type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons'
 	rel='stylesheet' type='text/css' />
-<title>Quản trị hệ thống</title>
+<title>Thông tin giảng viên</title>
 </head>
 <body>
 	<div class="wrapper">
 		<div class="sidebar" data-color="purple" data-image="images/sidebar-1.jpg">
 			<div class="logo">
 				<c:forEach items="${thongtin}" var="value">
-					<a href="Admin" class="simple-text">${value.getHoTen()}</a>
-					<a href="Admin" class="simple-text" style="font-size: 12px">${value.getTenLoaiNguoiDung()}</a>
+					<a href="trangchu" class="simple-text">${value.getHoTen()}</a>
+					<a href="trangchu" class="simple-text" style="font-size: 12px">${value.getTenLoaiNguoiDung()}</a>
 				</c:forEach>
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="active">
+					<li>
 						<a href="Admin">
 							<i class="material-icons">dashboard</i>
 							<p>HOME</p>
@@ -44,7 +45,7 @@
 							<p>Thông tin sinh viên</p>
 						</a>
 					</li>
-					<li>
+					<li class="active">
 						<a href="ThongTinGiangVien"> 
 							<i class="material-icons">person</i>
 							<p>Thông tin giảng viên</p>
@@ -81,7 +82,7 @@
 							<span class="icon-bar"></span> 
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"> Quản trị hệ thống </a>
+						<a class="navbar-brand" href="#"> Thông tin giảng viên </a>
 					</div>
 				</div>
 			</div>
@@ -143,41 +144,46 @@
 					</div>
 					<br /><br />
 					<div class="col-md-12">
-		                <div class="fresh-table toolbar-color-red">
+		                <div class="fresh-table toolbar-color-orange">
 		                    <div class="toolbar">
-		                        <button class="btn btn-default">Danh sách người quản lý</button>
-		                        <a href='#themquanly'><button id="themtaikhoan" class="btn btn-default">Thêm tài khoản</button></a>
+		                        <button id="alertBtn" class="btn btn-default">Danh sách giảng viên</button>
+		                        <a href='#themgiangvien'><button id="themtaikhoan" class="btn btn-default">Thêm tài khoản</button></a>
 		                    </div>
 		                    
 		                    <table id="fresh-table" class="table">
 		                        <thead>
 		                        	<tr>
-			                            <th data-field="id" data-sortable="true">Tên đăng nhập</th>
-			                        	<th data-field="name" data-sortable="true">Tên người quản lý</th>
+			                            <th data-field="id" data-sortable="true">Mã số</th>
+			                        	<th data-field="name" data-sortable="true">Họ và Tên</th>
 			                        	<th data-field="city" data-sortable="true">Số điện thoại</th>
-			                        	<th data-field="salary" data-sortable="true">Email</th>
+			                        	<th data-field="salary" data-sortable="true">Ngày sinh</th>
 			                        	<th data-field="password">Mật khẩu</th>
 			                        	<th data-field="country" data-sortable="true">Trạng thái</th>
 			                        	<th data-field="actions">Operation</th>
 		                        	</tr>
 		                        </thead>
 		                        <tbody>
-		                     		<c:forEach items="${quanly}" var="value">
+		                     		<c:forEach items="${quanlygiangvien}" var="value">
 										<tr>
 											<td>${value.getTenDangNhap() }</td>
 											<td>${value.getHoTen() }</td>
 											<td>${value.getSoDienThoai()}</td>
-											<td>${value.getEmail()}</td>
+											<td><fmt:formatDate value="${value.getNgaySinh() }" pattern="dd-MM-yyyy"/></td>
 											<td>${value.getMatKhau()}</td>
 											<c:if test="${value.getTrangThaiNguoiDung()}">
-												<td>Khả dụng</td>
-												<td><a href="EditNguoiQuanLy?tendangnhap=${value.getTenDangNhap()}&maloainguoidung=2" class="btn btn-danger"><span><strong>Chặn</strong></span></a></td>
+												<td><i>Còn đang dạy</i></td>
+												<td>
+													<form action="ThongTinGiangVien?tendangnhap=${value.getTenDangNhap()}" method="post">
+														<a href="EditNguoiQuanLy?tendangnhap=${value.getTenDangNhap()}&maloainguoidung=4" class="btn btn-danger"><span><strong>Khóa</strong></span></a>
+														<input type='submit' class="btn btn-danger" value='Xóa'/>
+													</form>
+												</td>
 											</c:if>
 											<c:if test="${value.getTrangThaiNguoiDung()==false}">
-												<td>Đã chặn</td>
+												<td><i>Đã nghĩ</i></td>
 												<td>
-													<form action="EditNguoiQuanLy?tendangnhap=${value.getTenDangNhap()}" method="post">
-														<input type='submit' class="btn btn-danger" value='Mở khóa'/>
+													<form action="ThongTinGiangVien?tendangnhap=${value.getTenDangNhap()}" method="post">
+														<input type='submit' class="btn btn-danger" value='Xóa'/>
 													</form>
 												</td>
 											</c:if>
@@ -189,55 +195,61 @@
 					</div>
 				</div>
 			</div>
-			<div id='themquanly' class="navbar navbar-transparent navbar-absolute">
+			<div id='themgiangvien' class="navbar navbar-transparent navbar-absolute">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="#themquanly"> Thêm người quản lý </a>
+						<a class="navbar-brand" href="#themgiangvien"> Thêm giảng viên </a>
 					</div>
 				</div>
 			</div>
-			<div id='formthemquanly' class='content'>
+			<div id='formthemgiangvien' class='content'>
 				<div class="container-fluid">
-					<form class="form-horizontal" action="ThemTaiKhoan?maloainguoidung=2" method="post" id="themtaikhoan_form">
+					<form class="form-horizontal" action="ThemTaiKhoan?maloainguoidung=4" method="post" id="themtaikhoan_form">
 						<legend> Thông tin tài khoản </legend>
 						<div class="form-group" class='col-md-8 col-md-offset-2'>
 							<label class="col-md-4 control-label">Tên đăng nhập</label>
 							<div class="col-md-4  inputGroupContainer">
-								<input name="tendangnhap" placeholder="Nhập vào tên tài khoản quản lý"
+								<input name="tendangnhap" placeholder="Nhập vào mã số giảng viên"
 									class="form-control" type="text" />
 							</div>
 						</div>
 						<div class="form-group" class='col-md-8 col-md-offset-2'>
 							<label class="col-md-4 control-label">Mật khẩu</label>
 							<div class="col-md-4  inputGroupContainer">
-								<input name="matkhau" placeholder="Nhập vào mật khẩu quản lý"
+								<input name="matkhau" placeholder="Nhập vào mật khẩu tài khoản"
 									id='matkhau' class="form-control" type="password" />
 							</div>
 						</div>
 						<div class="form-group" class='col-md-8 col-md-offset-2'>
 							<label class="col-md-4 control-label">Nhập lại mật khẩu</label>
 							<div class="col-md-4  inputGroupContainer">
-								<input name="nhaplaimatkhau" placeholder="Nhập lại mật khẩu quản lý"
-									class="form-control" type="password" />
+								<input name="nhaplaimatkhau" placeholder="Nhập lại mật khẩu giảng viên"
+									id='nhaplaimatkhau' class="form-control" type="password" />
 							</div>
 						</div>
-						<legend> Thông tin người quản lý </legend>
+						<legend> Thông tin giảng viên </legend>
 						<div class=col-md-6>
 							<div class="form-group">
 								<label class="col-md-4 control-label">Họ tên:</label>
 								<div class="col-md-8 inputGroupContainer">
 									<input type="text" class="form-control" name="hoten"
-										placeholder="Nhập vào họ tên" />
+										placeholder="Nhập vào họ tên giảng viên" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-md-4 control-label">Mã số người quản lý:</label>
+								<label class="col-md-4 control-label">Mã số giảng viên:</label>
 								<div class="col-md-8 inputGroupContainer">
 									<input type="text" class="form-control" name="masosinhvien"
-										placeholder="Nhập vào mã số người quản lý" />
+										placeholder="Nhập vào mã số giảng viên" />
 								</div>
 							</div>
-							<input type="hidden" name="khoahoc" value='0'/>
+							<div class="form-group">
+								<label class="col-md-4 control-label">Mã bộ môn:</label>
+								<div class="col-md-8 inputGroupContainer">
+									<input type="text" class="form-control" name="mabomon"
+										placeholder="Nhập vào mã bộ môn" />
+								</div>
+							</div>
 							<div class="form-group">
 								<label class="col-md-4 control-label">Ngày sinh:</label>
 								<div class="col-md-8 inputGroupContainer">
@@ -251,7 +263,6 @@
 										placeholder="Nhập vào địa chỉ" />
 								</div>
 							</div>
-
 						</div>
 
 						<div class=col-md-6>
@@ -263,13 +274,17 @@
 								</div>
 							</div>
 							<div class="form-group">
-							<input type="hidden" class="form-control" name="lop" value='0'/>
+								<label class="col-md-4 control-label">Chức vụ:</label>
+								<div class="radio">
+									<label><input type="radio" name="maloainguoidung" value="4"/>Hướng dẫn</label>
+									<label><input type="radio" name="maloainguoidung" value="5"/>Kiểm duyệt</label>
+								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-4 control-label">Số tài khoản ngân
 									hàng:</label>
 								<div class="col-md-8 inputGroupContainer">
-									<input type="text" class="form-control" name="taikhoannganhang"
+									<input type="text" class="form-control" name="sotaikhoan"
 										placeholder="Nhập vào số tài khoản ngân hàng" />
 								</div>
 							</div>
@@ -287,7 +302,8 @@
 										placeholder="Nhập vào email" />
 								</div>
 							</div>
-							<input type='hidden' name='mabomon' value='0'/>
+							<input type='hidden' name='khoahoc' value='0'/>
+							<input type="hidden" name="lop" value='0'/>
 							<div class="form-group">
 								<div class="col-md-6">
 								</div>
@@ -440,7 +456,7 @@
 			messages: {
 				hoten: {
 					required: "*Vui lòng điền đầy đủ Họ và Tên",
-					minlength: "*Tên tài khoản phải có ít nhất 5 ký tự"
+					minlength: "*Tên phải có ít nhất 5 ký tự"
 				},
 				tendangnhap: {
 					required: "*Vui lòng điền Tên đăng nhập",
@@ -466,11 +482,11 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#themquanly").hide();
-			$("#formthemquanly").hide();
+			$("#themgiangvien").hide();
+			$("#formthemgiangvien").hide();
 			$("#themtaikhoan").click(function(){
-				$("#themquanly").show();
-				$("#formthemquanly").show();
+				$("#themgiangvien").show();
+				$("#formthemgiangvien").show();
 			});
 		});
 	</script>

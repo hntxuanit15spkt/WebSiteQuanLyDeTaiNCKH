@@ -36,8 +36,9 @@ public class HienThiThongTinNguoiDung extends HttpServlet {
 	    Connection c = null;
 
 	    try {
-	    c = connect.DBConnect.getConnection();
-		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "+ "'" + username + "'";
+		c = connect.DBConnect.getConnection();
+		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "
+			+ "'" + username + "'";
 		Statement stmt = (Statement) c.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 

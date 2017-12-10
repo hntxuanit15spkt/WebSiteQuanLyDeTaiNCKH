@@ -75,6 +75,7 @@ public class DangKyDeTai extends HttpServlet {
 		kinhphi, thoiGianBatDau, thoiGianKetThuc, maGiangVienHuongDan);
 	try {
 	    dkdt_dao.InsertDeTai(deTai, tenDangNhapNCV);
+	    response.sendRedirect("trangchu");
 	} catch (SQLException e) {
 
 	    e.printStackTrace();

@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width" />
 <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <link href="css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+<link rel='stylesheet' href='css/cmxform.css' type='text/css'/>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
 	rel="stylesheet" type='text/css' />
@@ -21,7 +22,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div class="sidebar" data-color="purple" data-image="images/sidebar-1.jpg">
+		<div class="sidebar" data-color="purple" data-image="images/sidebar-3.jpg">
 			<div class="logo">
 				<c:forEach items="${thongtin}" var="value">
 					<a href="trangchu" class="simple-text">${value.getHoTen()}</a>
@@ -30,13 +31,13 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="active">
-						<a href="#">
+					<li>
+						<a href="trangchu">
 							<i class="material-icons">dashboard</i>
 							<p>Trang Chủ</p>
 						</a>
 					</li>
-					<li>
+					<li class="active">
 						<a href="thongtin">
 							<i class="material-icons">person</i>
 							<p>Thông tin cá nhân</p>
@@ -51,7 +52,7 @@
 					<li>
 						<c:forEach items="${thongtin}" var='thongtin'>
 							<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
-								<a href="DangKyDeTai"> 
+								<a href="dangkydetai"> 
 									<i class="material-icons">library_books</i>
 									<p>Đăng ký đề tài</p>
 								</a>
@@ -141,7 +142,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-4">Ngày sinh:</label>
 								<div class="col-sm-3">
-									<input type="text" class="form-control" disabled="disabled" value='${thongtin.getNgaySinh()}'></input>
+									<input type="text" class="form-control" disabled="disabled" value='<fmt:formatDate value="${thongtin.getNgaySinh()}" pattern="dd-MM-yyyy"/>'></input>
 								</div>
 							</div>
 							<div class="form-group">
@@ -177,32 +178,50 @@
 									<label id='csemail'><a><i>Chỉnh sửa</i></a></label>
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4">Mã số:</label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" value='${thongtin.getMaSo()}'/>
+							<c:if test="${thongtin.getMaLoaiNguoiDung()==3}">
+								<div class="form-group">
+									<label class="control-label col-sm-4">Lớp:</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" value='${thongtin.getLop()}'/>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4">Lớp:</label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" value='${thongtin.getLop()}'/>
+								<div class="form-group">
+									<label class="control-label col-sm-4">Khóa học:</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" value='${thongtin.getKhoaHoc()}'/>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4">Khóa học:</label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" value='${thongtin.getKhoaHoc()}'/>
+							</c:if>
+							<c:if test="${thongtin.getMaLoaiNguoiDung()==4}">
+								<div class="form-group">
+									<label class="control-label col-sm-4">Mã bộ môn:</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" value='${thongtin.getMaBoMon()}'/>
+									</div>
 								</div>
-							</div>
+							</c:if>
+							<c:if test="${thongtin.getMaLoaiNguoiDung()==5}">
+								<div class="form-group">
+									<label class="control-label col-sm-4">Mã bộ môn:</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" value='${thongtin.getMaBoMon()}'/>
+									</div>
+								</div>
+							</c:if>
 							<div class="form-group">
 								<label class="control-label col-sm-4">Trạng thái:</label>
 								<div class="col-sm-3">
 									<c:if test="${thongtin.getTrangThaiNguoiDung()}">
+										<c:if test="${thongtin.getMaLoaiNguoiDung()==2}">
+											<input type="text" class="form-control" value='Khả dụng'/>
+										</c:if>
 										<c:if test="${thongtin.getMaLoaiNguoiDung()==3}">
 											<input type="text" class="form-control" value='Còn đang học'/>
 										</c:if>
-										<c:if test="${thongtin.getMaLoaiNguoiDung()==4} or ${thongtin.getMaLoaiNguoiDung()==5}">
+										<c:if test="${thongtin.getMaLoaiNguoiDung()==4}">
+											<input type="text" class="form-control" value='Còn đang dạy'/>
+										</c:if>
+										<c:if test="${thongtin.getMaLoaiNguoiDung()==5}">
 											<input type="text" class="form-control" value='Còn đang dạy'/>
 										</c:if>
 									</c:if>

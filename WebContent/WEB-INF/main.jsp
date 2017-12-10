@@ -45,7 +45,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="detai"> 
+						<a href="dangkydetai"> 
 							<i class="material-icons">content_paste</i>
 							<p>Danh sách đề tài</p>
 						</a>

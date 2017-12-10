@@ -134,13 +134,13 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${danhsachdetaicanxacnhan}" var="detai">
+									<c:forEach items="${lstDeTaiCanDuyet}" var="detai">
 										<tr>
 											<td>${detai.getTenDeTai() }</td>
 											<td>${detai.getThoiGianBatDau() }</td>
 											<td>${detai.getThoiGianKetThuc() }</td>
 											<td><a
-												href="ChiTietDeTai_XacNhanHuongDan?madetai=${detai.getMaDeTai()}&magiangvienhuongdan=${detai.getMaGiangVienHuongDan()}"
+												href="ChiTietDeTai_DuyetDeTai?madetai=${detai.getMaDeTai()}&magiangvienhuongdan=${detai.getMaGiangVienHuongDan()}"
 												class="btn btn-danger"> <span><strong>Xem
 															chi tiết</strong></span>
 											</a></td>

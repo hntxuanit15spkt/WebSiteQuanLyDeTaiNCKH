@@ -9,5 +9,6 @@
 </head>
 <body>
 	<h1>Bạn đã đồng ý hướng dẫn cho đề tài này thành công!!!</h1>
+	<h1><a href="trangchu">Trở về trang chủ</a></h1>
 </body>
 </html>
