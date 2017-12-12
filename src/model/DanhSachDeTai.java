@@ -6,6 +6,13 @@ import java.util.Date;
 public class DanhSachDeTai {
     private int MaDeTai;
     private String HoTen;
+    private String KhoaHoc;
+    private String SoTaiKhoanNganHang;
+    private String SoDienThoai;
+    private String Email;
+    private String Lop;
+    private String DiaChi;
+    private String TenDangNhap;
     private String TenLoaiNguoiDung;
     private String TenDeTai;
     private String MucTieu;
@@ -16,36 +23,91 @@ public class DanhSachDeTai {
     private String PhuongPhapThucHien;
     private BigDecimal KinhPhi;
     private String LoaiDeTai;
+    private Date NgaySinh;
     private Date ThoiGianBatDau;
     private Date ThoiGianKetThuc;
     private Date ThoiGianPhanBien;
+    private Date ThoiGianThayDoi;
     private int MaGiangVienHuongDan;
+    private int MaTrangThai;
     private int MaNguoiDuyetDeTai;
     private int MaHoiDong;
     private int MaDeTaiDuocCap;
+    private int SoLuongDeTai;
+    private int TongDiem;
+    private Boolean GioiTinh;
 
-    public DanhSachDeTai(String hoTen, String tenLoaiNguoiDung, String tenDeTai, String mucTieu, String tenTrangThai,
-	    Date thoiGianBatDau, Date thoiGianKetThuc, Date thoiGianPhanBien) {
+    public DanhSachDeTai(int maDeTai, String hoTen, String khoaHoc, String soTaiKhoanNganHang, String soDienThoai,
+	    String email, String lop, String diaChi, String tenDangNhap, String tenDeTai, String mucTieu,
+	    String moTaYTuong, String tinhCapThiet, String linhVucNghienCuu, String phuongPhapThucHien,
+	    BigDecimal kinhPhi, Date ngaySinh, Date thoiGianBatDau, Date thoiGianKetThuc, int maGiangVienHuongDan,
+	    Boolean gioiTinh) {
+	super();
+	MaDeTai = maDeTai;
+	HoTen = hoTen;
+	KhoaHoc = khoaHoc;
+	SoTaiKhoanNganHang = soTaiKhoanNganHang;
+	SoDienThoai = soDienThoai;
+	Email = email;
+	Lop = lop;
+	DiaChi = diaChi;
+	TenDangNhap = tenDangNhap;
+	TenDeTai = tenDeTai;
+	MucTieu = mucTieu;
+	MoTaYTuong = moTaYTuong;
+	TinhCapThiet = tinhCapThiet;
+	LinhVucNghienCuu = linhVucNghienCuu;
+	PhuongPhapThucHien = phuongPhapThucHien;
+	KinhPhi = kinhPhi;
+	NgaySinh = ngaySinh;
+	ThoiGianBatDau = thoiGianBatDau;
+	ThoiGianKetThuc = thoiGianKetThuc;
+	MaGiangVienHuongDan = maGiangVienHuongDan;
+	GioiTinh = gioiTinh;
+    }
+
+    public DanhSachDeTai(int maDeTai, Date thoiGianThayDoi, int maTrangThai) {
+	super();
+	MaDeTai = maDeTai;
+	ThoiGianThayDoi = thoiGianThayDoi;
+	MaTrangThai = maTrangThai;
+    }
+
+    public DanhSachDeTai(int maDeTai, String hoTen, String tenDeTai, String tenTrangThai, Date thoiGianPhanBien,
+	    int maTrangThai) {
+	super();
+	MaDeTai = maDeTai;
+	HoTen = hoTen;
+	TenDeTai = tenDeTai;
+	TenTrangThai = tenTrangThai;
+	ThoiGianPhanBien = thoiGianPhanBien;
+	MaTrangThai = maTrangThai;
+    }
+
+    public DanhSachDeTai(int soLuongDeTai) {
+	super();
+	SoLuongDeTai = soLuongDeTai;
+    }
+
+    public DanhSachDeTai(String hoTen, int maTrangThai, String tenDeTai, String tenTrangThai, Date thoiGianPhanBien,
+	    int tongDiem) {
+	super();
+	HoTen = hoTen;
+	MaTrangThai = maTrangThai;
+	TenDeTai = tenDeTai;
+	TenTrangThai = tenTrangThai;
+	ThoiGianPhanBien = thoiGianPhanBien;
+	TongDiem = tongDiem;
+    }
+
+    public DanhSachDeTai(int MaTrangThai, String hoTen, String tenLoaiNguoiDung, int maDeTai, String tenDeTai,
+	    String mucTieu, String tenTrangThai, Date thoiGianBatDau, Date thoiGianKetThuc, Date thoiGianPhanBien) {
 	super();
 	HoTen = hoTen;
 	TenLoaiNguoiDung = tenLoaiNguoiDung;
+	MaDeTai = maDeTai;
 	TenDeTai = tenDeTai;
 	MucTieu = mucTieu;
-	TenTrangThai = tenTrangThai;
-	ThoiGianBatDau = thoiGianBatDau;
-	ThoiGianKetThuc = thoiGianKetThuc;
-	ThoiGianPhanBien = thoiGianPhanBien;
-    }
-
-    public DanhSachDeTai(int int1) {
-	// TODO Auto-generated constructor stub
-    }
-
-    public DanhSachDeTai(String hoTen, String tenDeTai, String tenTrangThai, Date thoiGianBatDau, Date thoiGianKetThuc,
-	    Date thoiGianPhanBien) {
-	super();
-	HoTen = hoTen;
-	TenDeTai = tenDeTai;
 	TenTrangThai = tenTrangThai;
 	ThoiGianBatDau = thoiGianBatDau;
 	ThoiGianKetThuc = thoiGianKetThuc;
@@ -66,6 +128,14 @@ public class DanhSachDeTai {
 
     public void setHoTen(String hoTen) {
 	HoTen = hoTen;
+    }
+
+    public String getTenDangNhap() {
+	return TenDangNhap;
+    }
+
+    public void setTenDangNhap(String tenDangNhap) {
+	TenDangNhap = tenDangNhap;
     }
 
     public String getTenLoaiNguoiDung() {
@@ -172,12 +242,28 @@ public class DanhSachDeTai {
 	ThoiGianPhanBien = thoiGianPhanBien;
     }
 
+    public Date getThoiGianThayDoi() {
+	return ThoiGianThayDoi;
+    }
+
+    public void setThoiGianThayDoi(Date thoiGianThayDoi) {
+	ThoiGianThayDoi = thoiGianThayDoi;
+    }
+
     public int getMaGiangVienHuongDan() {
 	return MaGiangVienHuongDan;
     }
 
     public void setMaGiangVienHuongDan(int maGiangVienHuongDan) {
 	MaGiangVienHuongDan = maGiangVienHuongDan;
+    }
+
+    public int getMaTrangThai() {
+	return MaTrangThai;
+    }
+
+    public void setMaTrangThai(int maTrangThai) {
+	MaTrangThai = maTrangThai;
     }
 
     public int getMaNguoiDuyetDeTai() {
@@ -202,5 +288,85 @@ public class DanhSachDeTai {
 
     public void setMaDeTaiDuocCap(int maDeTaiDuocCap) {
 	MaDeTaiDuocCap = maDeTaiDuocCap;
+    }
+
+    public int getSoLuongDeTai() {
+	return SoLuongDeTai;
+    }
+
+    public void setSoLuongDeTai(int soLuongDeTai) {
+	SoLuongDeTai = soLuongDeTai;
+    }
+
+    public int getTongDiem() {
+	return TongDiem;
+    }
+
+    public void setTongDiem(int tongDiem) {
+	TongDiem = tongDiem;
+    }
+
+    public String getKhoaHoc() {
+	return KhoaHoc;
+    }
+
+    public void setKhoaHoc(String khoaHoc) {
+	KhoaHoc = khoaHoc;
+    }
+
+    public String getSoTaiKhoanNganHang() {
+	return SoTaiKhoanNganHang;
+    }
+
+    public void setSoTaiKhoanNganHang(String soTaiKhoanNganHang) {
+	SoTaiKhoanNganHang = soTaiKhoanNganHang;
+    }
+
+    public String getSoDienThoai() {
+	return SoDienThoai;
+    }
+
+    public void setSoDienThoai(String soDienThoai) {
+	SoDienThoai = soDienThoai;
+    }
+
+    public String getEmail() {
+	return Email;
+    }
+
+    public void setEmail(String email) {
+	Email = email;
+    }
+
+    public String getLop() {
+	return Lop;
+    }
+
+    public void setLop(String lop) {
+	Lop = lop;
+    }
+
+    public String getDiaChi() {
+	return DiaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+	DiaChi = diaChi;
+    }
+
+    public Date getNgaySinh() {
+	return NgaySinh;
+    }
+
+    public void setNgaySinh(Date ngaySinh) {
+	NgaySinh = ngaySinh;
+    }
+
+    public Boolean getGioiTinh() {
+	return GioiTinh;
+    }
+
+    public void setGioiTinh(Boolean gioiTinh) {
+	GioiTinh = gioiTinh;
     }
 }

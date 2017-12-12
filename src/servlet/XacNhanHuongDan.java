@@ -48,7 +48,8 @@ public class XacNhanHuongDan extends HttpServlet {
 			+ "where detai.MaGiangVienHuongDan = taikhoan.MaNguoiDung\r\n"
 			+ " and detai.MaDeTai = detai_trangthai.MaDeTai\r\n" + "and detai_trangthai.MaTrangThai = 1\r\n"
 			+ " and detai.MaDeTai not in (select MaDeTai from detai_trangthai\r\n" + "where MaTrangThai!=1)"
-			+ " and nguoidung.MaLoaiNguoiDung=4 " + "and taikhoan.TenDangNhap = " + "'" + username + "'";
+			+ " and nguoidung.MaLoaiNguoiDung=4 " + "and taikhoan.TenDangNhap = " + "'" + username + "'"
+			+ " group by MaDeTai";
 		Statement stmt = (Statement) c.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {

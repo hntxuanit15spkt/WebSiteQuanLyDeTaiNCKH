@@ -166,7 +166,14 @@
 		                     		<c:forEach items="${quanlygiangvien}" var="value">
 										<tr>
 											<td>${value.getTenDangNhap() }</td>
-											<td>${value.getHoTen() }</td>
+											<td>
+												<c:if test="${value.getMaLoaiNguoiDung()==4}">
+													${value.getHoTen()}
+												</c:if>
+												<c:if test="${value.getMaLoaiNguoiDung()==5}">
+													<b>${value.getHoTen()}</b>
+												</c:if>
+											</td>
 											<td>${value.getSoDienThoai()}</td>
 											<td><fmt:formatDate value="${value.getNgaySinh() }" pattern="dd-MM-yyyy"/></td>
 											<td>${value.getMatKhau()}</td>
@@ -204,7 +211,7 @@
 			</div>
 			<div id='formthemgiangvien' class='content'>
 				<div class="container-fluid">
-					<form class="form-horizontal" action="ThemTaiKhoan?maloainguoidung=4" method="post" id="themtaikhoan_form">
+					<form class="form-horizontal" action="ThemTaiKhoan" method="post" id="themtaikhoan_form">
 						<legend> Thông tin tài khoản </legend>
 						<div class="form-group" class='col-md-8 col-md-offset-2'>
 							<label class="col-md-4 control-label">Tên đăng nhập</label>

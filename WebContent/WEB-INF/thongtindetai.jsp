@@ -154,9 +154,8 @@
 			                        	<th data-field="name" data-sortable="true">Sinh viên</th>
 			                            <th data-field="id" data-sortable="true">Tên đề tài</th>
 			                        	<th data-field="city" data-sortable="true">Trạng thái</th>
-			                        	<th data-field="salary" data-sortable="true">Thời gian bắt đầu</th>
-			                        	<th data-field="start-time" data-sortable="true">Thời gian kết thúc</th>
 			                        	<th data-field="end-time" data-sortable="true">Thời gian phản biện</th>
+			                        	<th data-field="salary" data-sortable="true">Tổng điểm</th>
 		                        	</tr>
 		                        </thead>
 		                        <tbody>
@@ -165,9 +164,15 @@
 											<td>${value.getHoTen() }</td>
 											<td>${value.getTenDeTai() }</td>
 											<td><i>${value.getTenTrangThai()}</i></td>
-											<td><fmt:formatDate value="${value.getThoiGianBatDau() }" pattern="dd-MM-yyyy"/></td>
-											<td><fmt:formatDate value="${value.getThoiGianKetThuc() }" pattern="dd-MM-yyyy"/></td>
 											<td><fmt:formatDate value="${value.getThoiGianPhanBien() }" pattern="dd-MM-yyyy"/></td>
+											<td>
+												<c:if test="${value.getMaTrangThai()==10}">
+													${value.getTongDiem() }		
+												</c:if>
+												<c:if test="${value.getMaTrangThai()!=10}">
+													<i>Chưa có điểm</i>
+												</c:if>
+											</td>
 										</tr>
 									</c:forEach>
 		                		</tbody>

@@ -26,7 +26,7 @@
 	rel='stylesheet' type='text/css' />
 <link href="css/fresh-bootstrap-table.css" rel="stylesheet"
 	type='text/css' />
-<title>Danh sách đề tài</title>
+<title>Chi Tiết đề tài</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -155,30 +155,38 @@
 								<button id="alertBtn" class="btn btn-default">Danh sách
 									các đề tài</button>
 							</div>
+
 							<table id="fresh-table" class="table">
 								<thead>
 									<tr>
 										<th data-field="id" data-sortable="true">Tên đề tài</th>
+										<th data-field="name" data-sortable="true">Mục tiêu</th>
+										<th data-field="city" data-sortable="true">Trạng thái</th>
 										<th data-field="salary" data-sortable="true">Thời gian
 											bắt đầu</th>
 										<th data-field="country" data-sortable="true">Thời gian
 											kết thúc</th>
 										<th data-field="country" data-sortable="true">Thời gian
 											phản biện</th>
-										<th data-field="actions">Thao tác</th>
+										<th data-field="actions">Operation</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${lstDeTaiCanPhanCongPhanBien}" var="detai">
+									<c:forEach items="${detai}" var="detai">
 										<tr>
 											<td>${detai.getTenDeTai() }</td>
-											<td>${detai.getThoiGianBatDau() }</td>
-											<td>${detai.getThoiGianKetThuc() }</td>
-											<td>${detai.getThoiGianPhanBien() }</td>
-											<td><a
-												href="ChiTietDeTai_PhanCongPhanBien?madetai=${detai.getMaDeTai()}&magiangvienhuongdan=${detai.getMaGiangVienHuongDan()}"
-												class="btn btn-danger"> <span><strong>Xem
-															chi tiết</strong></span>
+											<td>${detai.getMucTieu() }</td>
+											<td><i>${detai.getTenTrangThai()}</i></td>
+											<td><fmt:formatDate
+													value="${detai.getThoiGianBatDau() }" pattern="dd-MM-yyyy" /></td>
+											<td><fmt:formatDate
+													value="${detai.getThoiGianKetThuc() }" pattern="dd-MM-yyyy" /></td>
+											<td><fmt:formatDate
+													value="${detai.getThoiGianPhanBien() }"
+													pattern="dd-MM-yyyy" /></td>
+											<td><a href="ChiTietDeTai?madetai=${detai.getMaDeTai()}"
+												class="btn btn-danger"> <span><strong>Chi
+															tiết</strong></span>
 											</a></td>
 										</tr>
 									</c:forEach>
@@ -187,6 +195,187 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class='content' id='chitiet'>
+				<form class="form-horizontal" action="dangkydetai" method="post"
+					id="chitietdetai_form">
+					<!--<fieldset style="overflow: hidden;"> bỏ cái này là mất cái size cứng của form-->
+					<legend> Chi tiết đề tài: </legend>
+					<c:forEach items="${chitietdetai}" var="chitiet">
+						<div class="form-group">
+							<label class="col-md-4 control-label">Tên đề tài</label>
+							<div class="col-md-8  inputGroupContainer">
+								<input name="tendetai" class="form-control" type="text"
+									value='${chitiet.getTenDeTai()}' />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Mục tiêu</label>
+							<div class="col-md-8  inputGroupContainer">
+								<input name="muctieu" class="form-control" type="text"
+									value="${chitiet.getMucTieu()}" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Mô tả ý tưởng</label>
+							<div class="col-md-8  inputGroupContainer">
+								<textarea name="motaytuong" class="form-control" rows="5">${chitiet.getMoTaYTuong()}</textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Tính cấp thiết</label>
+							<div class="col-md-8  inputGroupContainer">
+								<textarea name="tinhcapthiet" class="form-control" rows="5">${chitiet.getTinhCapThiet()}</textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Lĩnh vực nghiên cứu</label>
+							<div class="col-md-8  inputGroupContainer">
+								<input name="linhvucnghiencuu" class="form-control" type="text"
+									value='${chitiet.getLinhVucNghienCuu()}' />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Phương pháp thực
+								hiện</label>
+							<div class="col-md-8  inputGroupContainer">
+								<textarea name="phuongphapthuchien" class="form-control"
+									rows="5" placeholder="Trình bày sơ lược phương pháp nghiên cứu">${chitiet.getPhuongPhapThucHien()}</textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Kinh phí dự kiến</label>
+							<div class="col-md-8  inputGroupContainer">
+								<textarea name="kinhphi" class="form-control" rows="5">${chitiet.getKinhPhi()}</textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Thời gian bắt đầu
+								nghiên cứu:</label>
+							<div class="col-md-8 inputGroupContainer">
+								<input type="date" class="form-control" name='thoigianbatdau'
+									value='${chitiet.getThoiGianBatDau()}' />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Thời gian kết thúc
+								nghiên cứu:</label>
+							<div class="col-md-8 inputGroupContainer">
+								<input type="date" class="form-control" name='thoigianketthuc'
+									value='${chitiet.getThoiGianKetThuc()}' />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Mã giảng viên hướng
+								dẫn</label>
+							<div class="col-md-8 inputGroupContainer">
+								<input name="magiangvienhuongdan" class="form-control"
+									type="text" value='${chitiet.getMaGiangVienHuongDan()}' />
+							</div>
+						</div>
+						<div class="Thongtinsinhvien1">
+							<legend> Thông tin thành viên tham gia </legend>
+							<div class=col-md-6>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Họ tên:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="text" class="form-control" name="hoten"
+											value='${chitiet.getHoTen()}' />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Mã số sinh viên:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="text" class="form-control" name="masosinhvien"
+											value='${chitiet.getTenDangNhap()}' />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Khóa học:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="text" class="form-control" name="khoahoc"
+											value='${chitiet.getKhoaHoc()}' />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Ngày sinh:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="date" class="form-control" name='ngaysinh'
+											value='${chitiet.getNgaySinh()}' />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Địa chỉ:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="text" class="form-control" name="diachi"
+											value='${chitiet.getDiaChi()}' />
+									</div>
+								</div>
+
+							</div>
+
+							<div class=col-md-6>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Giới tính:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<c:if test="${chitiet.getGioiTinh()}">
+											<input type="text" class="form-control" value='Nam' />
+										</c:if>
+										<c:if test="${chitiet.getGioiTinh()==false}">
+											<input type="text" class="form-control" value='Nữ' />
+										</c:if>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Lớp:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="text" class="form-control" name="masolop"
+											value='${chitiet.getLop()}' />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Số tài khoản ngân
+										hàng:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="text" class="form-control"
+											name="taikhoannganhang"
+											value='${chitiet.getSoTaiKhoanNganHang()}' />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Số điện thoại:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="text" class="form-control" name="sodienthoai"
+											value='${chitiet.getSoDienThoai()}' />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-4 control-label">Email:</label>
+									<div class="col-md-8 inputGroupContainer">
+										<input type="text" class="form-control" name="email"
+											value='${chitiet.getEmail()}' />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<c:if test="${chitiet.getMaTrangThai() == 6}">
+										<div class="col-md-6">
+											<button class="btn btn-primary" id="">
+												<a href="GiaHanDeTai?madetai="${chitiet.getMaDeTai()}">Gia
+													hạn đề tài</a>
+											</button>
+										</div>
+									</c:if>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-warning">
+											<a href="HuyDeTai?madetai=${chitiet.getMaDeTai()}">Hủy đề tài</a></span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</form>
 			</div>
 			<footer class="footer">
 				<div class="container-fluid">
@@ -290,5 +479,11 @@
 					'<i class="fa fa-remove"></i>', '</a>' ].join('');
 		}
 	</script>
+	<!-- 
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#chitietdetai_form").attr('disabled','disabled');
+	});
+	</script> -->
 </body>
 </html>

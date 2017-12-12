@@ -45,12 +45,12 @@ public class DangKyDeTai extends HttpServlet {
 	DangKyDeTai_DAO dkdt_dao = new DangKyDeTai_DAO();
 	String thoiGianBatDau = "";
 	thoiGianBatDau = request.getParameter("thoigianbatdau");
-	String ngaysinh = request.getParameter("ngaysinh");
+	// String ngaysinh = request.getParameter("ngaysinh");
 	String thoiGianKetThuc = request.getParameter("thoigianketthuc");
-	boolean gioitinh = false;
-	if (request.getParameter("gioitinh").equals("1")) {
-	    gioitinh = true;
-	}
+	/*
+	 * boolean gioitinh = false; if (request.getParameter("gioitinh").equals("1")) {
+	 * gioitinh = true; }
+	 */
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-dd-MM");
 	String tendetai = request.getParameter("tendetai");
 	String muctieu = request.getParameter("muctieu");
@@ -59,15 +59,15 @@ public class DangKyDeTai extends HttpServlet {
 	String linhvucnghiencuu = request.getParameter("linhvucnghiencuu");
 	String phuongphapthuchien = request.getParameter("phuongphapthuchien");
 	BigDecimal kinhphi = new BigDecimal(request.getParameter("kinhphi"));
-	int masosinhvien = Integer.parseInt(request.getParameter("masosinhvien"));
-	String hoten = request.getParameter("hoten");
-	String khoahoc = request.getParameter("khoahoc");
+	// int masosinhvien = Integer.parseInt(request.getParameter("masosinhvien"));
+	// String hoten = request.getParameter("hoten");
+	// String khoahoc = request.getParameter("khoahoc");
 	int maGiangVienHuongDan = Integer.parseInt(request.getParameter("magiangvienhuongdan"));
-	String diachi = request.getParameter("diachi");
-	int masolop = Integer.parseInt(request.getParameter("masolop"));
-	String taikhoannganhang = request.getParameter("taikhoannganhang");
-	String sodienthoai = request.getParameter("sodienthoai");
-	String email = request.getParameter("email");
+	// String diachi = request.getParameter("diachi");
+	// int masolop = Integer.parseInt(request.getParameter("masolop"));
+	// String taikhoannganhang = request.getParameter("taikhoannganhang");
+	// String sodienthoai = request.getParameter("sodienthoai");
+	// String email = request.getParameter("email");
 	String trangThai = "Chưa xác nhận";
 	// String loaiDeTai = "";
 
@@ -75,7 +75,7 @@ public class DangKyDeTai extends HttpServlet {
 		kinhphi, thoiGianBatDau, thoiGianKetThuc, maGiangVienHuongDan);
 	try {
 	    dkdt_dao.InsertDeTai(deTai, tenDangNhapNCV);
-	    response.sendRedirect("trangchu");
+	    response.sendRedirect("detai");
 	} catch (SQLException e) {
 
 	    e.printStackTrace();

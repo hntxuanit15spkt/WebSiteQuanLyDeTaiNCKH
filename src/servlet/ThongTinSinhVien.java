@@ -69,7 +69,7 @@ public class ThongTinSinhVien extends HttpServlet {
 				ResultSet rs = stmt.executeQuery(slql);
 				
 				while (rs.next()) {
-					ThongTinNguoiDung quanlysv = new ThongTinNguoiDung(rs.getString("TenDangNhap"), rs.getString("MatKhau"), rs.getString("HoTen"), rs.getString("SoDienThoai"), rs.getDate("NgaySinh"), rs.getBoolean("TrangThaiNguoiDung"));
+					ThongTinNguoiDung quanlysv = new ThongTinNguoiDung(rs.getString("TenDangNhap"), rs.getString("MatKhau"), rs.getString("HoTen"), rs.getString("SoDienThoai"), rs.getDate("NgaySinh"), rs.getBoolean("TrangThaiNguoiDung"), rs.getInt("MaLoaiNguoiDung"));
 					quanlysinhvien.add(quanlysv);
 				}
 

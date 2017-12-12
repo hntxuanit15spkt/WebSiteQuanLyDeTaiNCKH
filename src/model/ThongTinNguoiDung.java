@@ -23,6 +23,18 @@ public class ThongTinNguoiDung {
 	NgayXinGiaHan = ngayXinGiaHan;
     }
 
+    public ThongTinNguoiDung(String tenDangNhap, String matKhau, String hoTen, String soDienThoai, Date ngaySinh,
+	    Boolean trangThaiNguoiDung, Integer maLoaiNguoiDung) {
+	super();
+	TenDangNhap = tenDangNhap;
+	MatKhau = matKhau;
+	HoTen = hoTen;
+	SoDienThoai = soDienThoai;
+	NgaySinh = ngaySinh;
+	TrangThaiNguoiDung = trangThaiNguoiDung;
+	MaLoaiNguoiDung = maLoaiNguoiDung;
+    }
+
     public ThongTinNguoiDung(String hoTen, Integer maLoaiNguoiDung, String tenLoaiNguoiDung) {
 	super();
 	HoTen = hoTen;

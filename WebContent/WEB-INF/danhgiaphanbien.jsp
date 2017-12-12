@@ -20,7 +20,7 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons'
 	rel='stylesheet' type='text/css' />
 <link href="css/fresh-bootstrap-table.css" rel="stylesheet" type='text/css'/>
-<title>Danh sách đề tài</title>
+<title>Đánh giá phản biện</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -33,8 +33,8 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="active">
-						<a href="#">
+					<li>
+						<a href="trangchu">
 							<i class="material-icons">dashboard</i>
 							<p>Trang Chủ</p>
 						</a>
@@ -51,69 +51,24 @@
 							<p>Danh sách đề tài</p>
 						</a>
 					</li>
-					<c:forEach items="${thongtin}" var='thongtin'>
-						<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
-							<li>
-								<a href="dangkydetai"> 
-									<i class="material-icons">library_books</i>
-									<p>Đăng ký đề tài</p>
-								</a>
-							</li>
-							<li>
-								<a href="KetQuaPhanBien"> 
-									<i class="material-icons">bubble_chart</i>
-									<p>Xem kết quả phản biện</p>
-								</a>
-							</li>
-							<li>
-								<a href="KetQuaNghiemThu"> 
-									<i class="material-icons">bubble_chart</i>
-									<p>Xem kết quả nghiệm thu</p>
-								</a>
-							</li>
-						</c:if>
-						<c:if test="${thongtin.getMaLoaiNguoiDung() == 4}">
-							<li>
-								<a href="XacNhanHuongDan"> 
-									<i class="material-icons">library_books</i>
-									<p>Danh sách chờ xác nhận</p>
-								</a>
-							</li>
-							<li>
-								<a href="DanhGiaPhanBien"> 
-									<i class="material-icons">bubble_chart</i>
-									<p>Đánh giá phản biện</p>
-								</a>
-							</li>
-							<li>
-								<a href="DanhGiaNghiemThu"> 
-									<i class="material-icons">bubble_chart</i>
-									<p>Đánh giá nghiệm thu</p>
-								</a>
-							</li>
-						</c:if>
-						<c:if test="${thongtin.getMaLoaiNguoiDung() == 5}">
-							<li>
-								<a href="DanhSachChoDuyet"> 
-									<i class="material-icons">library_books</i>
-									<p>Danh sách chờ duyệt</p>
-								</a>
-							</li>
-							<li>
-								<a href="PhanCongPhanBien"> 
-									<i class="material-icons">bubble_chart</i>
-									<p>Phân công phản biện</p>
-								</a>
-							</li>
-							<li>
-								<a href="PhanCongNghiemThu"> 
-									<i class="material-icons">bubble_chart</i>
-									<p>Phân công nghiệm thu</p>
-								</a>
-							</li>
-						</c:if>
-					</c:forEach>
 					<li>
+						<a href="XacNhanHuongDan"> 
+							<i class="material-icons">library_books</i>
+							<p>Danh sách chờ xác nhận</p>
+						</a>
+					</li>
+					<li class="active">
+						<a href="DanhGiaPhanBien"> 
+							<i class="material-icons">bubble_chart</i>
+							<p>Đánh giá phản biện</p>
+						</a>
+					</li>
+					<li>
+						<a href="DanhGiaNghiemThu"> 
+							<i class="material-icons">bubble_chart</i>
+							<p>Đánh giá nghiệm thu</p>
+						</a>
+					</li><li>
 						<a href="./notifications.html"> 
 							<i class="material-icons text-gray">notifications</i>
 							<p>Thông báo</p>
@@ -138,7 +93,7 @@
 							<span class="icon-bar"></span> 
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"> Danh sách đề tài </a>
+						<a class="navbar-brand" href="#"> Đánh giá phản biện </a>
 					</div>
 				</div>
 			</div>
@@ -147,33 +102,58 @@
 					<div class="col-md-12">
 		                <div class="fresh-table toolbar-color-azure">
 		                    <div class="toolbar">
-		                        <button id="alertBtn" class="btn btn-default">Danh sách các đề tài</button>
+		                        <button id="alertBtn" class="btn btn-default">Danh sách đã phản biện</button>
 		                    </div>
 		                    
 		                    <table id="fresh-table" class="table">
 		                        <thead>
 		                        	<tr>
+			                        	<th data-field="name" data-sortable="true">Sinh viên</th>
+			                        	<th data-field="number" data-sortable="true">Mã đề tài</th>
 			                            <th data-field="id" data-sortable="true">Tên đề tài</th>
-			                        	<th data-field="name" data-sortable="true">Mục tiêu</th>
 			                        	<th data-field="city" data-sortable="true">Trạng thái</th>
-			                        	<th data-field="salary" data-sortable="true">Thời gian bắt đầu</th>
-			                        	<th data-field="country" data-sortable="true">Thời gian kết thúc</th>
 			                        	<th data-field="country" data-sortable="true">Thời gian phản biện</th>
 			                        	<th data-field="actions">Operation</th>
 		                        	</tr>
 		                        </thead>
 		                        <tbody>
-		                     		<c:forEach items="${detai}" var="detai">
+		                     		<c:forEach items="${detaiphanbien}" var="detai">
 										<tr>
+											<td>${detai.getHoTen() }</td>
+											<td>${detai.getMaDeTai() }</td>
 											<td>${detai.getTenDeTai() }</td>
-											<td>${detai.getMucTieu() }</td>
-											<td><i>${detai.getTenTrangThai()}</i></td>
-											<td><fmt:formatDate value="${detai.getThoiGianBatDau() }" pattern="dd-MM-yyyy"/></td>
-											<td><fmt:formatDate value="${detai.getThoiGianKetThuc() }" pattern="dd-MM-yyyy"/></td>
+											<td>
+												<c:if test="${detai.getMaTrangThai() == 6}">
+													<i>${detai.getTenTrangThai()}</i>
+												</c:if>
+												<c:if test="${detai.getMaTrangThai() == 7}">
+													<i>Phản biện thất bại</i>
+												</c:if>
+												<c:if test="${detai.getMaTrangThai() == 8}">
+													<i>Phản biện thành công</i>
+												</c:if>
+											</td>
 											<td><fmt:formatDate value="${detai.getThoiGianPhanBien() }" pattern="dd-MM-yyyy"/></td>
-											<td><a href="ChiTietDeTai?madetai=${detai.getMaDeTai()}#chitiet" class="btn btn-danger">
-												<span><strong>Chi tiết</strong></span>
-											</a></td>
+											<td>
+												<c:if test="${detai.getMaTrangThai() == 6}">
+													<form action="GVDanhGiaPhanBien?madetai=${detai.getMaDeTai()}" method="post">
+														<a href="GVDanhGiaPhanBien?madetai=${detai.getMaDeTai()}" class="btn btn-danger"><span><strong>Chấp nhận</strong></span></a>
+														<input type='submit' class="btn btn-danger" value='Từ chối'/>
+													</form>
+												</c:if>
+												<c:if test="${detai.getMaTrangThai() > 6}">
+													<i>Đã đánh giá</i>
+												</c:if>
+												<%-- <c:if test="${detai.getMaTrangThai() > 8}">
+													<i>Đã phản biện thất bại</i>
+												</c:if>
+												<c:if test="${detai.getMaTrangThai() == 9}">
+													<i>Đã phản biện thành công</i>
+												</c:if>
+												<c:if test="${detai.getMaTrangThai() == 10}">
+													<i>Đã Nghiệm thu</i>
+												</c:if> --%>
+											</td>
 										</tr>
 									</c:forEach>
 		                		</tbody>

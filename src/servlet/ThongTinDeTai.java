@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +44,24 @@ public class ThongTinDeTai extends HttpServlet {
 
 	    List<DanhSachDeTai> soluongdetai = new ArrayList<DanhSachDeTai>();
 
+	    List<DanhSachDeTai> detaimatrangthai = new ArrayList<DanhSachDeTai>();
+
 	    Connection c = null;
+
+	    try {
+		c = connect.DBConnect.getConnection();
+		String sql = "select MaDeTai, max(MaTrangThai) as maxmtt, ThoiGianThayDoi from detai_trangthai\n"
+			+ "group by MaDeTai;";
+		Statement stmt = (Statement) c.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next()) {
+		    DanhSachDeTai max = new DanhSachDeTai(rs.getInt("MaDeTai"), rs.getDate("ThoiGianThayDoi"),
+			    rs.getInt("maxmtt"));
+		    detaimatrangthai.add(max);
+		}
+	    } catch (SQLException e) {
+		throw new ServletException(e);
+	    }
 
 	    try {
 		c = connect.DBConnect.getConnection();
@@ -60,23 +78,28 @@ public class ThongTinDeTai extends HttpServlet {
 		throw new ServletException(e);
 	    }
 
-	    try {
-		c = connect.DBConnect.getConnection();
-		String slql = "select * from nguoidung, detai, detai_trangthai, trangthai where nguoidung.MaNguoiDung = detai.manghiencuuvien and detai.MaDeTai = detai_trangthai.MaDeTai and detai_trangthai.MaTrangThai = trangthai.MaTrangThai";
+	    for (DanhSachDeTai list : detaimatrangthai) {
+		int madetai = list.getMaDeTai();
+		int matrangthai = list.getMaTrangThai();
+		try {
+		    c = connect.DBConnect.getConnection();
+		    String slql = "select * from nguoidung, detai_sinhvien, detai, detai_trangthai, trangthai where nguoidung.MaNguoiDung = detai_sinhvien.masinhvien and detai_sinhvien.madetai = detai.madetai and detai.MaDeTai = detai_trangthai.MaDeTai and detai_trangthai.MaTrangThai = trangthai.MaTrangThai and detai_trangthai.MaDeTai = "
+			    + madetai + " and detai_trangthai.MaTrangThai = " + matrangthai;
 
-		Statement stmt = (Statement) c.createStatement();
+		    Statement stmt = (Statement) c.createStatement();
 
-		ResultSet rs = stmt.executeQuery(slql);
+		    ResultSet rs = stmt.executeQuery(slql);
 
-		while (rs.next()) {
-		    DanhSachDeTai quanlydt = new DanhSachDeTai(rs.getString("HoTen"), rs.getString("TenDeTai"),
-			    rs.getString("TenTrangThai"), rs.getDate("ThoiGianBatDau"), rs.getDate("ThoiGianKetThuc"),
-			    rs.getDate("ThoiGianPhanBien"));
-		    quanlydetai.add(quanlydt);
+		    while (rs.next()) {
+			DanhSachDeTai quanlydt = new DanhSachDeTai(rs.getString("HoTen"), rs.getInt("MaTrangThai"),
+				rs.getString("TenDeTai"), rs.getString("TenTrangThai"), rs.getDate("ThoiGianPhanBien"),
+				rs.getInt("TongDiem"));
+			quanlydetai.add(quanlydt);
+		    }
+
+		} catch (Exception e) {
+		    throw new ServletException(e);
 		}
-
-	    } catch (Exception e) {
-		throw new ServletException(e);
 	    }
 
 	    try {

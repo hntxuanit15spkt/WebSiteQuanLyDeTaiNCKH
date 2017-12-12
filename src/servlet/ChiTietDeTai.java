@@ -18,8 +18,8 @@ import com.mysql.jdbc.Statement;
 
 import model.DanhSachDeTai;
 
-@WebServlet("/HienThiDeTai")
-public class HienThiDeTai extends HttpServlet {
+@WebServlet("/ChiTietDeTai")
+public class ChiTietDeTai extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,8 +28,10 @@ public class HienThiDeTai extends HttpServlet {
 	String username = (String) session.getAttribute("username");
 	if (username != null) {
 	    Integer manguoidung = (Integer) session.getAttribute("manguoidung");
+	    Integer madetai = Integer.valueOf(request.getParameter("madetai"));
 	    List<DanhSachDeTai> lstDeTai = new ArrayList<DanhSachDeTai>();
 	    List<DanhSachDeTai> detaimatrangthai = new ArrayList<DanhSachDeTai>();
+	    List<DanhSachDeTai> chitietdetai = new ArrayList<DanhSachDeTai>();
 	    Connection c = null;
 	    try {
 		c = connect.DBConnect.getConnection();
@@ -46,14 +48,14 @@ public class HienThiDeTai extends HttpServlet {
 		throw new ServletException(e);
 	    }
 	    for (DanhSachDeTai list : detaimatrangthai) {
-		int madetai = list.getMaDeTai();
+		int madetai2 = list.getMaDeTai();
 		int matrangthai = list.getMaTrangThai();
 		try {
 		    c = connect.DBConnect.getConnection();
 		    String sql = "select * from taikhoan, nguoidung, loainguoidung, detai_sinhvien, detai, detai_trangthai, trangthai where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and nguoidung.MaNguoiDung = detai_sinhvien.MaSinhVien and detai_sinhvien.MaDeTai = detai.MaDeTai and detai.MaDeTai = detai_trangthai.MaDeTai and detai_trangthai.MaTrangThai = trangthai.MaTrangThai and (taikhoan.TenDangNhap = "
 			    + "'" + username + "'" + " or detai.MaGiangVienHuongDan = " + manguoidung
-			    + ") and detai_trangthai.MaDeTai = " + madetai + " and detai_trangthai.MaTrangThai = "
-			    + matrangthai + " group by detai.MaDeTai";
+			    + ") and detai_trangthai.MaDeTai = " + madetai2 + " and detai_trangthai.MaTrangThai = "
+			    + matrangthai;
 		    Statement stmt = (Statement) c.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 
@@ -70,8 +72,34 @@ public class HienThiDeTai extends HttpServlet {
 		}
 	    }
 
+	    // Lấy thông tin đề tài mà sinh viên đã đăng ký
+	    try {
+		c = connect.DBConnect.getConnection();
+		String slql = "select * from taikhoan, nguoidung, detai_sinhvien, detai where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaNguoiDung = detai_sinhvien.MaSinhVien and detai_sinhvien.MaDeTai = detai.MaDeTai and detai.MaDeTai = "
+			+ madetai;
+
+		Statement stmt = (Statement) c.createStatement();
+
+		ResultSet rs = stmt.executeQuery(slql);
+
+		while (rs.next()) {
+		    DanhSachDeTai ttdt = new DanhSachDeTai(rs.getInt("MaDeTai"), rs.getString("HoTen"),
+			    rs.getString("KhoaHoc"), rs.getString("SoTaiKhoanNganHang"), rs.getString("SoDienThoai"),
+			    rs.getString("Email"), rs.getString("Lop"), rs.getString("DiaChi"),
+			    rs.getString("TenDangNhap"), rs.getString("TenDeTai"), rs.getString("MucTieu"),
+			    rs.getString("MoTaYTuong"), rs.getString("TinhCapThiet"), rs.getString("LinhVucNghienCuu"),
+			    rs.getString("PhuongPhapThucHien"), rs.getBigDecimal("KinhPhi"), rs.getDate("NgaySinh"),
+			    rs.getDate("ThoiGianBatDau"), rs.getDate("ThoiGianKetThuc"),
+			    rs.getInt("MaGiangVienHuongDan"), rs.getBoolean("GioiTinh"));
+		    chitietdetai.add(ttdt);
+		}
+
+	    } catch (Exception e) {
+		throw new ServletException(e);
+	    }
 	    request.setAttribute("detai", lstDeTai);
-	    request.getRequestDispatcher("/WEB-INF/hienthidetai.jsp").forward(request, response);
+	    request.setAttribute("chitietdetai", chitietdetai);
+	    request.getRequestDispatcher("/WEB-INF/chitietdetai.jsp").forward(request, response);
 	} else
 	    response.sendRedirect("dangnhap");
     }

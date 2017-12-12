@@ -43,8 +43,7 @@ public class TrangChu extends HttpServlet {
 		ResultSet rs = stmt.executeQuery(sql);
 
 		while (rs.next()) {
-		    ThongTinNguoiDung tthoten = new ThongTinNguoiDung(rs.getString("HoTen"),
-			    rs.getInt("MaLoaiNguoiDung"), rs.getString("TenLoaiNguoiDung"));
+		    ThongTinNguoiDung tthoten = new ThongTinNguoiDung(rs.getString("HoTen"), rs.getInt("MaLoaiNguoiDung"),rs.getString("TenLoaiNguoiDung"));
 		    thongtin.add(tthoten);
 		}
 

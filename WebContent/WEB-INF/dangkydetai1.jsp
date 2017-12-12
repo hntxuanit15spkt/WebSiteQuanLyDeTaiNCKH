@@ -43,8 +43,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div class="sidebar" data-color="purple"
-			data-image="images/sidebar-1.jpg">
+		<div class="sidebar" data-color="purple" data-image="images/sidebar-1.jpg">
 			<div class="logo">
 				<c:forEach items="${thongtin}" var="value">
 					<a href="trangchu" class="simple-text">${value.getHoTen()}</a>
@@ -53,29 +52,98 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="active"><a href="#"> <i class="material-icons">dashboard</i>
+					<li class="active">
+						<a href="#">
+							<i class="material-icons">dashboard</i>
 							<p>Trang Chủ</p>
-					</a></li>
-					<li><a href="thongtin"> <i class="material-icons">person</i>
+						</a>
+					</li>
+					<li>
+						<a href="thongtin">
+							<i class="material-icons">person</i>
 							<p>Thông tin cá nhân</p>
-					</a></li>
-					<li><a href="detai"> <i class="material-icons">content_paste</i>
+						</a>
+					</li>
+					<li>
+						<a href="detai"> 
+							<i class="material-icons">content_paste</i>
 							<p>Danh sách đề tài</p>
-					</a></li>
-					<li><a href="dangkydetai"> <i class="material-icons">library_books</i>
-							<p>Đăng ký đề tài</p>
-					</a></li>
-					<li><a href="ketquanghiemthu"> <i class="material-icons">bubble_chart</i>
-							<p>Xem kết quả nghiệm thu</p>
-					</a></li>
-					<li><a href="./notifications.html"> <i
-							class="material-icons text-gray">notifications</i>
+						</a>
+					</li>
+					<c:forEach items="${thongtin}" var='thongtin'>
+						<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
+							<li>
+								<a href="dangkydetai"> 
+									<i class="material-icons">library_books</i>
+									<p>Đăng ký đề tài</p>
+								</a>
+							</li>
+							<li>
+								<a href="KetQuaPhanBien"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Xem kết quả phản biện</p>
+								</a>
+							</li>
+							<li>
+								<a href="KetQuaNghiemThu"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Xem kết quả nghiệm thu</p>
+								</a>
+							</li>
+						</c:if>
+						<c:if test="${thongtin.getMaLoaiNguoiDung() == 4}">
+							<li>
+								<a href="XacNhanHuongDan"> 
+									<i class="material-icons">library_books</i>
+									<p>Danh sách chờ xác nhận</p>
+								</a>
+							</li>
+							<li>
+								<a href="DanhGiaPhanBien"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Đánh giá phản biện</p>
+								</a>
+							</li>
+							<li>
+								<a href="DanhGiaNghiemThu"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Đánh giá nghiệm thu</p>
+								</a>
+							</li>
+						</c:if>
+						<c:if test="${thongtin.getMaLoaiNguoiDung() == 5}">
+							<li>
+								<a href="DanhSachChoDuyet"> 
+									<i class="material-icons">library_books</i>
+									<p>Danh sách chờ duyệt</p>
+								</a>
+							</li>
+							<li>
+								<a href="PhanCongPhanBien"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Phân công phản biện</p>
+								</a>
+							</li>
+							<li>
+								<a href="PhanCongNghiemThu"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Phân công nghiệm thu</p>
+								</a>
+							</li>
+						</c:if>
+					</c:forEach>
+					<li>
+						<a href="./notifications.html"> 
+							<i class="material-icons text-gray">notifications</i>
 							<p>Thông báo</p>
-					</a></li>
-					<li class="active-pro"><a href="dangxuat"> <i
-							class="material-icons">unarchive</i>
+						</a>
+					</li>
+					<li class="active-pro">
+						<a href="dangxuat"> 
+							<i class="material-icons">unarchive</i>
 							<p>Đăng xuất</p>
-					</a></li>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -93,7 +161,8 @@
 				</div>
 			</div>
 			<div class='content'>
-				<form class="form-horizontal" action="dangkydetai" method="post" id="reg_form">
+				<form class="form-horizontal" action="dangkydetai" method="post"
+					id="reg_form">
 					<!--<fieldset style="overflow: hidden;"> bỏ cái này là mất cái size cứng của form-->
 					<legend> Đăng ký đề tài </legend>
 					<br />
@@ -168,7 +237,14 @@
 								class="form-control" type="text" />
 						</div>
 					</div>
-					<div class="Thongtinsinhvien1">
+					<div class="form-group">
+						<div class="col-md-6" style="float:right;">
+							<button type="submit" class="btn btn-primary">
+								Gửi đơn
+							</button>
+						</div>
+					</div>
+					<!-- <div class="Thongtinsinhvien1">
 						<legend> Thông tin các thành viên tham gia </legend>
 						<div class=col-md-6>
 							<div class="form-group">
@@ -257,212 +333,209 @@
 									</button>
 								</div>
 							</div>
-							<br />
-
+							<br /> -->
+			</div>
+			<div class="Thongtinsinhvien2" style="display: none;">
+				<legend> Thông tin các thành viên tham gia </legend>
+				<div class=col-md-6>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Họ tên:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="hoten"
+								placeholder="Nhập vào họ tên" />
 						</div>
-						<div class="Thongtinsinhvien2" style="display: none;">
-							<legend> Thông tin các thành viên tham gia </legend>
-							<div class=col-md-6>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Họ tên:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="hoten"
-											placeholder="Nhập vào họ tên" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Mã số sinh viên:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="masosinhvien"
-											placeholder="Nhập vào mã số sinh viên" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Bạn là sinh viên
-										khóa:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="khoahoc"
-											placeholder="Nhập vào khóa mà bạn đang theo học" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Ngày sinh:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="date" class="form-control" name='ngaysinh' />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Địa chỉ:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="diachi"
-											placeholder="Nhập vào địa chỉ" />
-									</div>
-								</div>
-
-							</div>
-
-							<div class=col-md-6>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Giới tính:</label>
-									<div class="radio">
-										<label><input type="radio" name="gioitinh" value="1" />Nam</label>
-										<label><input type="radio" name="gioitinh" value="0" />Nữ</label>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Mã số lớp:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="masolop"
-											placeholder="Nhập vào mã số sinh viên" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Số tài khoản ngân
-										hàng:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control"
-											name="taikhoannganhang"
-											placeholder="Nhập vào số tài khoản ngân hàng" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Số điện thoại:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="sodienthoai"
-											placeholder="Nhập vào số điện thoại" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Email:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="email"
-											placeholder="Nhập vào email" />
-									</div>
-								</div>
-
-							</div>
-							<div class="form-group">
-								<div class="col-md-6">
-									<button class="btn btn-primary" id="themthanhvien2">Thêm
-										thành viên tham gia</button>
-								</div>
-								<div class="col-md-6">
-									<button type="submit" class="btn btn-warning">
-										Gửi đơn <span class="glyphicon glyphicon-send"></span>
-									</button>
-								</div>
-							</div>
-							<br />
-
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Mã số sinh viên:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="masosinhvien"
+								placeholder="Nhập vào mã số sinh viên" />
 						</div>
-						<div class="Thongtinsinhvien3" style="display: none;">
-							<legend> Thông tin các thành viên tham gia </legend>
-							<div class=col-md-6>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Họ tên:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="hoten"
-											placeholder="Nhập vào họ tên" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Mã số sinh viên:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="masosinhvien"
-											placeholder="Nhập vào mã số sinh viên" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Bạn là sinh viên
-										khóa:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="khoahoc"
-											placeholder="Nhập vào khóa mà bạn đang theo học" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Ngày sinh:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="date" class="form-control" name='ngaysinh' />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Địa chỉ:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="diachi"
-											placeholder="Nhập vào địa chỉ" />
-									</div>
-								</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Bạn là sinh viên
+							khóa:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="khoahoc"
+								placeholder="Nhập vào khóa mà bạn đang theo học" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Ngày sinh:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="date" class="form-control" name='ngaysinh' />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Địa chỉ:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="diachi"
+								placeholder="Nhập vào địa chỉ" />
+						</div>
+					</div>
 
-							</div>
+				</div>
 
-							<div class=col-md-6>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Giới tính:</label>
-									<div class="radio">
-										<label><input type="radio" name="gioitinh" />Nam</label> <label><input
-											type="radio" name="gioitinh" />Nữ</label>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Mã số lớp:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="masolop"
-											placeholder="Nhập vào mã số sinh viên" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Số tài khoản ngân
-										hàng:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control"
-											name="taikhoannganhang"
-											placeholder="Nhập vào số tài khoản ngân hàng" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Số điện thoại:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="sodienthoai"
-											placeholder="Nhập vào số điện thoại" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label">Email:</label>
-									<div class="col-md-8 inputGroupContainer">
-										<input type="text" class="form-control" name="email"
-											placeholder="Nhập vào email" />
-									</div>
-								</div>
+				<div class=col-md-6>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Giới tính:</label>
+						<div class="radio">
+							<label><input type="radio" name="gioitinh" value="1" />Nam</label>
+							<label><input type="radio" name="gioitinh" value="0" />Nữ</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Mã số lớp:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="masolop"
+								placeholder="Nhập vào mã số sinh viên" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Số tài khoản ngân
+							hàng:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="taikhoannganhang"
+								placeholder="Nhập vào số tài khoản ngân hàng" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Số điện thoại:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="sodienthoai"
+								placeholder="Nhập vào số điện thoại" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Email:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="email"
+								placeholder="Nhập vào email" />
+						</div>
+					</div>
 
-								<!-- 									</div> -->
-								<div class="form-group">
-									<!-- <div class="col-md-6">
+				</div>
+				<div class="form-group">
+					<div class="col-md-6">
+						<button class="btn btn-primary" id="themthanhvien2">Thêm
+							thành viên tham gia</button>
+					</div>
+					<div class="col-md-6">
+						<button type="submit" class="btn btn-warning">
+							Gửi đơn <span class="glyphicon glyphicon-send"></span>
+						</button>
+					</div>
+				</div>
+				<br />
+
+			</div>
+			<div class="Thongtinsinhvien3" style="display: none;">
+				<legend> Thông tin các thành viên tham gia </legend>
+				<div class=col-md-6>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Họ tên:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="hoten"
+								placeholder="Nhập vào họ tên" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Mã số sinh viên:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="masosinhvien"
+								placeholder="Nhập vào mã số sinh viên" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Bạn là sinh viên
+							khóa:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="khoahoc"
+								placeholder="Nhập vào khóa mà bạn đang theo học" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Ngày sinh:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="date" class="form-control" name='ngaysinh' />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Địa chỉ:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="diachi"
+								placeholder="Nhập vào địa chỉ" />
+						</div>
+					</div>
+
+				</div>
+
+				<div class=col-md-6>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Giới tính:</label>
+						<div class="radio">
+							<label><input type="radio" name="gioitinh" />Nam</label> <label><input
+								type="radio" name="gioitinh" />Nữ</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Mã số lớp:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="masolop"
+								placeholder="Nhập vào mã số sinh viên" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Số tài khoản ngân
+							hàng:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="taikhoannganhang"
+								placeholder="Nhập vào số tài khoản ngân hàng" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Số điện thoại:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="sodienthoai"
+								placeholder="Nhập vào số điện thoại" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Email:</label>
+						<div class="col-md-8 inputGroupContainer">
+							<input type="text" class="form-control" name="email"
+								placeholder="Nhập vào email" />
+						</div>
+					</div>
+
+					<!-- 									</div> -->
+					<div class="form-group">
+						<!-- <div class="col-md-6">
 												<button class="btn btn-primary" id="themthanhvien3">Thêm thành viên tham gia</button>
 											</div> -->
-									<div class="col-md-6">
-										<button type="submit" class="btn btn-warning">
-											Gửi đơn <span class="glyphicon glyphicon-send"></span>
-										</button>
-									</div>
-								</div>
-								<br />
-							</div>
-				</form>
-			</div>
-			<footer class="footer">
-			<div class="container-fluid">
-				<p class="copyright pull-right">
-					&copy;
-					<script>
-						document.write(new Date().getFullYear())
-					</script>
-					<a href="trangchu">Toàn - Xuân</a>, Đăng ký đề tài nghiên cứu khoa
-					học kĩ thuật.
-				</p>
-			</div>
-			</footer>
+						<div class="col-md-6">
+							<button type="submit" class="btn btn-warning">
+								Gửi đơn <span class="glyphicon glyphicon-send"></span>
+							</button>
+						</div>
+					</div>
+					<br />
+				</div>
+			</form>
 		</div>
+		<footer class="footer">
+		<div class="container-fluid">
+			<p class="copyright pull-right">
+				&copy;
+				<script>
+					document.write(new Date().getFullYear())
+				</script>
+				<a href="trangchu">Toàn - Xuân</a>, Đăng ký đề tài nghiên cứu khoa
+				học kĩ thuật.
+			</p>
+		</div>
+		</footer>
+	</div>
 	</div>
 </body>
 </html>

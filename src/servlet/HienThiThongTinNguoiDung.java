@@ -36,9 +36,8 @@ public class HienThiThongTinNguoiDung extends HttpServlet {
 	    Connection c = null;
 
 	    try {
-		c = connect.DBConnect.getConnection();
-		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "
-			+ "'" + username + "'";
+	    c = connect.DBConnect.getConnection();
+		String sql = "select * from taikhoan, nguoidung, loainguoidung where taikhoan.MaNguoiDung = nguoidung.MaNguoiDung and nguoidung.MaLoaiNguoiDung = loainguoidung.MaLoaiNguoiDung and taikhoan.tendangnhap = "+ "'" + username + "'";
 		Statement stmt = (Statement) c.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 
@@ -47,7 +46,7 @@ public class HienThiThongTinNguoiDung extends HttpServlet {
 			    rs.getString("MatKhau"), rs.getInt("MaNguoiDung"), rs.getInt("MaBoMon"),
 			    rs.getInt("MaLoaiNguoiDung"), rs.getString("HoTen"), rs.getString("DiaChi"),
 			    rs.getString("SoTaiKhoanNganHang"), rs.getString("SoDienThoai"), rs.getString("Email"),
-			    rs.getString("MaSo"), rs.getString("Lop"), rs.getString("KhoaHoc"),
+			    rs.getString("Lop"), rs.getString("KhoaHoc"),
 			    rs.getString("TenLoaiNguoiDung"), rs.getDate("NgaySinh"), rs.getBoolean("GioiTinh"),
 			    rs.getBoolean("TrangThaiNguoiDung"));
 		    lstThongTinNguoiDung.add(thongtin);

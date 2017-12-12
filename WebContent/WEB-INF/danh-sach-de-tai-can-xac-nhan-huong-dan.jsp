@@ -40,7 +40,7 @@
 			<div class="sidebar-wrapper">
 				<ul class="nav">
 					<li class="active">
-						<a href="trangchu">
+						<a href="#">
 							<i class="material-icons">dashboard</i>
 							<p>Trang Chủ</p>
 						</a>
@@ -57,34 +57,68 @@
 							<p>Danh sách đề tài</p>
 						</a>
 					</li>
-					<li>
-						<c:forEach items="${thongtin}" var='thongtin'>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
-								<a href="DangKyDeTai"> 
+					<c:forEach items="${thongtin}" var='thongtin'>
+						<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
+							<li>
+								<a href="dangkydetai"> 
 									<i class="material-icons">library_books</i>
 									<p>Đăng ký đề tài</p>
 								</a>
-							</c:if>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 4}">
+							</li>
+							<li>
+								<a href="KetQuaPhanBien"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Xem kết quả phản biện</p>
+								</a>
+							</li>
+							<li>
+								<a href="KetQuaNghiemThu"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Xem kết quả nghiệm thu</p>
+								</a>
+							</li>
+						</c:if>
+						<c:if test="${thongtin.getMaLoaiNguoiDung() == 4}">
+							<li>
 								<a href="XacNhanHuongDan"> 
 									<i class="material-icons">library_books</i>
 									<p>Danh sách chờ xác nhận</p>
 								</a>
-							</c:if>
-							<c:if test="${thongtin.getMaLoaiNguoiDung() == 5}">
+							</li>
+							<li>
+								<a href="DanhGiaPhanBien"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Đánh giá phản biện</p>
+								</a>
+							</li>
+							<li>
+								<a href="DanhGiaNghiemThu"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Đánh giá nghiệm thu</p>
+								</a>
+							</li>
+						</c:if>
+						<c:if test="${thongtin.getMaLoaiNguoiDung() == 5}">
+							<li>
 								<a href="DanhSachChoDuyet"> 
 									<i class="material-icons">library_books</i>
 									<p>Danh sách chờ duyệt</p>
 								</a>
-							</c:if>
-						</c:forEach>
-					</li>
-					<li>
-						<a href="ketquanghiemthu"> 
-							<i class="material-icons">bubble_chart</i>
-							<p>Xem kết quả nghiệm thu</p>
-						</a>
-					</li>
+							</li>
+							<li>
+								<a href="PhanCongPhanBien"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Phân công phản biện</p>
+								</a>
+							</li>
+							<li>
+								<a href="PhanCongNghiemThu"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Phân công nghiệm thu</p>
+								</a>
+							</li>
+						</c:if>
+					</c:forEach>
 					<li>
 						<a href="./notifications.html"> 
 							<i class="material-icons text-gray">notifications</i>
