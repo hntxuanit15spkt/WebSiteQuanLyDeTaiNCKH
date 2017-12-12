@@ -27,6 +27,7 @@ public class HienThiDeTai extends HttpServlet {
 	HttpSession session = request.getSession();
 	String username = (String) session.getAttribute("username");
 	if (username != null) {
+	    Integer manguoidung = (Integer) session.getAttribute("manguoidung");
 	    List<DanhSachDeTai> lstDeTai = new ArrayList<DanhSachDeTai>();
 	    Connection c = null;
 	    try {
@@ -39,7 +40,7 @@ public class HienThiDeTai extends HttpServlet {
 			+ "and detai_sinhvien.MaDeTai = detai.MaDeTai\n"
 			+ "and detai.MaDeTai = detai_trangthai.MaDeTai\n"
 			+ "and detai_trangthai.MaTrangThai = trangthai.MaTrangThai\n" + "and (taikhoan.TenDangNhap = "
-			+ "'" + username + "'" + " or detai.MaGiangVienHuongDan = " + "'" + username + "')";
+			+ "'" + username + "'" + " or detai.MaGiangVienHuongDan = " + manguoidung + ")";
 		Statement stmt = (Statement) c.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {

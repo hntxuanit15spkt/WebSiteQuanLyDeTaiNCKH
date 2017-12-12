@@ -79,7 +79,7 @@ public class ChiTietDeTai_DuyetDeTai extends HttpServlet {
 		    + maGiangVienHuongDan + " and detai_trangthai.MaTrangThai=2";
 	    rs = stmt.executeQuery(sql);
 	    while (rs.next()) {
-		sv = new ThongTinNguoiDung(rs.getString("HoTen"), rs.getString("DiaChi"),
+		sv = new ThongTinNguoiDung(rs.getInt("MaNguoiDung"), rs.getString("HoTen"), rs.getString("DiaChi"),
 			rs.getString("SoTaiKhoanNganHang"), rs.getString("SoDienThoai"), rs.getString("Email"),
 			rs.getString("MaSo"), rs.getString("Lop"), rs.getString("KhoaHoc"), rs.getDate("NgaySinh"),
 			rs.getBoolean("GioiTinh"));

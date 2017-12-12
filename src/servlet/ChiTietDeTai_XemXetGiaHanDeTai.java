@@ -20,18 +20,14 @@ import model.ThongTinNguoiDung;
 import view_model.SinhVien_DeTai;
 
 /**
- * Servlet implementation class ChiTietDeTai_XacNhanHuongDan
+ * Servlet implementation class ChiTietDeTai_XemXetGiaHanDeTai
  */
-@WebServlet("/ChiTietDeTai_XacNhanHuongDan")
-public class ChiTietDeTai_XacNhanHuongDan extends HttpServlet {
+@WebServlet("/ChiTietDeTai_XemXetGiaHanDeTai")
+public class ChiTietDeTai_XemXetGiaHanDeTai extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ChiTietDeTai_XacNhanHuongDan() {
+    public ChiTietDeTai_XemXetGiaHanDeTai() {
 	super();
-	// TODO Auto-generated constructor stub
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,31 +43,23 @@ public class ChiTietDeTai_XacNhanHuongDan extends HttpServlet {
 	try {
 	    c = DBConnect.getConnection();
 	    Statement stmt = (Statement) c.createStatement();
-	    String sql = "select * from detai, nguoidung,detai_trangthai where detai_trangthai.MaDeTai=detai.MaDeTai \r\n"
-		    + "and MaTrangThai=1 and MaNguoiDung=" + maGiangVienHuongDan + " and detai.MaDeTai=" + maDeTai + "";
+	    String sql = "select * from detai, nguoidung,detai_trangthai, detai_sinhvien where detai_trangthai.MaDeTai=detai.MaDeTai and detai_sinhvien.MaDeTai=detai.MaDeTai \r\n"
+		    + "and MaTrangThai=3 and MaNguoiDung=" + maGiangVienHuongDan + " and detai.MaDeTai=" + maDeTai + "";
 	    ResultSet rs = stmt.executeQuery(sql);
 	    while (rs.next()) {
-		dt = new DeTai(rs.getInt("MaDeTai"), rs.getString("TenDeTai"), rs.getString("MucTieu"),
-			rs.getString("MoTaYTuong"), rs.getString("TinhCapThiet"), rs.getString("LinhVucNghienCuu"),
-			rs.getString("PhuongPhapThucHien"), rs.getBigDecimal("KinhPhi"), rs.getString("ThoiGianBatDau"),
-			rs.getString("ThoiGianKetThuc"));
-		/*
-		 * dt_sv = new SinhVien_DeTai(rs.getString("TenDeTai"), rs.getString("MucTieu"),
-		 * rs.getString("MoTaYTuong"), rs.getString("TinhCapThiet"),
-		 * rs.getString("LinhVucNghienCuu"), rs.getString("PhuongPhapThucHien"),
-		 * rs.getBigDecimal("KinhPhi"), rs.getString("ThoiGianBatDau"),
-		 * rs.getString("ThoiGianKetThuc"), rs.getString("HoTen"),
-		 * rs.getString("DiaChi"), rs.getString("SoTaiKhoanNganHang"),
-		 * rs.getString("SoDienThoai"), rs.getString("Email"), rs.getString("MaSo"),
-		 * rs.getString("Lop"), rs.getString("KhoaHoc"), rs.getString("NgaySinh"),
-		 * rs.getBoolean("GioiTinh"));
-		 */
+		dt = new DeTai(rs.getInt("MaDeTai"), rs.getInt("MaGiangVienHuongDan"), rs.getString("TenDeTai"),
+			rs.getString("MucTieu"), rs.getString("MoTaYTuong"), rs.getString("LinhVucNghienCuu"),
+			rs.getString("TinhCapThiet"), rs.getString("PhuongPhapThucHien"), rs.getBigDecimal("KinhPhi"),
+			rs.getString("LoaiDeTai"), rs.getDate("ThoiGianBatDau").toString(),
+			rs.getString("ThoiGianKetThuc").toString(), rs.getString("NgayXinGiaHan"),
+			rs.getString("ThoiGianThayDoi"));
 	    }
 	    sql = "select * from detai, nguoidung, detai_sinhvien,detai_trangthai\r\n"
 		    + "where detai.MaDeTai=detai_sinhvien.MaDeTai\r\n"
-		    + "and nguoidung.MaNguoiDung=detai_sinhvien.MaSinhVien\r\n" + " and detai_trangthai.MaDeTai=1\r\n"
-		    + "and detai_trangthai.MaDeTai=" + maDeTai + "\r\n" + " and detai.MaGiangVienHuongDan="
-		    + maGiangVienHuongDan;
+		    + "and nguoidung.MaNguoiDung=detai_sinhvien.MaSinhVien\r\n" + "and detai.MaDeTai=" + maDeTai
+		    + "\r\n" + "and detai_sinhvien.NgayXinGiaHan is not null\r\n" + " and detai.MaGiangVienHuongDan="
+		    + maGiangVienHuongDan + "\r\n" + " and detai_trangthai.MaTrangThai=3\r\n"
+		    + " group by detai.MaDeTai";
 	    rs = stmt.executeQuery(sql);
 	    while (rs.next()) {
 		sv = new ThongTinNguoiDung(rs.getInt("MaNguoiDung"), rs.getString("HoTen"), rs.getString("DiaChi"),
@@ -81,7 +69,7 @@ public class ChiTietDeTai_XacNhanHuongDan extends HttpServlet {
 	    }
 	    request.setAttribute("ThongTin_DeTai", dt);
 	    request.setAttribute("ThongTin_SinhVien", sv);
-	    request.getRequestDispatcher("/WEB-INF/chi-tiet-de-tai-xac-nhan-hd.jsp").forward(request, response);
+	    request.getRequestDispatcher("/WEB-INF/chi-tiet-de-tai-gia-han.jsp").forward(request, response);
 	} catch (SQLException e) {
 	    throw new ServletException(e);
 	} finally {
@@ -95,13 +83,8 @@ public class ChiTietDeTai_XacNhanHuongDan extends HttpServlet {
 	}
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     *      response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-
     }
 
 }

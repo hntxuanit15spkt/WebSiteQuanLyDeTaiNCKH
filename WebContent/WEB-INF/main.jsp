@@ -53,7 +53,7 @@
 					<li>
 						<c:forEach items="${thongtin}" var='thongtin'>
 							<c:if test="${thongtin.getMaLoaiNguoiDung() == 3}">
-								<a href="DangKyDeTai"> 
+								<a href="dangkydetai"> 
 									<i class="material-icons">library_books</i>
 									<p>Đăng ký đề tài</p>
 								</a>

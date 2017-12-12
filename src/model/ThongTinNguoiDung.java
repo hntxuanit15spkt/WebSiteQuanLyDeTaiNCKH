@@ -8,10 +8,19 @@ public class ThongTinNguoiDung {
     private String HoTen, DiaChi, SoTaiKhoanNganHang, SoDienThoai, Email, MaSo, Lop, KhoaHoc, TenLoaiNguoiDung;
     private Date NgaySinh;
     private Boolean GioiTinh, TrangThaiNguoiDung;
+    private java.sql.Date NgayXinGiaHan;
 
     public ThongTinNguoiDung(Integer soLuongSinhVien) {
 	super();
 	SoLuongSinhVien = soLuongSinhVien;
+    }
+
+    public java.sql.Date getNgayXinGiaHan() {
+	return NgayXinGiaHan;
+    }
+
+    public void setNgayXinGiaHan(java.sql.Date ngayXinGiaHan) {
+	NgayXinGiaHan = ngayXinGiaHan;
     }
 
     public ThongTinNguoiDung(String hoTen, Integer maLoaiNguoiDung, String tenLoaiNguoiDung) {
@@ -70,8 +79,10 @@ public class ThongTinNguoiDung {
 	super();
     }
 
-    public ThongTinNguoiDung(String hoTen, String diaChi, String soTaiKhoanNganHang, String soDienThoai, String email,
-	    String maSo, String lop, String khoaHoc, java.sql.Date ngaySinh, boolean gioiTinh) {
+    public ThongTinNguoiDung(int maNguoiDung, String hoTen, String diaChi, String soTaiKhoanNganHang,
+	    String soDienThoai, String email, String maSo, String lop, String khoaHoc, java.sql.Date ngaySinh,
+	    boolean gioiTinh) {
+	MaNguoiDung = maNguoiDung;
 	HoTen = hoTen;
 	DiaChi = diaChi;
 	SoTaiKhoanNganHang = soTaiKhoanNganHang;
@@ -82,6 +93,22 @@ public class ThongTinNguoiDung {
 	NgaySinh = ngaySinh;
 	GioiTinh = gioiTinh;
 	MaSo = maSo;
+    }
+
+    public ThongTinNguoiDung(String hoTen, String diaChi, String soTaiKhoanNganHang, String soDienThoai, String email,
+	    String maSo, String lop, String khoaHoc, java.sql.Date ngaySinh, boolean gioiTinh,
+	    java.sql.Date ngayXinGiaHan) {
+	HoTen = hoTen;
+	DiaChi = diaChi;
+	SoTaiKhoanNganHang = soTaiKhoanNganHang;
+	SoDienThoai = soDienThoai;
+	Email = email;
+	Lop = lop;
+	KhoaHoc = khoaHoc;
+	NgaySinh = ngaySinh;
+	GioiTinh = gioiTinh;
+	MaSo = maSo;
+	NgayXinGiaHan = ngayXinGiaHan;
     }
 
     public ThongTinNguoiDung(String hoTen, String tenLoaiNguoiDung) {

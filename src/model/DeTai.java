@@ -19,6 +19,8 @@ public class DeTai {
     private int MaNguoiDuyetDeTai;
     private int MaHoiDong;
     private int MaDeTaiDuocCap;
+    private String NgayXinGiaHan;
+    private String ThoiGianThayDoi;
 
     public DeTai() {
 	super();
@@ -56,6 +58,25 @@ public class DeTai {
 
     public DeTai(int MaDeTai, int MaGiangVienHuongDan, String TenDeTai, String MucTieu, String MoTaYTuong,
 	    String LinhVucNghienCuu, String TinhCapThiet, String PhuongPhapThucHien, BigDecimal KinhPhi,
+	    String LoaiDeTai, String ThoiGianBatDau, String ThoiGianKetThuc, String ThoiGianPhanBien) {
+	this.MaDeTai = MaDeTai;
+	this.MaGiangVienHuongDan = MaGiangVienHuongDan;
+	this.TenDeTai = TenDeTai;
+	this.MucTieu = MucTieu;
+	this.MoTaYTuong = MoTaYTuong;
+	this.LinhVucNghienCuu = LinhVucNghienCuu;
+	this.TinhCapThiet = TinhCapThiet;
+	this.LinhVucNghienCuu = LinhVucNghienCuu;
+	this.PhuongPhapThucHien = PhuongPhapThucHien;
+	this.KinhPhi = KinhPhi;
+	this.LoaiDeTai = LoaiDeTai;
+	this.ThoiGianBatDau = ThoiGianBatDau;
+	this.ThoiGianKetThuc = ThoiGianKetThuc;
+	this.ThoiGianPhanBien = ThoiGianPhanBien;
+    }
+
+    public DeTai(int MaDeTai, int MaGiangVienHuongDan, String TenDeTai, String MucTieu, String MoTaYTuong,
+	    String LinhVucNghienCuu, String TinhCapThiet, String PhuongPhapThucHien, BigDecimal KinhPhi,
 	    String LoaiDeTai, String ThoiGianBatDau, String ThoiGianKetThuc) {
 	this.MaDeTai = MaDeTai;
 	this.MaGiangVienHuongDan = MaGiangVienHuongDan;
@@ -72,8 +93,45 @@ public class DeTai {
 	this.ThoiGianKetThuc = ThoiGianKetThuc;
     }
 
+    public DeTai(int MaDeTai, int MaGiangVienHuongDan, String TenDeTai, String MucTieu, String MoTaYTuong,
+	    String LinhVucNghienCuu, String TinhCapThiet, String PhuongPhapThucHien, BigDecimal KinhPhi,
+	    String LoaiDeTai, String ThoiGianBatDau, String ThoiGianKetThuc, String ngayXinGiaHan,
+	    String thoiGianThayDoi) {
+	this.MaDeTai = MaDeTai;
+	this.MaGiangVienHuongDan = MaGiangVienHuongDan;
+	this.TenDeTai = TenDeTai;
+	this.MucTieu = MucTieu;
+	this.MoTaYTuong = MoTaYTuong;
+	this.LinhVucNghienCuu = LinhVucNghienCuu;
+	this.TinhCapThiet = TinhCapThiet;
+	this.LinhVucNghienCuu = LinhVucNghienCuu;
+	this.PhuongPhapThucHien = PhuongPhapThucHien;
+	this.KinhPhi = KinhPhi;
+	this.LoaiDeTai = LoaiDeTai;
+	this.ThoiGianBatDau = ThoiGianBatDau;
+	this.ThoiGianKetThuc = ThoiGianKetThuc;
+	NgayXinGiaHan = ngayXinGiaHan;
+	ThoiGianThayDoi = thoiGianThayDoi;
+    }
+
     public String getMucTieu() {
 	return MucTieu;
+    }
+
+    public String getThoiGianThayDoi() {
+	return ThoiGianThayDoi;
+    }
+
+    public void setThoiGianThayDoi(String thoiGianThayDoi) {
+	ThoiGianThayDoi = thoiGianThayDoi;
+    }
+
+    public String getNgayXinGiaHan() {
+	return NgayXinGiaHan;
+    }
+
+    public void setNgayXinGiaHan(String ngayXinGiaHan) {
+	NgayXinGiaHan = ngayXinGiaHan;
     }
 
     public void setMucTieu(String mucTieu) {
