@@ -29,7 +29,7 @@ public class DongYGiaHanDeTai extends HttpServlet {
 	    String ngayXinGiaHan = request.getParameter("ngayxingiahan");
 	    DongYGiaHanDeTai_DAO dygh_dao = new DongYGiaHanDeTai_DAO();
 	    dygh_dao.DongYGiaHan(maDeTai, maSinhVien, 6, ngayXinGiaHan);
-	    request.getRequestDispatcher("/WEB-INF/ThongBaoDongYHuongDanDeTai.jsp").forward(request, response);
+	    response.sendRedirect("trangchu");
 	} else {
 	    response.sendRedirect("dangnhap");
 	}

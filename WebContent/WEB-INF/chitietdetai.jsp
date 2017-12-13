@@ -358,14 +358,12 @@
 								</div>
 
 								<div class="form-group">
-									<c:if test="${chitiet.getMaTrangThai() == 6}">
 										<div class="col-md-6">
-											<button class="btn btn-primary" id="">
-												<a href="GiaHanDeTai?madetai="${chitiet.getMaDeTai()}">Gia
+											<button type="button" class="btn btn-primary" id="">
+												<a href="GiaHanDeTai?madetai=${chitiet.getMaDeTai()}">Gia
 													hạn đề tài</a>
 											</button>
 										</div>
-									</c:if>
 									<div class="col-md-6">
 										<button type="button" class="btn btn-warning">
 											<a href="HuyDeTai?madetai=${chitiet.getMaDeTai()}">Hủy đề tài</a></span>

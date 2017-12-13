@@ -45,7 +45,8 @@ public class PhanCongPhanBien extends HttpServlet {
 		String sql = "select * from detai_trangthai,detai\r\n"
 			+ "where detai_trangthai.MaDeTai in (select MaDeTai from detai_trangthai where MaTrangThai=6 group by MaDeTai)\r\n"
 			+ "and detai_trangthai.MaDeTai not in (select MaDeTai from detai_trangthai where MaTrangThai>6 group by MaDeTai)\r\n"
-			+ "and detai_trangthai.MaDeTai=detai.MaDeTai" + " group by detai_trangthai.MaDeTai";
+			+ "and detai.MaHoiDong is null " + "and detai_trangthai.MaDeTai=detai.MaDeTai"
+			+ " group by detai_trangthai.MaDeTai";
 		Statement stmt = (Statement) c.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {

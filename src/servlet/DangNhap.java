@@ -43,7 +43,6 @@ public class DangNhap extends HttpServlet {
 		    + "'" + username + "'" + " and nguoidung.maloainguoidung = " + "'" + maloainguoidung + "'";
 	    Statement stmt = (Statement) c.createStatement();
 	    ResultSet rs = stmt.executeQuery(sql);
-
 	    if (rs.next()) {
 		if (rs.getString("tendangnhap").equals(username) && rs.getString("matkhau").equals(password)) {
 		    HttpSession session = request.getSession();

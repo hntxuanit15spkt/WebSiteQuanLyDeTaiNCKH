@@ -114,7 +114,7 @@ public class Admin extends HttpServlet {
 		    try {
 				c = connect.DBConnect.getConnection();
 				
-				String sldt = "select COUNT(*) as sldt from detai";
+				String sldt = "select count(*) as sldt from nguoidung, detai_sinhvien, detai where nguoidung.MaNguoiDung = detai_sinhvien.MaSinhVien and detai_sinhvien.madetai = detai.madetai";
 				Statement stmt = (Statement) c.createStatement();
 				
 				ResultSet rs = stmt.executeQuery(sldt);

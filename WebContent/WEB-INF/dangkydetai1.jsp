@@ -170,14 +170,14 @@
 						<label class="col-md-4 control-label">Tên đề tài</label>
 						<div class="col-md-8  inputGroupContainer">
 							<input name="tendetai" placeholder="Nhập vào tên đề tài của bạn"
-								class="form-control" type="text" />
+								class="form-control" type="text" required/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-md-4 control-label">Mục tiêu</label>
 						<div class="col-md-8  inputGroupContainer">
 							<input name="muctieu" placeholder="Nhập vào mục tiêu của bạn"
-								class="form-control" type="text" />
+								class="form-control" type="text" required/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -189,7 +189,7 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label">Tính cấp thiết</label>
 						<div class="col-md-8  inputGroupContainer">
-							<textarea name="tinhcapthiet" class="form-control" rows="5"></textarea>
+							<textarea name="tinhcapthiet" class="form-control" rows="5" required></textarea>
 						</div>
 					</div>
 					<div class="form-group">
@@ -197,7 +197,7 @@
 						<div class="col-md-8  inputGroupContainer">
 							<input name="linhvucnghiencuu"
 								placeholder="Lĩnh vực của đề tài là gì?" class="form-control"
-								type="text" />
+								type="text" required/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -205,13 +205,13 @@
 							hiện</label>
 						<div class="col-md-8  inputGroupContainer">
 							<textarea name="phuongphapthuchien" class="form-control" rows="5"
-								placeholder="Trình bày sơ lược phương pháp nghiên cứu"></textarea>
+								placeholder="Trình bày sơ lược phương pháp nghiên cứu" required></textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-md-4 control-label">Kinh phí dự kiến</label>
 						<div class="col-md-8  inputGroupContainer">
-							<textarea name="kinhphi" class="form-control" rows="5"></textarea>
+							<textarea name="kinhphi" class="form-control" rows="5" required></textarea>
 						</div>
 					</div>
 					<div class="form-group">
@@ -225,7 +225,7 @@
 						<label class="col-md-4 control-label">Thời gian kết thúc
 							nghiên cứu:</label>
 						<div class="col-md-8 inputGroupContainer">
-							<input type="date" class="form-control" name='thoigianketthuc' />
+							<input type="date" class="form-control" name='thoigianketthuc' required/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -234,7 +234,7 @@
 						<div class="col-md-8 inputGroupContainer">
 							<input name="magiangvienhuongdan"
 								placeholder="Nhập vào mã giảng viên hướng dẫn"
-								class="form-control" type="text" />
+								class="form-control" type="text" required/>
 						</div>
 					</div>
 					<div class="form-group">

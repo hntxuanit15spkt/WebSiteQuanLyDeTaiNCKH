@@ -99,6 +99,12 @@
 								</a>
 							</li>
 							<li>
+								<a href="XemXetGiaHanDeTai"> 
+									<i class="material-icons">bubble_chart</i>
+									<p>Xem xét gia hạn đề tài</p>
+								</a>
+							</li>
+							<li>
 								<a href="PhanCongPhanBien"> 
 									<i class="material-icons">bubble_chart</i>
 									<p>Phân công phản biện</p>

@@ -50,8 +50,9 @@ public class GiaHanDeTai extends HttpServlet {
 	    String ngayXinGiaHan = request.getParameter("ngayxingiahan");
 	    xacNhanGiaHan.CapNhatTrangThaiChoGiaHan(maDeTai, 3, maSinhVien, ngayXinGiaHan);
 	    response.sendRedirect("trangchu");
+	} else {
+	    response.sendRedirect("dangnhap");
 	}
-	response.sendRedirect("dangnhap");
     }
 
 }
